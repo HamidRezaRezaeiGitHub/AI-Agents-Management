@@ -1,0 +1,9 @@
+{
+  "context": {
+    "fileName": "GEMINI.md",
+    "discoveryMaxDirs": 200
+  },
+  "privacy": {
+    "usageStatisticsEnabled": false
+  }
+}

@@ -1,0 +1,24 @@
+name: default-agent-instruction-pack
+version: 0.1.0
+description: Portable starter pack for multi-agent coding assistants.
+
+entry_files:
+  - path: AGENTS.md
+    purpose: Cross-agent project instructions.
+  - path: CLAUDE.md
+    purpose: Claude Code project memory.
+  - path: GEMINI.md
+    purpose: Gemini CLI context.
+  - path: .github/copilot-instructions.md
+    purpose: GitHub Copilot repository instructions.
+
+shared_sources:
+  - path: ai/shared/agent-operating-contract.md
+    purpose: Canonical shared behavior.
+
+adoption:
+  script: scripts/install-adapter.sh
+  docs:
+    - ai/docs/adoption-playbook.md
+    - ai/docs/sync-strategy.md
+    - ai/docs/agent-discovery-matrix.md
