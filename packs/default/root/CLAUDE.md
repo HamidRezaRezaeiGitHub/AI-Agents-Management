@@ -7,6 +7,7 @@ Follow `AGENTS.md` for project instructions.
 - For the workflow map, read `ai/README.md`.
 - Before acting on a new request, route it with `ai/workflows/workflow-dispatch.md` so quick tasks stay lightweight and larger work gets the right process.
 - For standard, large, or risky requirements, use `ai/workflows/requirement-planning.md` before implementation.
+- For implementation work, record a safe baseline verification in `PLAN.md` before source edits when one is available.
 - Use `requirements/<slug>/FINDINGS.md` to share requirement-specific discoveries between agents.
 - For non-developer or vibe-style requests, translate first with `ai/workflows/vibe-coding-translation.md`.
 - For project orientation, read `wiki/index.md` when it exists and follow `ai/workflows/wiki-documentation.md` for wiki updates.

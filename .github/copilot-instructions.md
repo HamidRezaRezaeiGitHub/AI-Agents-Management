@@ -17,6 +17,7 @@ Before making changes, read `AGENTS.md` and `ai/shared/agent-operating-contract.
 
 - Before acting on a new request, route it with `packs/default/ai/workflows/workflow-dispatch.md` so quick tasks stay lightweight and larger work gets the right process.
 - For standard, large, or risky requirements, follow `packs/default/ai/workflows/requirement-planning.md` before implementation and use the local `requirements/<slug>/PLAN.md` as handoff context.
+- For implementation work, record a safe baseline verification in `PLAN.md` before source edits when one is available.
 - Keep instruction files short, concrete, and tool-aware.
 - Do not add secrets, tokens, or private local configuration.
 - Verify commands before documenting them, or label them as unverified.

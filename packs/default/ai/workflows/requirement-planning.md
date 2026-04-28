@@ -97,8 +97,10 @@ When no workspace exists for the requirement:
 8. Read any existing content in `FINDINGS.md` before wiki/source discovery.
 9. Read only the wiki/docs and source areas suggested by findings and the requirement.
 10. Update `FINDINGS.md` with reusable context, links, user clarifications, risks, and validation clues.
-11. Fill in the useful plan after that context pass: prompt summary, complexity, translation when needed, assumptions, scope, non-goals, context strategy, testing strategy, validation strategy, and implementation steps.
-12. Include architecture impact using `ai/workflows/architecture.md` when boundaries, data flow, contracts, or cross-cutting concerns may change.
+11. Identify a baseline verification command from project docs, wiki, CI configuration, or existing scripts when one is safe and reasonably scoped.
+12. Run the baseline verification before source edits for `standard`, `large`, or `risky` implementation work, or record why it cannot be run.
+13. Fill in the useful plan after that context pass: prompt summary, complexity, translation when needed, assumptions, scope, non-goals, context strategy, baseline result, testing strategy, validation strategy, and implementation steps.
+14. Include architecture impact using `ai/workflows/architecture.md` when boundaries, data flow, contracts, or cross-cutting concerns may change.
 
 Prefer using:
 
@@ -135,6 +137,7 @@ Include:
 - scope and non-goals,
 - context strategy,
 - architecture impact,
+- baseline verification,
 - plan checklist,
 - testing strategy,
 - CI/validation strategy,
@@ -153,6 +156,7 @@ Include:
 - Consult architecture docs and `ai/workflows/architecture.md` for architecture-sensitive work.
 - Read documented architecture, testing, CI, and command references before broad code search.
 - Fill in the detailed implementation plan after reading the relevant wiki/docs and narrowly required source context.
+- Run a baseline verification before implementation when the chosen complexity is `standard`, `large`, or `risky` and a safe command can be identified.
 - Search source code only for the part of the requirement being worked on.
 - Update `FINDINGS.md` with discoveries that future agents would otherwise need to rediscover.
 - Keep `PLAN.md` focused on control flow, decisions, validation, and status.
@@ -171,6 +175,19 @@ For implementation requirements, the plan should identify the likely validation 
 - Wiki pages that may need updates, using `ai/workflows/wiki-documentation.md`.
 
 If a project lacks explicit commands, inspect CI configuration, package scripts, build files, and wiki/docs before deciding what to run.
+
+## Baseline Verification At Start
+
+Before source edits for `standard`, `large`, or `risky` implementation work:
+
+1. Look for an existing validation command in `AGENTS.md`, `README`, contribution docs, `wiki/`, CI files, package scripts, build files, or task runners.
+2. Choose the smallest meaningful baseline that proves the current workspace starts from a known state. Prefer targeted smoke checks over full suites when full validation is slow or noisy.
+3. Use `ai/workflows/command-execution.md` to keep output concise.
+4. Record the command and result in `PLAN.md`.
+5. If the baseline fails before any source edits, document it as pre-existing in `PLAN.md` and add useful details to `FINDINGS.md`.
+6. If no baseline can be run locally, record why and what CI or manual check would provide equivalent confidence.
+
+Do not block quick tasks on baseline verification unless the quick task itself is a validation request.
 
 ## FINDINGS.md Expectations
 

@@ -1,7 +1,7 @@
 #!/bin/sh
 set -eu
 
-expected_version="0.4.0"
+expected_version="0.4.1"
 status=0
 
 check_file() {

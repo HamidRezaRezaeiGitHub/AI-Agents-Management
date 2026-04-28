@@ -55,6 +55,14 @@ TODO: Summarize the user's requirement in a few sentences.
 - Contracts, data flow, or integrations affected: TODO.
 - Architecture docs to update: TODO.
 
+## Baseline Verification
+
+- Needed: TODO `yes` or `no`.
+- Command or check: TODO.
+- Result before source edits: TODO `passed`, `failed`, `not run`, or `not available`.
+- If failed before edits: TODO: summarize as pre-existing and link details in [FINDINGS.md](./FINDINGS.md).
+- If not run: TODO: explain why and note equivalent CI/manual check.
+
 ## Plan
 
 - [ ] Confirm or infer requirement title.
@@ -67,6 +75,7 @@ TODO: Summarize the user's requirement in a few sentences.
 - [ ] Review existing [FINDINGS.md](./FINDINGS.md) before wiki/docs/source search.
 - [ ] Review relevant wiki/docs before broad source search.
 - [ ] Check architecture impact and consult `ai/workflows/architecture.md` if needed.
+- [ ] Identify and run a baseline verification before source edits, or document why not.
 - [ ] Inspect narrowly relevant source code after wiki/docs context.
 - [ ] Update [FINDINGS.md](./FINDINGS.md) with reusable context and links.
 - [ ] Fill in or revise this plan after context discovery.
@@ -83,6 +92,7 @@ TODO: Summarize the user's requirement in a few sentences.
 
 ## CI And Validation Strategy
 
+- TODO: Record baseline verification status before source edits.
 - TODO: Identify CI configuration or project docs that define required checks.
 - TODO: Record validation commands to run, using concise output where possible.
 

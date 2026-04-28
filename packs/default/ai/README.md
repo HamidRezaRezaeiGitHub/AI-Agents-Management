@@ -24,6 +24,8 @@ This directory contains reusable workflows, scripts, templates, prompts, and met
 
 Use the lowest level that handles the real risk. If a task grows, update `PLAN.md` with the new level and why.
 
+For `standard`, `large`, or `risky` implementation work, identify and run a safe baseline verification before source edits when the project provides one. Record the command and result in `PLAN.md`.
+
 ## Common Commands
 
 ```sh
