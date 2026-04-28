@@ -28,4 +28,5 @@ Persistent knowledge base for this project. Start here before broad source-code 
 
 ## Guides
 
-- TODO: Add project conventions, testing strategy, and recurring workflow pages.
+- [Testing Strategy](./guides/testing.md) - Test layers, commands, utilities, and quality expectations.
+- TODO: Add project conventions and recurring workflow pages.

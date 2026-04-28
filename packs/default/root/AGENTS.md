@@ -26,6 +26,9 @@ Mark commands as verified after running them.
 - For non-trivial requirements, follow `ai/workflows/requirement-planning.md` before implementation.
 - For project orientation, start with `wiki/index.md` when it exists, then inspect source code narrowly.
 - Follow `ai/workflows/wiki-documentation.md` when reading or maintaining the project wiki.
+- Follow `ai/workflows/command-execution.md` when running terminal commands.
+- Follow `ai/workflows/ci-validation.md` before finishing implementation work.
+- Follow `ai/workflows/testing-quality.md` when creating, editing, or reviewing tests.
 - Inspect existing patterns before editing.
 - Keep changes scoped to the task.
 - Do not add dependencies without a clear reason.

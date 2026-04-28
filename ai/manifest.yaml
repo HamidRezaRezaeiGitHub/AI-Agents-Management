@@ -23,6 +23,12 @@ shared_sources:
     purpose: Requirement planning, local workspace, branch, and handoff workflow.
   - path: packs/default/ai/workflows/wiki-documentation.md
     purpose: Project wiki lookup, maintenance, and lint workflow.
+  - path: packs/default/ai/workflows/command-execution.md
+    purpose: Terminal command output discipline and token optimization.
+  - path: packs/default/ai/workflows/ci-validation.md
+    purpose: CI discovery and validation expectations before finishing work.
+  - path: packs/default/ai/workflows/testing-quality.md
+    purpose: QA-minded testing guidance.
 
 adoption:
   script: scripts/install-adapter.sh
@@ -43,9 +49,14 @@ adoption:
     - GEMINI.md
     - .github/copilot-instructions.md
     - .github/instructions/wiki.instructions.md
+    - .github/instructions/ci-validation.instructions.md
+    - .github/instructions/testing-quality.instructions.md
     - .claude/commands/start-requirement.md
     - ai/workflows/requirement-planning.md
     - ai/workflows/wiki-documentation.md
+    - ai/workflows/command-execution.md
+    - ai/workflows/ci-validation.md
+    - ai/workflows/testing-quality.md
     - ai/templates/requirement/PLAN.md
     - ai/templates/wiki/index.md
     - ai/templates/wiki/log.md
@@ -54,3 +65,4 @@ adoption:
     - ai/hooks/pre-commit-block-requirements.sh
     - wiki/index.md
     - wiki/log.md
+    - wiki/guides/testing.md

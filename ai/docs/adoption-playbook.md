@@ -20,6 +20,9 @@ Copy or generate:
 - `.github/instructions/*.instructions.md` when path-specific rules are useful
 - `ai/workflows/requirement-planning.md`
 - `ai/workflows/wiki-documentation.md`
+- `ai/workflows/command-execution.md`
+- `ai/workflows/ci-validation.md`
+- `ai/workflows/testing-quality.md`
 - `ai/templates/requirement/PLAN.md`
 - `ai/templates/wiki/*.md`
 - `ai/scripts/start-requirement.sh`
