@@ -24,6 +24,8 @@ Mark commands as verified after running them.
 ## Work Rules
 
 - For non-trivial requirements, follow `ai/workflows/requirement-planning.md` before implementation.
+- For project orientation, start with `wiki/index.md` when it exists, then inspect source code narrowly.
+- Follow `ai/workflows/wiki-documentation.md` when reading or maintaining the project wiki.
 - Inspect existing patterns before editing.
 - Keep changes scoped to the task.
 - Do not add dependencies without a clear reason.

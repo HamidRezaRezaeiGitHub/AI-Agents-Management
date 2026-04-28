@@ -45,11 +45,18 @@ The installer copies the default pack into these target paths:
 - `CLAUDE.md`
 - `GEMINI.md`
 - `.github/copilot-instructions.md`
+- `.github/instructions/wiki.instructions.md`
 - `.claude/commands/start-requirement.md`
 - `ai/workflows/requirement-planning.md`
+- `ai/workflows/wiki-documentation.md`
 - `ai/templates/requirement/PLAN.md`
+- `ai/templates/wiki/index.md`
+- `ai/templates/wiki/log.md`
+- `ai/templates/wiki/page.md`
 - `ai/scripts/start-requirement.sh`
 - `ai/hooks/pre-commit-block-requirements.sh`
+- `wiki/index.md`
+- `wiki/log.md`
 
 ## Start A Requirement
 

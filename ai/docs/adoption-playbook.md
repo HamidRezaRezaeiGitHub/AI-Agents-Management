@@ -19,8 +19,11 @@ Copy or generate:
 - `.github/copilot-instructions.md`
 - `.github/instructions/*.instructions.md` when path-specific rules are useful
 - `ai/workflows/requirement-planning.md`
+- `ai/workflows/wiki-documentation.md`
 - `ai/templates/requirement/PLAN.md`
+- `ai/templates/wiki/*.md`
 - `ai/scripts/start-requirement.sh`
+- `wiki/index.md` and `wiki/log.md`
 
 Use `scripts/install-adapter.sh /path/to/project` as a starting point. It copies files from `packs/default/` into each target path.
 
