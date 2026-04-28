@@ -3,5 +3,6 @@
 !.env.example
 .claude/settings.local.json
 .gemini/.env
+requirements/
 *.log
 .DS_Store

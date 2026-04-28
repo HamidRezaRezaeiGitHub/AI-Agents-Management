@@ -1,0 +1,45 @@
+# Default Pack
+
+Installable starter pack for adopting projects.
+
+Files under this directory are source templates. `scripts/install-adapter.sh` maps them into each target project's expected native locations.
+
+## Target Mapping
+
+- `root/AGENTS.md` -> `AGENTS.md`
+- `root/CLAUDE.md` -> `CLAUDE.md`
+- `root/GEMINI.md` -> `GEMINI.md`
+- `root/.github/copilot-instructions.md` -> `.github/copilot-instructions.md`
+- `root/.github/instructions/wiki.instructions.md` -> `.github/instructions/wiki.instructions.md`
+- `root/.github/instructions/architecture.instructions.md` -> `.github/instructions/architecture.instructions.md`
+- `root/.github/instructions/ci-validation.instructions.md` -> `.github/instructions/ci-validation.instructions.md`
+- `root/.github/instructions/testing-quality.instructions.md` -> `.github/instructions/testing-quality.instructions.md`
+- `root/.github/instructions/code-review.instructions.md` -> `.github/instructions/code-review.instructions.md`
+- `claude/commands/start-requirement.md` -> `.claude/commands/start-requirement.md`
+- `ai/README.md` -> `ai/README.md`
+- `ai/pack.yaml` -> `ai/pack.yaml`
+- `ai/workflows/requirement-planning.md` -> `ai/workflows/requirement-planning.md`
+- `ai/workflows/wiki-documentation.md` -> `ai/workflows/wiki-documentation.md`
+- `ai/workflows/architecture.md` -> `ai/workflows/architecture.md`
+- `ai/workflows/command-execution.md` -> `ai/workflows/command-execution.md`
+- `ai/workflows/ci-validation.md` -> `ai/workflows/ci-validation.md`
+- `ai/workflows/testing-quality.md` -> `ai/workflows/testing-quality.md`
+- `ai/workflows/code-review.md` -> `ai/workflows/code-review.md`
+- `ai/workflows/vibe-coding-translation.md` -> `ai/workflows/vibe-coding-translation.md`
+- `ai/templates/requirement/PLAN.md` -> `ai/templates/requirement/PLAN.md`
+- `ai/templates/wiki/index.md` -> `ai/templates/wiki/index.md`
+- `ai/templates/wiki/log.md` -> `ai/templates/wiki/log.md`
+- `ai/templates/wiki/page.md` -> `ai/templates/wiki/page.md`
+- `ai/scripts/start-requirement.sh` -> `ai/scripts/start-requirement.sh`
+- `ai/scripts/audit-adoption.sh` -> `ai/scripts/audit-adoption.sh`
+- `ai/scripts/wiki-lint.sh` -> `ai/scripts/wiki-lint.sh`
+- `ai/hooks/pre-commit-block-requirements.sh` -> `ai/hooks/pre-commit-block-requirements.sh`
+- `ai/prompts/adoption/*.md` -> `ai/prompts/adoption/*.md`
+- `wiki/index.md` -> `wiki/index.md`
+- `wiki/log.md` -> `wiki/log.md`
+- `wiki/architecture/*.md` -> `wiki/architecture/*.md`
+- `wiki/guides/testing.md` -> `wiki/guides/testing.md`
+
+The `ai/scripts` target avoids colliding with a project's existing application scripts.
+
+The installer also ensures `requirements/` is listed in the target project's `.gitignore`.

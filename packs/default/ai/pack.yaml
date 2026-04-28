@@ -1,0 +1,4 @@
+name: default-agent-instruction-pack
+version: 0.3.0
+installed_from: AI-Agents-Management
+description: Multi-agent instruction, workflow, wiki, and validation starter pack.

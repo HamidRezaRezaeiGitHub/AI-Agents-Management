@@ -1,20 +1,40 @@
 name: default-agent-instruction-pack
-version: 0.1.0
+version: 0.3.0
 description: Portable starter pack for multi-agent coding assistants.
 
 entry_files:
-  - path: AGENTS.md
+  - path: packs/default/root/AGENTS.md
+    target_path: AGENTS.md
     purpose: Cross-agent project instructions.
-  - path: CLAUDE.md
+  - path: packs/default/root/CLAUDE.md
+    target_path: CLAUDE.md
     purpose: Claude Code project memory.
-  - path: GEMINI.md
+  - path: packs/default/root/GEMINI.md
+    target_path: GEMINI.md
     purpose: Gemini CLI context.
-  - path: .github/copilot-instructions.md
+  - path: packs/default/root/.github/copilot-instructions.md
+    target_path: .github/copilot-instructions.md
     purpose: GitHub Copilot repository instructions.
 
 shared_sources:
   - path: ai/shared/agent-operating-contract.md
     purpose: Canonical shared behavior.
+  - path: packs/default/ai/workflows/requirement-planning.md
+    purpose: Requirement planning, local workspace, branch, and handoff workflow.
+  - path: packs/default/ai/workflows/wiki-documentation.md
+    purpose: Project wiki lookup, maintenance, and lint workflow.
+  - path: packs/default/ai/workflows/architecture.md
+    purpose: Architecture context, boundary, data-flow, and decision guidance.
+  - path: packs/default/ai/workflows/command-execution.md
+    purpose: Terminal command output discipline and token optimization.
+  - path: packs/default/ai/workflows/ci-validation.md
+    purpose: CI discovery and validation expectations before finishing work.
+  - path: packs/default/ai/workflows/testing-quality.md
+    purpose: QA-minded testing guidance.
+  - path: packs/default/ai/workflows/code-review.md
+    purpose: Final self-review and PR review guidance.
+  - path: packs/default/ai/workflows/vibe-coding-translation.md
+    purpose: Translation of non-developer or vibe-style requests into concrete requirements.
 
 adoption:
   script: scripts/install-adapter.sh
@@ -22,3 +42,59 @@ adoption:
     - ai/docs/adoption-playbook.md
     - ai/docs/sync-strategy.md
     - ai/docs/agent-discovery-matrix.md
+  templates:
+    - packs/default/ai/templates/requirement/PLAN.md
+    - packs/default/ai/templates/wiki/index.md
+    - packs/default/ai/templates/wiki/log.md
+    - packs/default/ai/templates/wiki/page.md
+  helper_scripts:
+    - packs/default/ai/scripts/start-requirement.sh
+    - packs/default/ai/scripts/audit-adoption.sh
+    - packs/default/ai/scripts/wiki-lint.sh
+  prompts:
+    - packs/default/ai/prompts/adoption/empty-project.md
+    - packs/default/ai/prompts/adoption/first-time-existing-instructions.md
+    - packs/default/ai/prompts/adoption/update-existing-pack.md
+    - packs/default/ai/prompts/adoption/temp-install-review.md
+  target_paths:
+    - AGENTS.md
+    - CLAUDE.md
+    - GEMINI.md
+    - .github/copilot-instructions.md
+    - .github/instructions/wiki.instructions.md
+    - .github/instructions/architecture.instructions.md
+    - .github/instructions/ci-validation.instructions.md
+    - .github/instructions/testing-quality.instructions.md
+    - .github/instructions/code-review.instructions.md
+    - .claude/commands/start-requirement.md
+    - ai/README.md
+    - ai/pack.yaml
+    - ai/workflows/requirement-planning.md
+    - ai/workflows/wiki-documentation.md
+    - ai/workflows/architecture.md
+    - ai/workflows/command-execution.md
+    - ai/workflows/ci-validation.md
+    - ai/workflows/testing-quality.md
+    - ai/workflows/code-review.md
+    - ai/workflows/vibe-coding-translation.md
+    - ai/pack.yaml
+    - ai/templates/requirement/PLAN.md
+    - ai/templates/wiki/index.md
+    - ai/templates/wiki/log.md
+    - ai/templates/wiki/page.md
+    - ai/scripts/start-requirement.sh
+    - ai/scripts/audit-adoption.sh
+    - ai/scripts/wiki-lint.sh
+    - ai/hooks/pre-commit-block-requirements.sh
+    - ai/prompts/adoption/empty-project.md
+    - ai/prompts/adoption/first-time-existing-instructions.md
+    - ai/prompts/adoption/update-existing-pack.md
+    - ai/prompts/adoption/temp-install-review.md
+    - wiki/index.md
+    - wiki/log.md
+    - wiki/architecture/system-overview.md
+    - wiki/architecture/tech-stack.md
+    - wiki/architecture/data-flow.md
+    - wiki/architecture/integration-points.md
+    - wiki/architecture/decisions.md
+    - wiki/guides/testing.md
