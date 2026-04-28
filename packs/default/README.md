@@ -16,6 +16,7 @@ Files under this directory are source templates. `scripts/install-adapter.sh` ma
 - `root/.github/instructions/testing-quality.instructions.md` -> `.github/instructions/testing-quality.instructions.md`
 - `root/.github/instructions/code-review.instructions.md` -> `.github/instructions/code-review.instructions.md`
 - `claude/commands/start-requirement.md` -> `.claude/commands/start-requirement.md`
+- `ai/README.md` -> `ai/README.md`
 - `ai/pack.yaml` -> `ai/pack.yaml`
 - `ai/workflows/requirement-planning.md` -> `ai/workflows/requirement-planning.md`
 - `ai/workflows/wiki-documentation.md` -> `ai/workflows/wiki-documentation.md`

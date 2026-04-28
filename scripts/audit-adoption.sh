@@ -39,6 +39,7 @@ check_mapping "$pack/root/.github/instructions/ci-validation.instructions.md" ".
 check_mapping "$pack/root/.github/instructions/testing-quality.instructions.md" ".github/instructions/testing-quality.instructions.md"
 check_mapping "$pack/root/.github/instructions/code-review.instructions.md" ".github/instructions/code-review.instructions.md"
 check_mapping "$pack/claude/commands/start-requirement.md" ".claude/commands/start-requirement.md"
+check_mapping "$pack/ai/README.md" "ai/README.md"
 check_mapping "$pack/ai/pack.yaml" "ai/pack.yaml"
 check_mapping "$pack/ai/workflows/requirement-planning.md" "ai/workflows/requirement-planning.md"
 check_mapping "$pack/ai/workflows/wiki-documentation.md" "ai/workflows/wiki-documentation.md"

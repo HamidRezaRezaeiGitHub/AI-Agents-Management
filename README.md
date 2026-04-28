@@ -2,22 +2,23 @@
 
 Central source for shared AI coding-agent instructions, skills, hooks, commands, and adoption templates.
 
-This repo is designed around one rule: keep the high-signal behavior in a shared contract, then expose it through each agent's native autodiscovery file.
+This repo is designed around one rule: keep high-signal behavior in reusable workflows, then expose it through each agent's native autodiscovery file.
 
 ## Recommended Model
 
-- `AGENTS.md` is the primary cross-agent entry point.
-- `CLAUDE.md`, `GEMINI.md`, and `.github/copilot-instructions.md` mirror the essential contract for tools that load those files natively.
-- Detailed reusable material lives under `ai/` so it can be copied, referenced, or adapted per project.
+- In this repo, `AGENTS.md`, `CLAUDE.md`, `GEMINI.md`, and `.github/copilot-instructions.md` describe how to work on the pack itself.
+- In adopting projects, `AGENTS.md` is the primary cross-agent entry point.
+- `CLAUDE.md`, `GEMINI.md`, and `.github/copilot-instructions.md` mirror essential behavior for tools that load those files natively.
+- Installable reusable material lives under `packs/default/` and is copied into target project paths.
 - Project-specific instructions should stay short, concrete, and verified against actual commands in that project.
 
 ## Layout
 
-- `AGENTS.md` - cross-agent instructions for this repo and the default template for adopted repos.
-- `CLAUDE.md` - Claude Code project memory.
-- `GEMINI.md` - Gemini CLI context file.
-- `.github/copilot-instructions.md` - GitHub Copilot repository instructions.
-- `.github/instructions/*.instructions.md` - Copilot path-specific instructions.
+- `AGENTS.md` - cross-agent instructions for working on this repo.
+- `CLAUDE.md` - Claude Code project memory for this repo.
+- `GEMINI.md` - Gemini CLI context file for this repo.
+- `.github/copilot-instructions.md` - GitHub Copilot repository instructions for this repo.
+- `.github/instructions/*.instructions.md` - Copilot path-specific instructions for this repo.
 - `ai/shared/agent-operating-contract.md` - canonical behavior shared across agents.
 - `ai/docs/agent-discovery-matrix.md` - what each tool autodiscovers and how precedence works.
 - `ai/docs/adoption-playbook.md` - process for rolling this system into another repo.
@@ -57,10 +58,11 @@ Use this when the target project already has `.github/instructions`, `CLAUDE.md`
 
 Recommended flow:
 
-1. Install the pack into a temporary folder inside the target project, such as `tmp/agent-pack-install/`.
-2. Start an AI session in the target project.
-3. Ask the agent to compare the temporary pack with the existing instruction files.
-4. Migrate only after the agent has a plan for preserving current behavior.
+1. Create a temporary folder inside the target project, such as `tmp/agent-pack-install/`.
+2. From this central repo, run `scripts/install-adapter.sh /path/to/target-project/tmp/agent-pack-install`.
+3. Start an AI session in the target project.
+4. Ask the agent to compare the temporary pack with the existing instruction files.
+5. Migrate only after the agent has a plan for preserving current behavior.
 
 Suggested prompt:
 
@@ -96,6 +98,8 @@ Or from inside the adopted project:
 ai/scripts/audit-adoption.sh
 ```
 
+The central audit reports `changed` for files that differ from the default pack without failing, because adopted projects are expected to customize project-specific files. Missing files and self-audit failures should be investigated.
+
 The installer copies the default pack into these target paths:
 
 - `AGENTS.md`
@@ -108,6 +112,7 @@ The installer copies the default pack into these target paths:
 - `.github/instructions/testing-quality.instructions.md`
 - `.github/instructions/code-review.instructions.md`
 - `.claude/commands/start-requirement.md`
+- `ai/README.md`
 - `ai/pack.yaml`
 - `ai/workflows/requirement-planning.md`
 - `ai/workflows/wiki-documentation.md`

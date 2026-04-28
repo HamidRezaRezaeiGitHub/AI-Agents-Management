@@ -5,7 +5,7 @@ Use this when the project already adopted an older version of the pack.
 ```text
 Update this project's AI agent instruction pack to the current version.
 
-Start by reading `ai/pack.yaml`, existing native instruction files, `ai/workflows/`, and project wiki guidance. Run the adoption audit if available. Compare the installed files with the current pack source.
+Start by reading `ai/pack.yaml`, `ai/README.md`, existing native instruction files, `ai/workflows/`, and project wiki guidance. Run the adoption audit if available. Compare the installed files with the current pack source.
 
 Create a local requirement workspace and feature branch. Prepare a short upgrade plan that separates:
 - pack changes that should be accepted,

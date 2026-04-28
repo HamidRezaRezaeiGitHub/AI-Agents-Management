@@ -13,7 +13,7 @@ TODO: Summarize the user's requirement in a few sentences.
 
 ## Vibe Coding Translation
 
-- Needed: TODO yes/no.
+- Needed: TODO `yes` or `no`.
 - User-facing intent: TODO.
 - Concrete behavior: TODO.
 - Affected surfaces: TODO.
@@ -40,7 +40,7 @@ TODO: Summarize the user's requirement in a few sentences.
 
 ## Architecture Impact
 
-- Needed: TODO yes/no.
+- Needed: TODO `yes` or `no`.
 - Existing boundaries or layers affected: TODO.
 - Contracts, data flow, or integrations affected: TODO.
 - Architecture docs to update: TODO.

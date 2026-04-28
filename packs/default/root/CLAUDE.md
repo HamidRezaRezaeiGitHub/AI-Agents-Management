@@ -4,6 +4,7 @@ Follow `AGENTS.md` for project instructions.
 
 ## Claude Notes
 
+- For the workflow map, read `ai/README.md`.
 - For non-trivial requirements, use `ai/workflows/requirement-planning.md` before implementation.
 - For non-developer or vibe-style requests, translate first with `ai/workflows/vibe-coding-translation.md`.
 - For project orientation, read `wiki/index.md` when it exists and follow `ai/workflows/wiki-documentation.md` for wiki updates.

@@ -1,5 +1,5 @@
 name: default-agent-instruction-pack
-version: 0.2.0
+version: 0.3.0
 description: Portable starter pack for multi-agent coding assistants.
 
 entry_files:
@@ -67,6 +67,7 @@ adoption:
     - .github/instructions/testing-quality.instructions.md
     - .github/instructions/code-review.instructions.md
     - .claude/commands/start-requirement.md
+    - ai/README.md
     - ai/pack.yaml
     - ai/workflows/requirement-planning.md
     - ai/workflows/wiki-documentation.md
