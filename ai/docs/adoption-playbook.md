@@ -27,9 +27,14 @@ Copy or generate:
 - `ai/templates/requirement/PLAN.md`
 - `ai/templates/wiki/*.md`
 - `ai/scripts/start-requirement.sh`
+- `ai/scripts/audit-adoption.sh`
+- `ai/scripts/wiki-lint.sh`
+- `ai/prompts/adoption/*.md`
 - `wiki/index.md` and `wiki/log.md`
 
 Use `scripts/install-adapter.sh /path/to/project` as a starting point. It copies files from `packs/default/` into each target path.
+
+For existing projects with current AI instructions, install into a temporary folder first and use `packs/default/ai/prompts/adoption/first-time-existing-instructions.md` or `packs/default/ai/prompts/adoption/temp-install-review.md` to plan a safe migration.
 
 ## 3. Make Instructions Project-Specific
 

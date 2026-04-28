@@ -11,3 +11,5 @@ The wiki is the project's persistent knowledge base. It describes stable archite
 Start with `wiki/index.md` to find relevant pages. Check `wiki/log.md` when recent wiki changes matter.
 
 When changing wiki pages, update affected pages, dates, cross-links, `wiki/index.md`, and `wiki/log.md`.
+
+When linting the wiki, run `ai/scripts/wiki-lint.sh` if available.

@@ -133,3 +133,11 @@ When asked to lint or health-check the wiki, check for:
 - pages that should be split or merged.
 
 Prefer fixing small issues directly and summarizing larger recommendations.
+
+Use the bundled script when available:
+
+```sh
+ai/scripts/wiki-lint.sh
+```
+
+The script checks for missing topic-page frontmatter, broken relative Markdown links, and topic pages missing from `wiki/index.md`.

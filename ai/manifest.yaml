@@ -1,5 +1,5 @@
 name: default-agent-instruction-pack
-version: 0.1.0
+version: 0.2.0
 description: Portable starter pack for multi-agent coding assistants.
 
 entry_files:
@@ -45,6 +45,13 @@ adoption:
     - packs/default/ai/templates/wiki/page.md
   helper_scripts:
     - packs/default/ai/scripts/start-requirement.sh
+    - packs/default/ai/scripts/audit-adoption.sh
+    - packs/default/ai/scripts/wiki-lint.sh
+  prompts:
+    - packs/default/ai/prompts/adoption/empty-project.md
+    - packs/default/ai/prompts/adoption/first-time-existing-instructions.md
+    - packs/default/ai/prompts/adoption/update-existing-pack.md
+    - packs/default/ai/prompts/adoption/temp-install-review.md
   target_paths:
     - AGENTS.md
     - CLAUDE.md
@@ -54,18 +61,26 @@ adoption:
     - .github/instructions/ci-validation.instructions.md
     - .github/instructions/testing-quality.instructions.md
     - .claude/commands/start-requirement.md
+    - ai/pack.yaml
     - ai/workflows/requirement-planning.md
     - ai/workflows/wiki-documentation.md
     - ai/workflows/command-execution.md
     - ai/workflows/ci-validation.md
     - ai/workflows/testing-quality.md
     - ai/workflows/vibe-coding-translation.md
+    - ai/pack.yaml
     - ai/templates/requirement/PLAN.md
     - ai/templates/wiki/index.md
     - ai/templates/wiki/log.md
     - ai/templates/wiki/page.md
     - ai/scripts/start-requirement.sh
+    - ai/scripts/audit-adoption.sh
+    - ai/scripts/wiki-lint.sh
     - ai/hooks/pre-commit-block-requirements.sh
+    - ai/prompts/adoption/empty-project.md
+    - ai/prompts/adoption/first-time-existing-instructions.md
+    - ai/prompts/adoption/update-existing-pack.md
+    - ai/prompts/adoption/temp-install-review.md
     - wiki/index.md
     - wiki/log.md
     - wiki/guides/testing.md

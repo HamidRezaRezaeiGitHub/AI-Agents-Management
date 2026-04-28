@@ -47,6 +47,8 @@ TODO: Summarize the user's requirement in a few sentences.
 - [ ] Ensure `requirements/` is ignored by git.
 - [ ] Create or switch to the expected feature branch.
 - [ ] Review relevant wiki/docs before broad source search.
+- [ ] Inspect narrowly relevant source code after wiki/docs context.
+- [ ] Fill in or revise this plan after context discovery.
 - [ ] Implement the requirement.
 - [ ] Run targeted tests or quality checks.
 - [ ] Review CI expectations and run relevant local equivalents.

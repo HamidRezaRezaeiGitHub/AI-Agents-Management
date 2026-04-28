@@ -26,10 +26,16 @@ This repo is designed around one rule: keep the high-signal behavior in a shared
 - `packs/default/` - installable default pack for adopting projects.
 - `packs/default/ai/workflows/requirement-planning.md` - local requirement planning, branch, and handoff workflow copied into adopting projects.
 - `packs/default/ai/templates/requirement/PLAN.md` - template used for local requirement plans.
+- `packs/default/ai/prompts/adoption/` - prepared prompts for common adoption and migration scenarios.
 - `ai/skills/`, `ai/hooks/`, `ai/commands/`, `ai/agents/` - staging areas for portable assets.
 - `scripts/install-adapter.sh` - copies the starter adapter files into another project.
+- `scripts/audit-adoption.sh` - compares an adopted project with the current default pack.
 
 ## Adopt In Another Repo
+
+### Scenario 1: Clean Project
+
+Use this when the target project has no meaningful AI-agent files yet.
 
 From this repo:
 
@@ -38,6 +44,57 @@ scripts/install-adapter.sh /path/to/target-project
 ```
 
 Then customize the copied files in the target project so commands, architecture notes, and validation steps are true for that repo.
+
+Suggested prompt:
+
+```text
+Use the prompt in packs/default/ai/prompts/adoption/empty-project.md.
+```
+
+### Scenario 2: First-Time Adoption With Existing Instructions
+
+Use this when the target project already has `.github/instructions`, `CLAUDE.md`, `AGENTS.md`, `GEMINI.md`, Cursor rules, custom prompts, wiki files, or other agent guidance.
+
+Recommended flow:
+
+1. Install the pack into a temporary folder inside the target project, such as `tmp/agent-pack-install/`.
+2. Start an AI session in the target project.
+3. Ask the agent to compare the temporary pack with the existing instruction files.
+4. Migrate only after the agent has a plan for preserving current behavior.
+
+Suggested prompt:
+
+```text
+Use the prompt in packs/default/ai/prompts/adoption/first-time-existing-instructions.md.
+```
+
+For a temp-folder review specifically:
+
+```text
+Use the prompt in packs/default/ai/prompts/adoption/temp-install-review.md.
+```
+
+### Scenario 3: Updating An Existing Pack
+
+Use this when the project already has `ai/pack.yaml` from an older version.
+
+Suggested prompt:
+
+```text
+Use the prompt in packs/default/ai/prompts/adoption/update-existing-pack.md.
+```
+
+Then audit the target project from this repo:
+
+```sh
+scripts/audit-adoption.sh /path/to/target-project
+```
+
+Or from inside the adopted project:
+
+```sh
+ai/scripts/audit-adoption.sh
+```
 
 The installer copies the default pack into these target paths:
 
@@ -49,6 +106,7 @@ The installer copies the default pack into these target paths:
 - `.github/instructions/ci-validation.instructions.md`
 - `.github/instructions/testing-quality.instructions.md`
 - `.claude/commands/start-requirement.md`
+- `ai/pack.yaml`
 - `ai/workflows/requirement-planning.md`
 - `ai/workflows/wiki-documentation.md`
 - `ai/workflows/command-execution.md`
@@ -60,7 +118,10 @@ The installer copies the default pack into these target paths:
 - `ai/templates/wiki/log.md`
 - `ai/templates/wiki/page.md`
 - `ai/scripts/start-requirement.sh`
+- `ai/scripts/audit-adoption.sh`
+- `ai/scripts/wiki-lint.sh`
 - `ai/hooks/pre-commit-block-requirements.sh`
+- `ai/prompts/adoption/*.md`
 - `wiki/index.md`
 - `wiki/log.md`
 - `wiki/guides/testing.md`
@@ -74,6 +135,18 @@ ai/scripts/start-requirement.sh "Requirement Planning Workflow"
 ```
 
 In an adopting project, this creates `requirements/<slug>/PLAN.md`, ensures `requirements/` is ignored, and creates or switches to a `feature/<slug>` branch.
+
+The plan is scaffolded first. The agent should fill the detailed plan after reading relevant wiki/docs and narrowly required source code, so the plan reflects real project context rather than guesses.
+
+## Wiki Lint
+
+In an adopted project:
+
+```sh
+ai/scripts/wiki-lint.sh
+```
+
+This checks wiki frontmatter, relative Markdown links, and whether topic pages appear in `wiki/index.md`.
 
 ## Working Principle
 

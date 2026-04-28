@@ -24,6 +24,7 @@ mkdir -p \
   "$target/ai/templates/wiki" \
   "$target/ai/scripts" \
   "$target/ai/hooks" \
+  "$target/ai/prompts/adoption" \
   "$target/wiki/guides"
 
 copy_if_missing() {
@@ -38,6 +39,20 @@ copy_if_missing() {
   fi
 }
 
+ensure_gitignore_entry() {
+  entry=$1
+  file="$target/.gitignore"
+
+  if [ ! -f "$file" ]; then
+    touch "$file"
+  fi
+
+  if ! grep -qx "$entry" "$file"; then
+    printf "\n%s\n" "$entry" >> "$file"
+    echo "updated $file with $entry"
+  fi
+}
+
 copy_if_missing "$pack/root/AGENTS.md" "$target/AGENTS.md"
 copy_if_missing "$pack/root/CLAUDE.md" "$target/CLAUDE.md"
 copy_if_missing "$pack/root/GEMINI.md" "$target/GEMINI.md"
@@ -45,6 +60,7 @@ copy_if_missing "$pack/root/.github/copilot-instructions.md" "$target/.github/co
 copy_if_missing "$pack/root/.github/instructions/wiki.instructions.md" "$target/.github/instructions/wiki.instructions.md"
 copy_if_missing "$pack/root/.github/instructions/ci-validation.instructions.md" "$target/.github/instructions/ci-validation.instructions.md"
 copy_if_missing "$pack/root/.github/instructions/testing-quality.instructions.md" "$target/.github/instructions/testing-quality.instructions.md"
+copy_if_missing "$pack/ai/pack.yaml" "$target/ai/pack.yaml"
 copy_if_missing "$pack/ai/workflows/requirement-planning.md" "$target/ai/workflows/requirement-planning.md"
 copy_if_missing "$pack/ai/workflows/wiki-documentation.md" "$target/ai/workflows/wiki-documentation.md"
 copy_if_missing "$pack/ai/workflows/command-execution.md" "$target/ai/workflows/command-execution.md"
@@ -59,10 +75,19 @@ copy_if_missing "$pack/wiki/index.md" "$target/wiki/index.md"
 copy_if_missing "$pack/wiki/log.md" "$target/wiki/log.md"
 copy_if_missing "$pack/wiki/guides/testing.md" "$target/wiki/guides/testing.md"
 copy_if_missing "$pack/ai/scripts/start-requirement.sh" "$target/ai/scripts/start-requirement.sh"
+copy_if_missing "$pack/ai/scripts/audit-adoption.sh" "$target/ai/scripts/audit-adoption.sh"
+copy_if_missing "$pack/ai/scripts/wiki-lint.sh" "$target/ai/scripts/wiki-lint.sh"
 copy_if_missing "$pack/ai/hooks/pre-commit-block-requirements.sh" "$target/ai/hooks/pre-commit-block-requirements.sh"
 copy_if_missing "$pack/claude/commands/start-requirement.md" "$target/.claude/commands/start-requirement.md"
+copy_if_missing "$pack/ai/prompts/adoption/empty-project.md" "$target/ai/prompts/adoption/empty-project.md"
+copy_if_missing "$pack/ai/prompts/adoption/first-time-existing-instructions.md" "$target/ai/prompts/adoption/first-time-existing-instructions.md"
+copy_if_missing "$pack/ai/prompts/adoption/update-existing-pack.md" "$target/ai/prompts/adoption/update-existing-pack.md"
+copy_if_missing "$pack/ai/prompts/adoption/temp-install-review.md" "$target/ai/prompts/adoption/temp-install-review.md"
+ensure_gitignore_entry "requirements/"
 
 chmod +x "$target/ai/scripts/start-requirement.sh"
+chmod +x "$target/ai/scripts/audit-adoption.sh"
+chmod +x "$target/ai/scripts/wiki-lint.sh"
 chmod +x "$target/ai/hooks/pre-commit-block-requirements.sh"
 
 echo "Done. Customize TODOs in the target project's agent instruction files."

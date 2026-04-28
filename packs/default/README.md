@@ -14,6 +14,7 @@ Files under this directory are source templates. `scripts/install-adapter.sh` ma
 - `root/.github/instructions/ci-validation.instructions.md` -> `.github/instructions/ci-validation.instructions.md`
 - `root/.github/instructions/testing-quality.instructions.md` -> `.github/instructions/testing-quality.instructions.md`
 - `claude/commands/start-requirement.md` -> `.claude/commands/start-requirement.md`
+- `ai/pack.yaml` -> `ai/pack.yaml`
 - `ai/workflows/requirement-planning.md` -> `ai/workflows/requirement-planning.md`
 - `ai/workflows/wiki-documentation.md` -> `ai/workflows/wiki-documentation.md`
 - `ai/workflows/command-execution.md` -> `ai/workflows/command-execution.md`
@@ -25,9 +26,14 @@ Files under this directory are source templates. `scripts/install-adapter.sh` ma
 - `ai/templates/wiki/log.md` -> `ai/templates/wiki/log.md`
 - `ai/templates/wiki/page.md` -> `ai/templates/wiki/page.md`
 - `ai/scripts/start-requirement.sh` -> `ai/scripts/start-requirement.sh`
+- `ai/scripts/audit-adoption.sh` -> `ai/scripts/audit-adoption.sh`
+- `ai/scripts/wiki-lint.sh` -> `ai/scripts/wiki-lint.sh`
 - `ai/hooks/pre-commit-block-requirements.sh` -> `ai/hooks/pre-commit-block-requirements.sh`
+- `ai/prompts/adoption/*.md` -> `ai/prompts/adoption/*.md`
 - `wiki/index.md` -> `wiki/index.md`
 - `wiki/log.md` -> `wiki/log.md`
 - `wiki/guides/testing.md` -> `wiki/guides/testing.md`
 
 The `ai/scripts` target avoids colliding with a project's existing application scripts.
+
+The installer also ensures `requirements/` is listed in the target project's `.gitignore`.
