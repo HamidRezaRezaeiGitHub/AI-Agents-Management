@@ -50,6 +50,7 @@ copy_if_missing "$pack/ai/workflows/wiki-documentation.md" "$target/ai/workflows
 copy_if_missing "$pack/ai/workflows/command-execution.md" "$target/ai/workflows/command-execution.md"
 copy_if_missing "$pack/ai/workflows/ci-validation.md" "$target/ai/workflows/ci-validation.md"
 copy_if_missing "$pack/ai/workflows/testing-quality.md" "$target/ai/workflows/testing-quality.md"
+copy_if_missing "$pack/ai/workflows/vibe-coding-translation.md" "$target/ai/workflows/vibe-coding-translation.md"
 copy_if_missing "$pack/ai/templates/requirement/PLAN.md" "$target/ai/templates/requirement/PLAN.md"
 copy_if_missing "$pack/ai/templates/wiki/index.md" "$target/ai/templates/wiki/index.md"
 copy_if_missing "$pack/ai/templates/wiki/log.md" "$target/ai/templates/wiki/log.md"

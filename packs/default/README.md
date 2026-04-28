@@ -19,6 +19,7 @@ Files under this directory are source templates. `scripts/install-adapter.sh` ma
 - `ai/workflows/command-execution.md` -> `ai/workflows/command-execution.md`
 - `ai/workflows/ci-validation.md` -> `ai/workflows/ci-validation.md`
 - `ai/workflows/testing-quality.md` -> `ai/workflows/testing-quality.md`
+- `ai/workflows/vibe-coding-translation.md` -> `ai/workflows/vibe-coding-translation.md`
 - `ai/templates/requirement/PLAN.md` -> `ai/templates/requirement/PLAN.md`
 - `ai/templates/wiki/index.md` -> `ai/templates/wiki/index.md`
 - `ai/templates/wiki/log.md` -> `ai/templates/wiki/log.md`

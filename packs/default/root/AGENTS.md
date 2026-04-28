@@ -24,6 +24,7 @@ Mark commands as verified after running them.
 ## Work Rules
 
 - For non-trivial requirements, follow `ai/workflows/requirement-planning.md` before implementation.
+- For non-developer or vibe-style requests, translate first with `ai/workflows/vibe-coding-translation.md`.
 - For project orientation, start with `wiki/index.md` when it exists, then inspect source code narrowly.
 - Follow `ai/workflows/wiki-documentation.md` when reading or maintaining the project wiki.
 - Follow `ai/workflows/command-execution.md` when running terminal commands.

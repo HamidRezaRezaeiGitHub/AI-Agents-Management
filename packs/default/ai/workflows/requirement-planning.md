@@ -63,7 +63,8 @@ When no workspace exists for the requirement:
 2. Add `requirements/` to `.gitignore`.
 3. Create the feature branch.
 4. Create `PLAN.md` from the template.
-5. Write the requirement title, slug, branch, prompt summary, assumptions, first plan, context strategy, testing strategy, and validation strategy.
+5. Detect whether the prompt needs vibe-coding translation using `ai/workflows/vibe-coding-translation.md`.
+6. Write the requirement title, slug, branch, prompt summary, translation when needed, assumptions, first plan, context strategy, testing strategy, and validation strategy.
 
 Prefer using:
 
@@ -91,6 +92,7 @@ Include:
 - expected branch,
 - status,
 - prompt summary,
+- vibe-coding translation when relevant,
 - assumptions,
 - scope and non-goals,
 - context strategy,
@@ -104,6 +106,7 @@ Include:
 ## Context And Token Optimization
 
 - Start from `PLAN.md` before scanning source code.
+- Translate non-technical or vibe-style requests before broad source search.
 - Read `wiki/index.md` and relevant wiki pages when they exist.
 - Read documented architecture, testing, CI, and command references before broad code search.
 - Search source code only for the part of the requirement being worked on.
@@ -115,6 +118,7 @@ Include:
 
 For implementation requirements, the plan should identify the likely validation surface before coding:
 
+- Vibe-coding translation needs, using `ai/workflows/vibe-coding-translation.md`.
 - Relevant tests or test areas, using `ai/workflows/testing-quality.md`.
 - CI expectations, using `ai/workflows/ci-validation.md`.
 - Wiki pages that may need updates, using `ai/workflows/wiki-documentation.md`.

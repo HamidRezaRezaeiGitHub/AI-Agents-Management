@@ -11,6 +11,15 @@
 
 TODO: Summarize the user's requirement in a few sentences.
 
+## Vibe Coding Translation
+
+- Needed: TODO yes/no.
+- User-facing intent: TODO.
+- Concrete behavior: TODO.
+- Affected surfaces: TODO.
+- Acceptance criteria: TODO.
+- Open questions or assumptions: TODO.
+
 ## Assumptions
 
 - TODO: List assumptions that should be confirmed or revisited.
@@ -32,6 +41,8 @@ TODO: Summarize the user's requirement in a few sentences.
 ## Plan
 
 - [ ] Confirm or infer requirement title.
+- [ ] Decide whether vibe-coding translation is needed.
+- [ ] Translate user-facing intent into concrete acceptance criteria when needed.
 - [ ] Create local requirement workspace.
 - [ ] Ensure `requirements/` is ignored by git.
 - [ ] Create or switch to the expected feature branch.

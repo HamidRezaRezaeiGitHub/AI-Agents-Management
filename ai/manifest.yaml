@@ -29,6 +29,8 @@ shared_sources:
     purpose: CI discovery and validation expectations before finishing work.
   - path: packs/default/ai/workflows/testing-quality.md
     purpose: QA-minded testing guidance.
+  - path: packs/default/ai/workflows/vibe-coding-translation.md
+    purpose: Translation of non-developer or vibe-style requests into concrete requirements.
 
 adoption:
   script: scripts/install-adapter.sh
@@ -57,6 +59,7 @@ adoption:
     - ai/workflows/command-execution.md
     - ai/workflows/ci-validation.md
     - ai/workflows/testing-quality.md
+    - ai/workflows/vibe-coding-translation.md
     - ai/templates/requirement/PLAN.md
     - ai/templates/wiki/index.md
     - ai/templates/wiki/log.md

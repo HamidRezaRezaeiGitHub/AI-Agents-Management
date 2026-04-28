@@ -54,6 +54,7 @@ The installer copies the default pack into these target paths:
 - `ai/workflows/command-execution.md`
 - `ai/workflows/ci-validation.md`
 - `ai/workflows/testing-quality.md`
+- `ai/workflows/vibe-coding-translation.md`
 - `ai/templates/requirement/PLAN.md`
 - `ai/templates/wiki/index.md`
 - `ai/templates/wiki/log.md`
