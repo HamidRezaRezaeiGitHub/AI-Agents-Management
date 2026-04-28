@@ -38,6 +38,13 @@ TODO: Summarize the user's requirement in a few sentences.
 - TODO: Note source areas likely relevant to this requirement.
 - TODO: Note commands that may have verbose output and should use filtering.
 
+## Architecture Impact
+
+- Needed: TODO yes/no.
+- Existing boundaries or layers affected: TODO.
+- Contracts, data flow, or integrations affected: TODO.
+- Architecture docs to update: TODO.
+
 ## Plan
 
 - [ ] Confirm or infer requirement title.
@@ -47,6 +54,7 @@ TODO: Summarize the user's requirement in a few sentences.
 - [ ] Ensure `requirements/` is ignored by git.
 - [ ] Create or switch to the expected feature branch.
 - [ ] Review relevant wiki/docs before broad source search.
+- [ ] Check architecture impact and consult `ai/workflows/architecture.md` if needed.
 - [ ] Inspect narrowly relevant source code after wiki/docs context.
 - [ ] Fill in or revise this plan after context discovery.
 - [ ] Implement the requirement.

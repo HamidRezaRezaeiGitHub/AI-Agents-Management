@@ -20,6 +20,7 @@ Copy or generate:
 - `.github/instructions/*.instructions.md` when path-specific rules are useful
 - `ai/workflows/requirement-planning.md`
 - `ai/workflows/wiki-documentation.md`
+- `ai/workflows/architecture.md`
 - `ai/workflows/command-execution.md`
 - `ai/workflows/ci-validation.md`
 - `ai/workflows/testing-quality.md`
@@ -30,7 +31,7 @@ Copy or generate:
 - `ai/scripts/audit-adoption.sh`
 - `ai/scripts/wiki-lint.sh`
 - `ai/prompts/adoption/*.md`
-- `wiki/index.md` and `wiki/log.md`
+- `wiki/index.md`, `wiki/log.md`, and starter architecture/testing wiki pages
 
 Use `scripts/install-adapter.sh /path/to/project` as a starting point. It copies files from `packs/default/` into each target path.
 

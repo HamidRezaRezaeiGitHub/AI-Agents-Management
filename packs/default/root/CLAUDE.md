@@ -7,6 +7,7 @@ Follow `AGENTS.md` for project instructions.
 - For non-trivial requirements, use `ai/workflows/requirement-planning.md` before implementation.
 - For non-developer or vibe-style requests, translate first with `ai/workflows/vibe-coding-translation.md`.
 - For project orientation, read `wiki/index.md` when it exists and follow `ai/workflows/wiki-documentation.md` for wiki updates.
+- For architecture-sensitive work, consult `ai/workflows/architecture.md` and relevant `wiki/architecture/` pages.
 - Use concise terminal output per `ai/workflows/command-execution.md`.
 - Before finishing implementation work, follow `ai/workflows/ci-validation.md`.
 - When working on tests, follow `ai/workflows/testing-quality.md`.

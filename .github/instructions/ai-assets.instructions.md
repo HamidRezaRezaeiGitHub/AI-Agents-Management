@@ -12,3 +12,4 @@ applyTo: "ai/**,packs/**,.claude/**,.gemini/**,.github/**,AGENTS.md,CLAUDE.md,GE
 - For wiki-documentation changes, keep the canonical installable behavior in `packs/default/ai/workflows/wiki-documentation.md`.
 - For command, CI, and testing guidance, keep project-agnostic behavior in `packs/default/ai/workflows/` and avoid technology-specific commands.
 - For vibe-coding translation, keep behavior project-agnostic and focused on clarifying intent before implementation.
+- For architecture guidance, keep behavior focused on current system boundaries, data flow, contracts, decisions, and wiki documentation.

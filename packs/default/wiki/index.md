@@ -16,7 +16,11 @@ Persistent knowledge base for this project. Start here before broad source-code 
 
 ## Architecture
 
-- TODO: Add architecture pages with one-line summaries.
+- [System Overview](./architecture/system-overview.md) - Current system shape, major components, flow, boundaries, and constraints.
+- [Tech Stack](./architecture/tech-stack.md) - Runtime, frameworks, dependencies, and version constraints.
+- [Data Flow](./architecture/data-flow.md) - Important data paths, ownership, validation, and error boundaries.
+- [Integration Points](./architecture/integration-points.md) - External services, internal boundaries, and failure modes.
+- [Architecture Decisions](./architecture/decisions.md) - Current architecture decisions and their consequences.
 
 ## Domain
 

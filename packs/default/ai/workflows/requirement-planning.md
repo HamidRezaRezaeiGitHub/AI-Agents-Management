@@ -66,6 +66,7 @@ When no workspace exists for the requirement:
 5. Detect whether the prompt needs vibe-coding translation using `ai/workflows/vibe-coding-translation.md`.
 6. Read the existing wiki/docs and only the source areas likely relevant to the requirement.
 7. Fill in the useful plan after that context pass: prompt summary, translation when needed, assumptions, scope, non-goals, context strategy, testing strategy, validation strategy, and implementation steps.
+8. Include architecture impact using `ai/workflows/architecture.md` when boundaries, data flow, contracts, or cross-cutting concerns may change.
 
 Prefer using:
 
@@ -97,6 +98,7 @@ Include:
 - assumptions,
 - scope and non-goals,
 - context strategy,
+- architecture impact,
 - plan checklist,
 - testing strategy,
 - CI/validation strategy,
@@ -109,6 +111,7 @@ Include:
 - Start from `PLAN.md` before scanning source code.
 - Translate non-technical or vibe-style requests before broad source search.
 - Read `wiki/index.md` and relevant wiki pages when they exist.
+- Consult architecture docs and `ai/workflows/architecture.md` for architecture-sensitive work.
 - Read documented architecture, testing, CI, and command references before broad code search.
 - Fill in the detailed implementation plan after reading the relevant wiki/docs and narrowly required source context.
 - Search source code only for the part of the requirement being worked on.
@@ -121,6 +124,7 @@ Include:
 For implementation requirements, the plan should identify the likely validation surface before coding:
 
 - Vibe-coding translation needs, using `ai/workflows/vibe-coding-translation.md`.
+- Architecture impact, using `ai/workflows/architecture.md`.
 - Relevant tests or test areas, using `ai/workflows/testing-quality.md`.
 - CI expectations, using `ai/workflows/ci-validation.md`.
 - Wiki pages that may need updates, using `ai/workflows/wiki-documentation.md`.

@@ -11,12 +11,14 @@ Files under this directory are source templates. `scripts/install-adapter.sh` ma
 - `root/GEMINI.md` -> `GEMINI.md`
 - `root/.github/copilot-instructions.md` -> `.github/copilot-instructions.md`
 - `root/.github/instructions/wiki.instructions.md` -> `.github/instructions/wiki.instructions.md`
+- `root/.github/instructions/architecture.instructions.md` -> `.github/instructions/architecture.instructions.md`
 - `root/.github/instructions/ci-validation.instructions.md` -> `.github/instructions/ci-validation.instructions.md`
 - `root/.github/instructions/testing-quality.instructions.md` -> `.github/instructions/testing-quality.instructions.md`
 - `claude/commands/start-requirement.md` -> `.claude/commands/start-requirement.md`
 - `ai/pack.yaml` -> `ai/pack.yaml`
 - `ai/workflows/requirement-planning.md` -> `ai/workflows/requirement-planning.md`
 - `ai/workflows/wiki-documentation.md` -> `ai/workflows/wiki-documentation.md`
+- `ai/workflows/architecture.md` -> `ai/workflows/architecture.md`
 - `ai/workflows/command-execution.md` -> `ai/workflows/command-execution.md`
 - `ai/workflows/ci-validation.md` -> `ai/workflows/ci-validation.md`
 - `ai/workflows/testing-quality.md` -> `ai/workflows/testing-quality.md`
@@ -32,6 +34,7 @@ Files under this directory are source templates. `scripts/install-adapter.sh` ma
 - `ai/prompts/adoption/*.md` -> `ai/prompts/adoption/*.md`
 - `wiki/index.md` -> `wiki/index.md`
 - `wiki/log.md` -> `wiki/log.md`
+- `wiki/architecture/*.md` -> `wiki/architecture/*.md`
 - `wiki/guides/testing.md` -> `wiki/guides/testing.md`
 
 The `ai/scripts` target avoids colliding with a project's existing application scripts.

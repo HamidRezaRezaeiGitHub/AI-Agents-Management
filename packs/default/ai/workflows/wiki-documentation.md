@@ -38,6 +38,7 @@ Projects may add domain-specific folders such as `ui/`, `data-models/`, `provide
 - `wiki/index.md`: navigation map with one-line summaries for every page.
 - `wiki/log.md`: chronological log of wiki updates, ingest, lint, and meaningful project changes.
 - Topic pages: focused pages for architecture, domain concepts, workflows, operations, and conventions.
+- Architecture pages: current system overview, tech stack, data flow, integration points, and decisions.
 
 ## Frontmatter
 
@@ -90,6 +91,8 @@ Skip wiki updates for trivial typo fixes, mechanical formatting, or small intern
 3. Add or fix inline cross-links.
 4. Update `wiki/index.md` summaries and links.
 5. Append an entry to `wiki/log.md`.
+
+For architecture-impacting changes, follow `ai/workflows/architecture.md` and update relevant pages under `wiki/architecture/`.
 
 ## Log Format
 
