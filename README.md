@@ -25,6 +25,7 @@ This repo is designed around one rule: keep high-signal behavior in reusable wor
 - `ai/docs/sync-strategy.md` - how to keep central and project-local guidance aligned.
 - `ai/manifest.yaml` - lightweight metadata for this instruction pack.
 - `packs/default/` - installable default pack for adopting projects.
+- `packs/default/ai/workflows/workflow-dispatch.md` - lightweight dispatcher that routes quick, standard, large, and risky work without unnecessary token burn.
 - `packs/default/ai/workflows/requirement-planning.md` - local requirement planning, branch, and handoff workflow copied into adopting projects.
 - `packs/default/ai/templates/requirement/PLAN.md` - template used for local requirement plans.
 - `packs/default/ai/prompts/adoption/` - prepared prompts for common adoption and migration scenarios.
@@ -114,6 +115,7 @@ The installer copies the default pack into these target paths:
 - `.claude/commands/start-requirement.md`
 - `ai/README.md`
 - `ai/pack.yaml`
+- `ai/workflows/workflow-dispatch.md`
 - `ai/workflows/requirement-planning.md`
 - `ai/workflows/wiki-documentation.md`
 - `ai/workflows/architecture.md`
@@ -123,6 +125,7 @@ The installer copies the default pack into these target paths:
 - `ai/workflows/code-review.md`
 - `ai/workflows/vibe-coding-translation.md`
 - `ai/templates/requirement/PLAN.md`
+- `ai/templates/requirement/FINDINGS.md`
 - `ai/templates/wiki/index.md`
 - `ai/templates/wiki/log.md`
 - `ai/templates/wiki/page.md`
@@ -144,9 +147,11 @@ After adoption, create a local ignored requirement workspace and branch from the
 ai/scripts/start-requirement.sh "Requirement Planning Workflow"
 ```
 
-In an adopting project, this creates `requirements/<slug>/PLAN.md`, ensures `requirements/` is ignored, and creates or switches to a `feature/<slug>` branch.
+In an adopting project, this creates `requirements/<slug>/PLAN.md` and `requirements/<slug>/FINDINGS.md`, ensures `requirements/` is ignored, and creates or switches to a `feature/<slug>` branch.
 
 The plan is scaffolded first. The agent should fill the detailed plan after reading relevant wiki/docs and narrowly required source code, so the plan reflects real project context rather than guesses.
+
+Use `FINDINGS.md` for requirement-specific context, links, user clarifications, source notes, risks, and validation clues that would help future agents avoid repeating discovery work.
 
 ## Wiki Lint
 

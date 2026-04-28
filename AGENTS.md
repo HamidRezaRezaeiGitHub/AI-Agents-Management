@@ -22,11 +22,14 @@ Follow `ai/shared/agent-operating-contract.md` when working in this repo. Treat 
 
 ## Work Rules
 
-- For non-trivial requirements, follow `packs/default/ai/workflows/requirement-planning.md` before implementation.
+- Before acting on a new request, route it with `packs/default/ai/workflows/workflow-dispatch.md` so quick tasks stay lightweight and larger work gets the right process.
+- For standard, large, or risky requirements, follow `packs/default/ai/workflows/requirement-planning.md` before implementation.
+- For implementation work, record a safe baseline verification in `PLAN.md` before source edits when one is available.
 - Keep instructions concise, concrete, and non-task-specific.
 - Prefer one canonical shared instruction with thin native adapters.
 - Do not put secrets, local machine paths, tokens, or private customer data in committed instructions.
 - When adding guidance for a command, verify the command or mark it as unverified.
+- Before finalizing source changes, use the two-pass review in `packs/default/ai/workflows/code-review.md`.
 - When adding an agent-specific file, document whether it is auto-discovered, manually invoked, or copied by script.
 - Preserve portability across macOS, Linux, and Windows unless a file is explicitly platform-specific.
 

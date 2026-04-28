@@ -18,6 +18,7 @@ Files under this directory are source templates. `scripts/install-adapter.sh` ma
 - `claude/commands/start-requirement.md` -> `.claude/commands/start-requirement.md`
 - `ai/README.md` -> `ai/README.md`
 - `ai/pack.yaml` -> `ai/pack.yaml`
+- `ai/workflows/workflow-dispatch.md` -> `ai/workflows/workflow-dispatch.md`
 - `ai/workflows/requirement-planning.md` -> `ai/workflows/requirement-planning.md`
 - `ai/workflows/wiki-documentation.md` -> `ai/workflows/wiki-documentation.md`
 - `ai/workflows/architecture.md` -> `ai/workflows/architecture.md`
@@ -27,6 +28,7 @@ Files under this directory are source templates. `scripts/install-adapter.sh` ma
 - `ai/workflows/code-review.md` -> `ai/workflows/code-review.md`
 - `ai/workflows/vibe-coding-translation.md` -> `ai/workflows/vibe-coding-translation.md`
 - `ai/templates/requirement/PLAN.md` -> `ai/templates/requirement/PLAN.md`
+- `ai/templates/requirement/FINDINGS.md` -> `ai/templates/requirement/FINDINGS.md`
 - `ai/templates/wiki/index.md` -> `ai/templates/wiki/index.md`
 - `ai/templates/wiki/log.md` -> `ai/templates/wiki/log.md`
 - `ai/templates/wiki/page.md` -> `ai/templates/wiki/page.md`

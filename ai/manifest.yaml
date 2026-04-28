@@ -1,5 +1,5 @@
 name: default-agent-instruction-pack
-version: 0.3.0
+version: 0.4.3
 description: Portable starter pack for multi-agent coding assistants.
 
 entry_files:
@@ -19,8 +19,10 @@ entry_files:
 shared_sources:
   - path: ai/shared/agent-operating-contract.md
     purpose: Canonical shared behavior.
+  - path: packs/default/ai/workflows/workflow-dispatch.md
+    purpose: Lightweight workflow dispatcher and complexity routing.
   - path: packs/default/ai/workflows/requirement-planning.md
-    purpose: Requirement planning, local workspace, branch, and handoff workflow.
+    purpose: Requirement planning, local workspace, baseline verification, branch, and handoff workflow.
   - path: packs/default/ai/workflows/wiki-documentation.md
     purpose: Project wiki lookup, maintenance, and lint workflow.
   - path: packs/default/ai/workflows/architecture.md
@@ -32,7 +34,7 @@ shared_sources:
   - path: packs/default/ai/workflows/testing-quality.md
     purpose: QA-minded testing guidance.
   - path: packs/default/ai/workflows/code-review.md
-    purpose: Final self-review and PR review guidance.
+    purpose: Two-pass final self-review and PR review guidance.
   - path: packs/default/ai/workflows/vibe-coding-translation.md
     purpose: Translation of non-developer or vibe-style requests into concrete requirements.
 
@@ -44,6 +46,7 @@ adoption:
     - ai/docs/agent-discovery-matrix.md
   templates:
     - packs/default/ai/templates/requirement/PLAN.md
+    - packs/default/ai/templates/requirement/FINDINGS.md
     - packs/default/ai/templates/wiki/index.md
     - packs/default/ai/templates/wiki/log.md
     - packs/default/ai/templates/wiki/page.md
@@ -69,6 +72,7 @@ adoption:
     - .claude/commands/start-requirement.md
     - ai/README.md
     - ai/pack.yaml
+    - ai/workflows/workflow-dispatch.md
     - ai/workflows/requirement-planning.md
     - ai/workflows/wiki-documentation.md
     - ai/workflows/architecture.md
@@ -77,8 +81,8 @@ adoption:
     - ai/workflows/testing-quality.md
     - ai/workflows/code-review.md
     - ai/workflows/vibe-coding-translation.md
-    - ai/pack.yaml
     - ai/templates/requirement/PLAN.md
+    - ai/templates/requirement/FINDINGS.md
     - ai/templates/wiki/index.md
     - ai/templates/wiki/log.md
     - ai/templates/wiki/page.md

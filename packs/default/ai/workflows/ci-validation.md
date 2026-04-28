@@ -1,3 +1,15 @@
+---
+name: ci-validation
+use_when: Before finishing implementation work, before code review, and before committing or opening a pull request.
+reads:
+  - .github/workflows/
+  - Jenkinsfile
+  - ai/workflows/command-execution.md
+writes:
+  - requirements/<slug>/PLAN.md
+strictness: required_before_completion
+---
+
 # CI Validation Workflow
 
 Use this workflow before finishing implementation work, before code review, and especially before committing or opening a pull request.
@@ -32,6 +44,16 @@ Before finishing:
 3. Run broader validation when shared code, build configuration, public API, or cross-cutting behavior changed.
 4. Use `ai/workflows/command-execution.md` to keep output concise.
 5. If a required check cannot be run locally, state why and what would need to run in CI.
+
+## Baseline Versus Final Validation
+
+For `standard`, `large`, or `risky` implementation work, the agent should also establish a baseline before source edits when a safe command can be identified.
+
+- Baseline verification answers: "Did the relevant checks already pass before my changes?"
+- Final validation answers: "Do the relevant checks pass after my changes?"
+- If baseline failed before edits, keep that failure distinct from failures introduced by the requirement.
+- If final validation fails in a way that matches the baseline failure, document it as pre-existing unless the current changes made it worse.
+- If no baseline was run, say so in `PLAN.md` and avoid claiming that later failures are unrelated without evidence.
 
 ## Before Commit Or PR
 

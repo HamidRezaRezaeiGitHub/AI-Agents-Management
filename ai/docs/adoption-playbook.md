@@ -18,6 +18,7 @@ Copy or generate:
 - `GEMINI.md`
 - `.github/copilot-instructions.md`
 - `.github/instructions/*.instructions.md` when path-specific rules are useful
+- `ai/workflows/workflow-dispatch.md`
 - `ai/workflows/requirement-planning.md`
 - `ai/workflows/wiki-documentation.md`
 - `ai/workflows/architecture.md`
@@ -27,6 +28,7 @@ Copy or generate:
 - `ai/workflows/code-review.md`
 - `ai/workflows/vibe-coding-translation.md`
 - `ai/templates/requirement/PLAN.md`
+- `ai/templates/requirement/FINDINGS.md`
 - `ai/templates/wiki/*.md`
 - `ai/scripts/start-requirement.sh`
 - `ai/scripts/audit-adoption.sh`

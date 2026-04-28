@@ -43,6 +43,7 @@ fi
 
 workspace="requirements/$slug"
 plan="$workspace/PLAN.md"
+findings="$workspace/FINDINGS.md"
 branch="feature/$slug"
 fallback_branch=$slug
 current_branch=$(git branch --show-current)
@@ -124,6 +125,29 @@ else
   echo "found existing $plan"
 fi
 
+if [ ! -f "$findings" ]; then
+  template="ai/templates/requirement/FINDINGS.md"
+
+  if [ ! -f "$template" ] && [ -f "packs/default/ai/templates/requirement/FINDINGS.md" ]; then
+    template="packs/default/ai/templates/requirement/FINDINGS.md"
+  fi
+
+  escaped_title=$(escape_sed_replacement "$title")
+
+  if [ ! -f "$template" ]; then
+    echo "Missing template: $template" >&2
+    exit 1
+  fi
+
+  sed \
+    -e "s|{{TITLE}}|$escaped_title|g" \
+    "$template" > "$findings"
+  echo "created $findings"
+else
+  echo "found existing $findings"
+fi
+
 echo "Requirement workspace: $workspace"
 echo "Plan: $plan"
+echo "Findings: $findings"
 echo "Branch: $branch"
