@@ -4,18 +4,9 @@ Follow `AGENTS.md` for project instructions.
 
 ## Claude Notes
 
-- For the workflow map, read `ai/README.md`.
-- Before acting on a new request, route it with `ai/workflows/workflow-dispatch.md` so quick tasks stay lightweight and larger work gets the right process.
-- For standard, large, or risky requirements, use `ai/workflows/requirement-planning.md` before implementation.
-- For implementation work, record a safe baseline verification in `PLAN.md` before source edits when one is available.
-- Use `requirements/<slug>/FINDINGS.md` to share requirement-specific discoveries between agents.
-- For non-developer or vibe-style requests, translate first with `ai/workflows/vibe-coding-translation.md`.
-- For project orientation, read `wiki/index.md` when it exists and follow `ai/workflows/wiki-documentation.md` for wiki updates.
-- For architecture-sensitive work, consult `ai/workflows/architecture.md` and relevant `wiki/architecture/` pages.
-- Use concise terminal output per `ai/workflows/command-execution.md`.
-- Before finishing implementation work, follow `ai/workflows/ci-validation.md`.
-- When working on tests, follow `ai/workflows/testing-quality.md`.
-- Before finalizing source changes or reviewing a PR, follow the two-pass `ai/workflows/code-review.md`.
+- Read `ai/README.md` for the workflow map, then use `ai/workflows/workflow-dispatch.md` to choose only the workflows this task needs.
+- For non-quick work, use `ai/workflows/requirement-planning.md`; keep `PLAN.md` for status and `FINDINGS.md` for reusable requirement context.
+- For implementation work, record baseline verification before source edits when available, keep command output concise, validate before finishing, and use the two-pass code review.
 - Use `/memory` to inspect loaded memory files if behavior seems inconsistent.
 - Add project commands under `.claude/commands/` only when they are reusable by the team.
 - Add project subagents under `.claude/agents/` only for recurring specialized workflows.

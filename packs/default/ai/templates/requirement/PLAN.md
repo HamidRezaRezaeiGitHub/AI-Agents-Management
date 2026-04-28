@@ -15,19 +15,13 @@ TODO: Summarize the user's requirement in a few sentences.
 ## Complexity And Routing
 
 - Level: TODO `quick`, `standard`, `large`, or `risky`.
-- Why this level: TODO.
-- Workflows to use: TODO.
-- Workflows intentionally skipped for token efficiency: TODO.
-- Escalation triggers: TODO: note what would make this task larger or riskier.
+- Reason and workflows: TODO.
+- Skipped for token efficiency or escalation triggers: TODO.
 
 ## Vibe Coding Translation
 
 - Needed: TODO `yes` or `no`.
-- User-facing intent: TODO.
-- Concrete behavior: TODO.
-- Affected surfaces: TODO.
-- Acceptance criteria: TODO.
-- Open questions or assumptions: TODO.
+- Translation, acceptance criteria, and open questions: TODO.
 
 ## Assumptions
 
@@ -45,23 +39,19 @@ TODO: Summarize the user's requirement in a few sentences.
 
 - TODO: Start from [FINDINGS.md](./FINDINGS.md), then `wiki/index.md` if present, then only relevant wiki/docs/source files.
 - TODO: Record requirement-specific discoveries in [FINDINGS.md](./FINDINGS.md).
-- TODO: Note source areas likely relevant to this requirement.
-- TODO: Note commands that may have verbose output and should use filtering.
+- TODO: Note relevant source areas and commands that may need concise output filtering.
 
 ## Architecture Impact
 
 - Needed: TODO `yes` or `no`.
-- Existing boundaries or layers affected: TODO.
-- Contracts, data flow, or integrations affected: TODO.
-- Architecture docs to update: TODO.
+- Boundaries, contracts, data flow, integrations, or docs affected: TODO.
 
 ## Baseline Verification
 
 - Needed: TODO `yes` or `no`.
 - Command or check: TODO.
 - Result before source edits: TODO `passed`, `failed`, `not run`, or `not available`.
-- If failed before edits: TODO: summarize as pre-existing and link details in [FINDINGS.md](./FINDINGS.md).
-- If not run: TODO: explain why and note equivalent CI/manual check.
+- Notes: TODO: summarize pre-existing failures, skipped baseline rationale, or equivalent CI/manual check.
 
 ## Plan
 
@@ -69,22 +59,16 @@ TODO: Summarize the user's requirement in a few sentences.
 - [ ] Classify complexity with `ai/workflows/workflow-dispatch.md`.
 - [ ] Decide whether vibe-coding translation is needed.
 - [ ] Translate user-facing intent into concrete acceptance criteria when needed.
-- [ ] Create local requirement workspace.
-- [ ] Ensure `requirements/` is ignored by git.
-- [ ] Create or switch to the expected feature branch.
+- [ ] Create or resume workspace, ensure `requirements/` is ignored, and use the expected feature branch.
 - [ ] Review existing [FINDINGS.md](./FINDINGS.md) before wiki/docs/source search.
-- [ ] Review relevant wiki/docs before broad source search.
+- [ ] Review relevant wiki/docs before narrow source search.
 - [ ] Check architecture impact and consult `ai/workflows/architecture.md` if needed.
 - [ ] Identify and run a baseline verification before source edits, or document why not.
-- [ ] Inspect narrowly relevant source code after wiki/docs context.
-- [ ] Update [FINDINGS.md](./FINDINGS.md) with reusable context and links.
-- [ ] Fill in or revise this plan after context discovery.
+- [ ] Inspect narrowly relevant source, update [FINDINGS.md](./FINDINGS.md), then revise this plan.
 - [ ] Implement the requirement.
-- [ ] Run targeted tests or quality checks.
-- [ ] Perform final self-review with `ai/workflows/code-review.md`.
-- [ ] Review CI expectations and run relevant local equivalents.
-- [ ] Update wiki documentation if behavior, architecture, testing strategy, or operations changed.
-- [ ] Update handoff notes.
+- [ ] Run targeted tests or quality checks and review CI expectations.
+- [ ] Perform two-pass self-review with `ai/workflows/code-review.md`.
+- [ ] Update wiki documentation and handoff notes when needed.
 
 ## Testing Strategy
 
@@ -98,11 +82,10 @@ TODO: Summarize the user's requirement in a few sentences.
 
 ## Code Review Strategy
 
-- TODO: Note files or risks that need extra self-review or PR-review attention.
-- TODO: Record whether review should focus on behavior, architecture, security/privacy, operations, docs, or tests.
+- TODO: Note files, risks, and review focus.
 - Pass 1 requirement fit: TODO `pending`, `passed`, `issues found`, or `not applicable`.
 - Pass 2 implementation quality and risk: TODO `pending`, `passed`, `issues found`, or `not applicable`.
-- TODO: Record any follow-up from either pass.
+- Follow-up: TODO.
 
 ## Decisions
 

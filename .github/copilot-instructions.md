@@ -15,10 +15,9 @@ Before making changes, read `AGENTS.md` and `ai/shared/agent-operating-contract.
 
 ## Working Rules
 
-- Before acting on a new request, route it with `packs/default/ai/workflows/workflow-dispatch.md` so quick tasks stay lightweight and larger work gets the right process.
-- For standard, large, or risky requirements, follow `packs/default/ai/workflows/requirement-planning.md` before implementation and use the local `requirements/<slug>/PLAN.md` as handoff context.
-- For implementation work, record a safe baseline verification in `PLAN.md` before source edits when one is available.
-- Before finalizing source changes, use the two-pass review in `packs/default/ai/workflows/code-review.md`.
+- Use `packs/default/ai/workflows/workflow-dispatch.md` first, then read only the workflows this task needs.
+- For non-quick work, use `packs/default/ai/workflows/requirement-planning.md`; keep `PLAN.md` for status and `FINDINGS.md` for reusable requirement context.
+- For implementation work, record baseline verification when available, validate before finishing, and use the two-pass review.
 - Keep instruction files short, concrete, and tool-aware.
 - Do not add secrets, tokens, or private local configuration.
 - Verify commands before documenting them, or label them as unverified.

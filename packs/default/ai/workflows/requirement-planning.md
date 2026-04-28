@@ -97,10 +97,9 @@ When no workspace exists for the requirement:
 8. Read any existing content in `FINDINGS.md` before wiki/source discovery.
 9. Read only the wiki/docs and source areas suggested by findings and the requirement.
 10. Update `FINDINGS.md` with reusable context, links, user clarifications, risks, and validation clues.
-11. Identify a baseline verification command from project docs, wiki, CI configuration, or existing scripts when one is safe and reasonably scoped.
-12. Run the baseline verification before source edits for `standard`, `large`, or `risky` implementation work, or record why it cannot be run.
-13. Fill in the useful plan after that context pass: prompt summary, complexity, translation when needed, assumptions, scope, non-goals, context strategy, baseline result, testing strategy, validation strategy, and implementation steps.
-14. Include architecture impact using `ai/workflows/architecture.md` when boundaries, data flow, contracts, or cross-cutting concerns may change.
+11. Identify and run a safe, reasonably scoped baseline verification before source edits, or record why it cannot be run.
+12. Fill in the useful plan after that context pass: summary, complexity, translation when needed, scope, context strategy, baseline result, validation strategy, and implementation steps.
+13. Include architecture impact using `ai/workflows/architecture.md` when boundaries, data flow, contracts, or cross-cutting concerns may change.
 
 Prefer using:
 
@@ -124,7 +123,7 @@ When the workspace already exists:
 
 `PLAN.md` should stay useful for a human and for any future agent. Keep it concise but current.
 
-Include:
+Include only sections that help the current requirement:
 
 - requirement title and slug,
 - expected branch,
