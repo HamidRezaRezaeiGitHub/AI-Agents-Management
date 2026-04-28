@@ -100,6 +100,9 @@ TODO: Summarize the user's requirement in a few sentences.
 
 - TODO: Note files or risks that need extra self-review or PR-review attention.
 - TODO: Record whether review should focus on behavior, architecture, security/privacy, operations, docs, or tests.
+- Pass 1 requirement fit: TODO `pending`, `passed`, `issues found`, or `not applicable`.
+- Pass 2 implementation quality and risk: TODO `pending`, `passed`, `issues found`, or `not applicable`.
+- TODO: Record any follow-up from either pass.
 
 ## Decisions
 

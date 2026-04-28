@@ -12,7 +12,7 @@ This directory contains reusable workflows, scripts, templates, prompts, and met
 - For terminal commands: `ai/workflows/command-execution.md`
 - For testing: `ai/workflows/testing-quality.md`
 - For CI readiness: `ai/workflows/ci-validation.md`
-- For final self-review or PR review: `ai/workflows/code-review.md`
+- For final self-review or PR review: `ai/workflows/code-review.md` with two passes: requirement fit, then implementation quality and risk
 - For wiki maintenance: `ai/workflows/wiki-documentation.md`
 
 ## Complexity Routing
@@ -25,6 +25,8 @@ This directory contains reusable workflows, scripts, templates, prompts, and met
 Use the lowest level that handles the real risk. If a task grows, update `PLAN.md` with the new level and why.
 
 For `standard`, `large`, or `risky` implementation work, identify and run a safe baseline verification before source edits when the project provides one. Record the command and result in `PLAN.md`.
+
+Before finalizing source changes or reviewing a PR, use the two-pass review in `ai/workflows/code-review.md`.
 
 ## Common Commands
 

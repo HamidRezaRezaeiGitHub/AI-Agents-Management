@@ -9,6 +9,7 @@ Follow the shared contract in @ai/shared/agent-operating-contract.md.
 - Before acting on a new request, route it with `packs/default/ai/workflows/workflow-dispatch.md` so quick tasks stay lightweight and larger work gets the right process.
 - For standard, large, or risky requirements, use `packs/default/ai/workflows/requirement-planning.md`.
 - For implementation work, record a safe baseline verification in `PLAN.md` before source edits when one is available.
+- Before finalizing source changes, use the two-pass review in `packs/default/ai/workflows/code-review.md`.
 - Keep `CLAUDE.md` high-signal because Claude Code loads it as project memory.
 - Prefer importing shared files with `@path` instead of duplicating long guidance.
 - Store project commands in `.claude/commands/`.

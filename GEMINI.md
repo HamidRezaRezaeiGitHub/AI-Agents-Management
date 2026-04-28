@@ -9,6 +9,7 @@ Read and follow `ai/shared/agent-operating-contract.md` before making changes he
 - Before acting on a new request, route it with `packs/default/ai/workflows/workflow-dispatch.md` so quick tasks stay lightweight and larger work gets the right process.
 - For standard, large, or risky requirements, follow `packs/default/ai/workflows/requirement-planning.md` and read the local requirement `PLAN.md` before broad source search.
 - For implementation work, record a safe baseline verification in `PLAN.md` before source edits when one is available.
+- Before finalizing source changes, use the two-pass review in `packs/default/ai/workflows/code-review.md`.
 - Keep `GEMINI.md` concise because Gemini CLI loads context files into the model prompt.
 - Use `.gemini/settings.json` for project Gemini CLI configuration only when settings are safe to share.
 - Use nested `GEMINI.md` files only when a subtree needs different instructions.

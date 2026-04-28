@@ -1,5 +1,5 @@
 name: default-agent-instruction-pack
-version: 0.4.1
+version: 0.4.2
 description: Portable starter pack for multi-agent coding assistants.
 
 entry_files:
@@ -34,7 +34,7 @@ shared_sources:
   - path: packs/default/ai/workflows/testing-quality.md
     purpose: QA-minded testing guidance.
   - path: packs/default/ai/workflows/code-review.md
-    purpose: Final self-review and PR review guidance.
+    purpose: Two-pass final self-review and PR review guidance.
   - path: packs/default/ai/workflows/vibe-coding-translation.md
     purpose: Translation of non-developer or vibe-style requests into concrete requirements.
 

@@ -15,7 +15,7 @@ Follow `AGENTS.md` for project instructions.
 - Use concise terminal output per `ai/workflows/command-execution.md`.
 - Before finishing implementation work, follow `ai/workflows/ci-validation.md`.
 - When working on tests, follow `ai/workflows/testing-quality.md`.
-- Before finalizing source changes or reviewing a PR, follow `ai/workflows/code-review.md`.
+- Before finalizing source changes or reviewing a PR, follow the two-pass `ai/workflows/code-review.md`.
 - Use `/memory` to inspect loaded memory files if behavior seems inconsistent.
 - Add project commands under `.claude/commands/` only when they are reusable by the team.
 - Add project subagents under `.claude/agents/` only for recurring specialized workflows.

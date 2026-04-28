@@ -35,7 +35,7 @@ Mark commands as verified after running them.
 - Follow `ai/workflows/command-execution.md` when running terminal commands.
 - Follow `ai/workflows/ci-validation.md` before finishing implementation work.
 - Follow `ai/workflows/testing-quality.md` when creating, editing, or reviewing tests.
-- Follow `ai/workflows/code-review.md` before finalizing source changes or reviewing a PR.
+- Follow the two-pass `ai/workflows/code-review.md` before finalizing source changes or reviewing a PR.
 - Inspect existing patterns before editing.
 - Keep changes scoped to the task.
 - Do not add dependencies without a clear reason.
