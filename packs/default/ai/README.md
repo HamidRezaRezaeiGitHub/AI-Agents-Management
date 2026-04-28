@@ -26,6 +26,8 @@ Use the lowest level that handles the real risk. If a task grows, update `PLAN.m
 
 For `standard`, `large`, or `risky` implementation work, identify and run a safe baseline verification before source edits when the project provides one. Record the command and result in `PLAN.md`.
 
+Ask clarifying questions proportionally: none for quick work unless blocked, a few for standard work, and more for large or risky work. Prefer interactive multiple-choice tools when available, with a recommended default.
+
 Before finalizing source changes or reviewing a PR, use the two-pass review in `ai/workflows/code-review.md`.
 
 ## Common Commands

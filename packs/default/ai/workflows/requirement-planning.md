@@ -97,9 +97,10 @@ When no workspace exists for the requirement:
 8. Read any existing content in `FINDINGS.md` before wiki/source discovery.
 9. Read only the wiki/docs and source areas suggested by findings and the requirement.
 10. Update `FINDINGS.md` with reusable context, links, user clarifications, risks, and validation clues.
-11. Identify and run a safe, reasonably scoped baseline verification before source edits, or record why it cannot be run.
-12. Fill in the useful plan after that context pass: summary, complexity, translation when needed, scope, context strategy, baseline result, validation strategy, and implementation steps.
-13. Include architecture impact using `ai/workflows/architecture.md` when boundaries, data flow, contracts, or cross-cutting concerns may change.
+11. Ask proportional clarifying questions only for decisions that remain unresolved after the context pass.
+12. Identify and run a safe, reasonably scoped baseline verification before source edits, or record why it cannot be run.
+13. Fill in the useful plan after that context pass: summary, complexity, translation when needed, scope, clarifications, context strategy, baseline result, validation strategy, and implementation steps.
+14. Include architecture impact using `ai/workflows/architecture.md` when boundaries, data flow, contracts, or cross-cutting concerns may change.
 
 Prefer using:
 
@@ -132,6 +133,7 @@ Include only sections that help the current requirement:
 - prompt summary,
 - complexity and routing decisions,
 - vibe-coding translation when relevant,
+- clarifying questions and decisions,
 - assumptions,
 - scope and non-goals,
 - context strategy,
@@ -161,6 +163,19 @@ Include only sections that help the current requirement:
 - Keep `PLAN.md` focused on control flow, decisions, validation, and status.
 - Keep raw logs and large copied outputs out of `PLAN.md`; summarize and link to files when needed.
 - Follow `ai/workflows/command-execution.md` when running terminal commands.
+
+## Proportional Clarifying Questions
+
+Ask questions gradually, based on complexity:
+
+- `quick`: ask only if blocked; otherwise use an obvious safe default and continue.
+- `standard`: ask up to 1-3 decision-shaping questions after checking `FINDINGS.md`, wiki/docs, and narrow source context.
+- `large`: ask a focused batch of 3-7 questions, grouped by decision area.
+- `risky`: ask enough questions to resolve safety, data, privacy, security, operations, or irreversible decisions before implementation.
+
+Before asking, answer anything that can be discovered from existing files, wiki pages, CI, tests, or source code. For each user-facing question, include a recommended answer or default. When an interactive input or IDE tool supports multiple-choice questions, use it and put the recommended option first. If no such tool is available, ask concise numbered questions with recommended defaults; for non-blocking questions, document the assumption in `PLAN.md` and keep moving.
+
+Record answered questions, defaults, and assumptions in `PLAN.md`. Put reusable context in `FINDINGS.md`.
 
 ## Quality Planning
 
