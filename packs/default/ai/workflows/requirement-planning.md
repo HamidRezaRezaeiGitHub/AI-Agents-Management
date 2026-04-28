@@ -63,7 +63,7 @@ When no workspace exists for the requirement:
 2. Add `requirements/` to `.gitignore`.
 3. Create the feature branch.
 4. Create `PLAN.md` from the template.
-5. Write the requirement title, slug, branch, prompt summary, assumptions, first plan, and validation strategy.
+5. Write the requirement title, slug, branch, prompt summary, assumptions, first plan, context strategy, testing strategy, and validation strategy.
 
 Prefer using:
 
@@ -77,8 +77,9 @@ When the workspace already exists:
 
 1. Read `requirements/<slug>/PLAN.md` first.
 2. Check the current branch against the expected branch in the plan.
-3. Update the plan with current status before making substantial changes.
-4. Append decisions, blockers, validation results, and handoff notes as work progresses.
+3. Review the context, testing, and validation sections before broad source search.
+4. Update the plan with current status before making substantial changes.
+5. Append decisions, blockers, validation results, and handoff notes as work progresses.
 
 ## PLAN.md Expectations
 
@@ -92,7 +93,10 @@ Include:
 - prompt summary,
 - assumptions,
 - scope and non-goals,
+- context strategy,
 - plan checklist,
+- testing strategy,
+- CI/validation strategy,
 - decisions,
 - validation,
 - handoff notes.
@@ -100,10 +104,22 @@ Include:
 ## Context And Token Optimization
 
 - Start from `PLAN.md` before scanning source code.
-- Read documented architecture and command references before broad code search.
+- Read `wiki/index.md` and relevant wiki pages when they exist.
+- Read documented architecture, testing, CI, and command references before broad code search.
 - Search source code only for the part of the requirement being worked on.
 - Update `PLAN.md` with discoveries that future agents would otherwise need to rediscover.
 - Keep raw logs and large copied outputs out of `PLAN.md`; summarize and link to files when needed.
+- Follow `ai/workflows/command-execution.md` when running terminal commands.
+
+## Quality Planning
+
+For implementation requirements, the plan should identify the likely validation surface before coding:
+
+- Relevant tests or test areas, using `ai/workflows/testing-quality.md`.
+- CI expectations, using `ai/workflows/ci-validation.md`.
+- Wiki pages that may need updates, using `ai/workflows/wiki-documentation.md`.
+
+If a project lacks explicit commands, inspect CI configuration, package scripts, build files, and wiki/docs before deciding what to run.
 
 ## Suggested Improvements
 
