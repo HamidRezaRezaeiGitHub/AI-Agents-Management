@@ -31,6 +31,8 @@ shared_sources:
     purpose: CI discovery and validation expectations before finishing work.
   - path: packs/default/ai/workflows/testing-quality.md
     purpose: QA-minded testing guidance.
+  - path: packs/default/ai/workflows/code-review.md
+    purpose: Final self-review and PR review guidance.
   - path: packs/default/ai/workflows/vibe-coding-translation.md
     purpose: Translation of non-developer or vibe-style requests into concrete requirements.
 
@@ -63,6 +65,7 @@ adoption:
     - .github/instructions/architecture.instructions.md
     - .github/instructions/ci-validation.instructions.md
     - .github/instructions/testing-quality.instructions.md
+    - .github/instructions/code-review.instructions.md
     - .claude/commands/start-requirement.md
     - ai/pack.yaml
     - ai/workflows/requirement-planning.md
@@ -71,6 +74,7 @@ adoption:
     - ai/workflows/command-execution.md
     - ai/workflows/ci-validation.md
     - ai/workflows/testing-quality.md
+    - ai/workflows/code-review.md
     - ai/workflows/vibe-coding-translation.md
     - ai/pack.yaml
     - ai/templates/requirement/PLAN.md

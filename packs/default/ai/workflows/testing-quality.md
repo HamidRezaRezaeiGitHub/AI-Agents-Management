@@ -63,3 +63,5 @@ For each meaningful change, ask:
 Use project-specific commands discovered from docs, package scripts, or CI configuration.
 
 Use `ai/workflows/command-execution.md` for concise output. If tests fail and filtered output is insufficient, rerun the failing file, test name, package, or full command with enough output to debug.
+
+Before finalizing test-related work, use `ai/workflows/code-review.md` to review whether tests cover meaningful behavior and whether any failing tests were weakened or skipped.

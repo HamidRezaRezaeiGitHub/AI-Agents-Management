@@ -1,6 +1,6 @@
 # CI Validation Workflow
 
-Use this workflow before finishing implementation work and especially before committing or opening a pull request.
+Use this workflow before finishing implementation work, before code review, and especially before committing or opening a pull request.
 
 ## Goal
 

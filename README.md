@@ -106,6 +106,7 @@ The installer copies the default pack into these target paths:
 - `.github/instructions/architecture.instructions.md`
 - `.github/instructions/ci-validation.instructions.md`
 - `.github/instructions/testing-quality.instructions.md`
+- `.github/instructions/code-review.instructions.md`
 - `.claude/commands/start-requirement.md`
 - `ai/pack.yaml`
 - `ai/workflows/requirement-planning.md`
@@ -114,6 +115,7 @@ The installer copies the default pack into these target paths:
 - `ai/workflows/command-execution.md`
 - `ai/workflows/ci-validation.md`
 - `ai/workflows/testing-quality.md`
+- `ai/workflows/code-review.md`
 - `ai/workflows/vibe-coding-translation.md`
 - `ai/templates/requirement/PLAN.md`
 - `ai/templates/wiki/index.md`

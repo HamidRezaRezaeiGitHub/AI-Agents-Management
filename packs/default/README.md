@@ -14,6 +14,7 @@ Files under this directory are source templates. `scripts/install-adapter.sh` ma
 - `root/.github/instructions/architecture.instructions.md` -> `.github/instructions/architecture.instructions.md`
 - `root/.github/instructions/ci-validation.instructions.md` -> `.github/instructions/ci-validation.instructions.md`
 - `root/.github/instructions/testing-quality.instructions.md` -> `.github/instructions/testing-quality.instructions.md`
+- `root/.github/instructions/code-review.instructions.md` -> `.github/instructions/code-review.instructions.md`
 - `claude/commands/start-requirement.md` -> `.claude/commands/start-requirement.md`
 - `ai/pack.yaml` -> `ai/pack.yaml`
 - `ai/workflows/requirement-planning.md` -> `ai/workflows/requirement-planning.md`
@@ -22,6 +23,7 @@ Files under this directory are source templates. `scripts/install-adapter.sh` ma
 - `ai/workflows/command-execution.md` -> `ai/workflows/command-execution.md`
 - `ai/workflows/ci-validation.md` -> `ai/workflows/ci-validation.md`
 - `ai/workflows/testing-quality.md` -> `ai/workflows/testing-quality.md`
+- `ai/workflows/code-review.md` -> `ai/workflows/code-review.md`
 - `ai/workflows/vibe-coding-translation.md` -> `ai/workflows/vibe-coding-translation.md`
 - `ai/templates/requirement/PLAN.md` -> `ai/templates/requirement/PLAN.md`
 - `ai/templates/wiki/index.md` -> `ai/templates/wiki/index.md`

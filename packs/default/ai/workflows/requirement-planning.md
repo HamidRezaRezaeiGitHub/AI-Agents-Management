@@ -102,6 +102,7 @@ Include:
 - plan checklist,
 - testing strategy,
 - CI/validation strategy,
+- code review strategy,
 - decisions,
 - validation,
 - handoff notes.
@@ -127,6 +128,7 @@ For implementation requirements, the plan should identify the likely validation 
 - Architecture impact, using `ai/workflows/architecture.md`.
 - Relevant tests or test areas, using `ai/workflows/testing-quality.md`.
 - CI expectations, using `ai/workflows/ci-validation.md`.
+- Final self-review or PR-review needs, using `ai/workflows/code-review.md`.
 - Wiki pages that may need updates, using `ai/workflows/wiki-documentation.md`.
 
 If a project lacks explicit commands, inspect CI configuration, package scripts, build files, and wiki/docs before deciding what to run.

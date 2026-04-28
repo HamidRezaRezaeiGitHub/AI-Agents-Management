@@ -11,6 +11,7 @@ Follow `AGENTS.md` for project instructions.
 - Use concise terminal output per `ai/workflows/command-execution.md`.
 - Before finishing implementation work, follow `ai/workflows/ci-validation.md`.
 - When working on tests, follow `ai/workflows/testing-quality.md`.
+- Before finalizing source changes or reviewing a PR, follow `ai/workflows/code-review.md`.
 - Prefer existing project patterns.
 - Run the validation commands listed in `AGENTS.md` when relevant.
 - Use path-specific files under `.github/instructions/` for language or subtree-specific rules.

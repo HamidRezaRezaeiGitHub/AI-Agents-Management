@@ -59,6 +59,7 @@ TODO: Summarize the user's requirement in a few sentences.
 - [ ] Fill in or revise this plan after context discovery.
 - [ ] Implement the requirement.
 - [ ] Run targeted tests or quality checks.
+- [ ] Perform final self-review with `ai/workflows/code-review.md`.
 - [ ] Review CI expectations and run relevant local equivalents.
 - [ ] Update wiki documentation if behavior, architecture, testing strategy, or operations changed.
 - [ ] Update handoff notes.
@@ -71,6 +72,11 @@ TODO: Summarize the user's requirement in a few sentences.
 
 - TODO: Identify CI configuration or project docs that define required checks.
 - TODO: Record validation commands to run, using concise output where possible.
+
+## Code Review Strategy
+
+- TODO: Note files or risks that need extra self-review or PR-review attention.
+- TODO: Record whether review should focus on behavior, architecture, security/privacy, operations, docs, or tests.
 
 ## Decisions
 

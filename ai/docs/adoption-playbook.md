@@ -24,6 +24,7 @@ Copy or generate:
 - `ai/workflows/command-execution.md`
 - `ai/workflows/ci-validation.md`
 - `ai/workflows/testing-quality.md`
+- `ai/workflows/code-review.md`
 - `ai/workflows/vibe-coding-translation.md`
 - `ai/templates/requirement/PLAN.md`
 - `ai/templates/wiki/*.md`
