@@ -25,6 +25,7 @@ For tiny documentation-only changes, use a lighter pass focused on correctness a
 Start from:
 
 - `requirements/<slug>/PLAN.md` when available,
+- `requirements/<slug>/FINDINGS.md` when available,
 - PR description, issue, or user request,
 - changed-file list and diff,
 - relevant wiki pages,
@@ -42,6 +43,7 @@ Before asking someone else to review or before finalizing:
 3. Remove accidental files, debug code, dead code, and unrelated changes.
 4. Add notes for reviewers when file order, risky areas, or non-obvious decisions matter.
 5. Verify tests, CI expectations, and wiki updates are recorded in the plan.
+6. Verify important review findings are captured in `FINDINGS.md` or the PR review when they help future agents.
 
 ## Review Order
 

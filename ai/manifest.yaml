@@ -44,6 +44,7 @@ adoption:
     - ai/docs/agent-discovery-matrix.md
   templates:
     - packs/default/ai/templates/requirement/PLAN.md
+    - packs/default/ai/templates/requirement/FINDINGS.md
     - packs/default/ai/templates/wiki/index.md
     - packs/default/ai/templates/wiki/log.md
     - packs/default/ai/templates/wiki/page.md
@@ -77,8 +78,8 @@ adoption:
     - ai/workflows/testing-quality.md
     - ai/workflows/code-review.md
     - ai/workflows/vibe-coding-translation.md
-    - ai/pack.yaml
     - ai/templates/requirement/PLAN.md
+    - ai/templates/requirement/FINDINGS.md
     - ai/templates/wiki/index.md
     - ai/templates/wiki/log.md
     - ai/templates/wiki/page.md

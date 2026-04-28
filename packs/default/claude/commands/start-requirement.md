@@ -12,6 +12,7 @@ Use `ai/scripts/start-requirement.sh "$ARGUMENTS"` when a title is provided. If 
 After the script runs:
 
 - read the generated `requirements/<slug>/PLAN.md`,
+- read the generated `requirements/<slug>/FINDINGS.md`,
 - update TODOs with the user's requirement and first plan,
 - confirm the current branch matches the plan,
 - continue from the plan.

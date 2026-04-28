@@ -27,6 +27,7 @@ Copy or generate:
 - `ai/workflows/code-review.md`
 - `ai/workflows/vibe-coding-translation.md`
 - `ai/templates/requirement/PLAN.md`
+- `ai/templates/requirement/FINDINGS.md`
 - `ai/templates/wiki/*.md`
 - `ai/scripts/start-requirement.sh`
 - `ai/scripts/audit-adoption.sh`

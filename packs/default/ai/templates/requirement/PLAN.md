@@ -6,6 +6,7 @@
 - Expected branch: `{{BRANCH}}`
 - Created: `{{CREATED_AT}}`
 - Status: planning
+- Findings: [FINDINGS.md](./FINDINGS.md)
 
 ## Prompt Summary
 
@@ -34,7 +35,8 @@ TODO: Summarize the user's requirement in a few sentences.
 
 ## Context Strategy
 
-- TODO: Start from `wiki/index.md` if present, then read only relevant wiki/docs/source files.
+- TODO: Start from [FINDINGS.md](./FINDINGS.md), then `wiki/index.md` if present, then only relevant wiki/docs/source files.
+- TODO: Record requirement-specific discoveries in [FINDINGS.md](./FINDINGS.md).
 - TODO: Note source areas likely relevant to this requirement.
 - TODO: Note commands that may have verbose output and should use filtering.
 
@@ -53,9 +55,11 @@ TODO: Summarize the user's requirement in a few sentences.
 - [ ] Create local requirement workspace.
 - [ ] Ensure `requirements/` is ignored by git.
 - [ ] Create or switch to the expected feature branch.
+- [ ] Review existing [FINDINGS.md](./FINDINGS.md) before wiki/docs/source search.
 - [ ] Review relevant wiki/docs before broad source search.
 - [ ] Check architecture impact and consult `ai/workflows/architecture.md` if needed.
 - [ ] Inspect narrowly relevant source code after wiki/docs context.
+- [ ] Update [FINDINGS.md](./FINDINGS.md) with reusable context and links.
 - [ ] Fill in or revise this plan after context discovery.
 - [ ] Implement the requirement.
 - [ ] Run targeted tests or quality checks.
@@ -88,4 +92,4 @@ TODO: Summarize the user's requirement in a few sentences.
 
 ## Handoff Notes
 
-- TODO: Add what the next agent or future self should know.
+- TODO: Add what the next agent or future self should know. Keep detailed reusable context in [FINDINGS.md](./FINDINGS.md).

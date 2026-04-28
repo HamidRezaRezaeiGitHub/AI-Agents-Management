@@ -13,7 +13,9 @@ This behavior is a workflow instruction plus templates:
 
 ## Core Idea
 
-The wiki is a compiled knowledge layer. Source code, READMEs, ADRs, issues, and requirement plans remain source material. The wiki summarizes stable project knowledge: architecture, domain concepts, conventions, operations, data flows, and important decisions.
+The wiki is a compiled knowledge layer. Source code, READMEs, ADRs, issues, requirement plans, and requirement findings remain source material. The wiki summarizes stable project knowledge: architecture, domain concepts, conventions, operations, data flows, and important decisions.
+
+Requirement-specific findings belong in `requirements/<slug>/FINDINGS.md` first. Promote them into the wiki only when they become durable project knowledge.
 
 Agents should use the wiki to reduce broad source scans. Start from `wiki/index.md`, read only relevant wiki pages, then inspect source code narrowly when implementation details are needed.
 

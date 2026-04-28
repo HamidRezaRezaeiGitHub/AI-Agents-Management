@@ -74,6 +74,7 @@ copy_if_missing "$pack/ai/workflows/testing-quality.md" "$target/ai/workflows/te
 copy_if_missing "$pack/ai/workflows/code-review.md" "$target/ai/workflows/code-review.md"
 copy_if_missing "$pack/ai/workflows/vibe-coding-translation.md" "$target/ai/workflows/vibe-coding-translation.md"
 copy_if_missing "$pack/ai/templates/requirement/PLAN.md" "$target/ai/templates/requirement/PLAN.md"
+copy_if_missing "$pack/ai/templates/requirement/FINDINGS.md" "$target/ai/templates/requirement/FINDINGS.md"
 copy_if_missing "$pack/ai/templates/wiki/index.md" "$target/ai/templates/wiki/index.md"
 copy_if_missing "$pack/ai/templates/wiki/log.md" "$target/ai/templates/wiki/log.md"
 copy_if_missing "$pack/ai/templates/wiki/page.md" "$target/ai/templates/wiki/page.md"

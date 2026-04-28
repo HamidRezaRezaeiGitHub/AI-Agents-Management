@@ -50,6 +50,7 @@ check_mapping "$pack/ai/workflows/testing-quality.md" "ai/workflows/testing-qual
 check_mapping "$pack/ai/workflows/code-review.md" "ai/workflows/code-review.md"
 check_mapping "$pack/ai/workflows/vibe-coding-translation.md" "ai/workflows/vibe-coding-translation.md"
 check_mapping "$pack/ai/templates/requirement/PLAN.md" "ai/templates/requirement/PLAN.md"
+check_mapping "$pack/ai/templates/requirement/FINDINGS.md" "ai/templates/requirement/FINDINGS.md"
 check_mapping "$pack/ai/templates/wiki/index.md" "ai/templates/wiki/index.md"
 check_mapping "$pack/ai/templates/wiki/log.md" "ai/templates/wiki/log.md"
 check_mapping "$pack/ai/templates/wiki/page.md" "ai/templates/wiki/page.md"

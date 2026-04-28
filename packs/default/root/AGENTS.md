@@ -25,6 +25,7 @@ Mark commands as verified after running them.
 
 - For the workflow map, read `ai/README.md`.
 - For non-trivial requirements, follow `ai/workflows/requirement-planning.md` before implementation.
+- Use `requirements/<slug>/FINDINGS.md` to share requirement-specific discoveries between agents.
 - For non-developer or vibe-style requests, translate first with `ai/workflows/vibe-coding-translation.md`.
 - For project orientation, start with `wiki/index.md` when it exists, then inspect source code narrowly.
 - For architecture-sensitive work, consult `ai/workflows/architecture.md` and relevant `wiki/architecture/` pages.

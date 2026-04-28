@@ -123,6 +123,7 @@ The installer copies the default pack into these target paths:
 - `ai/workflows/code-review.md`
 - `ai/workflows/vibe-coding-translation.md`
 - `ai/templates/requirement/PLAN.md`
+- `ai/templates/requirement/FINDINGS.md`
 - `ai/templates/wiki/index.md`
 - `ai/templates/wiki/log.md`
 - `ai/templates/wiki/page.md`
@@ -144,9 +145,11 @@ After adoption, create a local ignored requirement workspace and branch from the
 ai/scripts/start-requirement.sh "Requirement Planning Workflow"
 ```
 
-In an adopting project, this creates `requirements/<slug>/PLAN.md`, ensures `requirements/` is ignored, and creates or switches to a `feature/<slug>` branch.
+In an adopting project, this creates `requirements/<slug>/PLAN.md` and `requirements/<slug>/FINDINGS.md`, ensures `requirements/` is ignored, and creates or switches to a `feature/<slug>` branch.
 
 The plan is scaffolded first. The agent should fill the detailed plan after reading relevant wiki/docs and narrowly required source code, so the plan reflects real project context rather than guesses.
+
+Use `FINDINGS.md` for requirement-specific context, links, user clarifications, source notes, risks, and validation clues that would help future agents avoid repeating discovery work.
 
 ## Wiki Lint
 

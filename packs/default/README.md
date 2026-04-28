@@ -27,6 +27,7 @@ Files under this directory are source templates. `scripts/install-adapter.sh` ma
 - `ai/workflows/code-review.md` -> `ai/workflows/code-review.md`
 - `ai/workflows/vibe-coding-translation.md` -> `ai/workflows/vibe-coding-translation.md`
 - `ai/templates/requirement/PLAN.md` -> `ai/templates/requirement/PLAN.md`
+- `ai/templates/requirement/FINDINGS.md` -> `ai/templates/requirement/FINDINGS.md`
 - `ai/templates/wiki/index.md` -> `ai/templates/wiki/index.md`
 - `ai/templates/wiki/log.md` -> `ai/templates/wiki/log.md`
 - `ai/templates/wiki/page.md` -> `ai/templates/wiki/page.md`

@@ -22,6 +22,8 @@ ai/scripts/audit-adoption.sh
 ai/scripts/wiki-lint.sh
 ```
 
+`start-requirement.sh` creates both `PLAN.md` and `FINDINGS.md` under `requirements/<slug>/`.
+
 ## Metadata
 
 `ai/pack.yaml` records the installed pack version.

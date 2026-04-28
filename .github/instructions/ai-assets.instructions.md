@@ -14,3 +14,4 @@ applyTo: "ai/**,packs/**,.claude/**,.gemini/**,.github/**,AGENTS.md,CLAUDE.md,GE
 - For vibe-coding translation, keep behavior project-agnostic and focused on clarifying intent before implementation.
 - For architecture guidance, keep behavior focused on current system boundaries, data flow, contracts, decisions, and wiki documentation.
 - For code review guidance, prioritize behavioral defects, architecture fit, tests, CI, security/privacy, operations, and documentation drift over style.
+- For requirement handoff changes, keep `PLAN.md` focused on control flow and `FINDINGS.md` focused on reusable requirement-specific context.
