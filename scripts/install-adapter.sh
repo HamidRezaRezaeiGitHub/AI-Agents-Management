@@ -65,6 +65,7 @@ copy_if_missing "$pack/root/.github/instructions/testing-quality.instructions.md
 copy_if_missing "$pack/root/.github/instructions/code-review.instructions.md" "$target/.github/instructions/code-review.instructions.md"
 copy_if_missing "$pack/ai/README.md" "$target/ai/README.md"
 copy_if_missing "$pack/ai/pack.yaml" "$target/ai/pack.yaml"
+copy_if_missing "$pack/ai/workflows/workflow-dispatch.md" "$target/ai/workflows/workflow-dispatch.md"
 copy_if_missing "$pack/ai/workflows/requirement-planning.md" "$target/ai/workflows/requirement-planning.md"
 copy_if_missing "$pack/ai/workflows/wiki-documentation.md" "$target/ai/workflows/wiki-documentation.md"
 copy_if_missing "$pack/ai/workflows/architecture.md" "$target/ai/workflows/architecture.md"

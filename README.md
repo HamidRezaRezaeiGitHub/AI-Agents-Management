@@ -25,6 +25,7 @@ This repo is designed around one rule: keep high-signal behavior in reusable wor
 - `ai/docs/sync-strategy.md` - how to keep central and project-local guidance aligned.
 - `ai/manifest.yaml` - lightweight metadata for this instruction pack.
 - `packs/default/` - installable default pack for adopting projects.
+- `packs/default/ai/workflows/workflow-dispatch.md` - lightweight dispatcher that routes quick, standard, large, and risky work without unnecessary token burn.
 - `packs/default/ai/workflows/requirement-planning.md` - local requirement planning, branch, and handoff workflow copied into adopting projects.
 - `packs/default/ai/templates/requirement/PLAN.md` - template used for local requirement plans.
 - `packs/default/ai/prompts/adoption/` - prepared prompts for common adoption and migration scenarios.
@@ -114,6 +115,7 @@ The installer copies the default pack into these target paths:
 - `.claude/commands/start-requirement.md`
 - `ai/README.md`
 - `ai/pack.yaml`
+- `ai/workflows/workflow-dispatch.md`
 - `ai/workflows/requirement-planning.md`
 - `ai/workflows/wiki-documentation.md`
 - `ai/workflows/architecture.md`

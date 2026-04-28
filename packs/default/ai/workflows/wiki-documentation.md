@@ -1,3 +1,15 @@
+---
+name: wiki-documentation
+use_when: Reading, maintaining, or promoting durable project knowledge into the project wiki.
+reads:
+  - wiki/index.md
+  - wiki/log.md
+  - requirements/<slug>/FINDINGS.md
+writes:
+  - wiki/
+strictness: contextual
+---
+
 # Wiki Documentation Workflow
 
 Use this workflow to maintain a project-local LLM wiki: a concise, linked Markdown knowledge base that helps humans and AI agents understand the project without repeatedly scanning all source code.

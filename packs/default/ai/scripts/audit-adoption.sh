@@ -1,7 +1,7 @@
 #!/bin/sh
 set -eu
 
-expected_version="0.3.0"
+expected_version="0.4.0"
 status=0
 
 check_file() {
@@ -38,6 +38,7 @@ check_file ".github/instructions/code-review.instructions.md"
 check_file ".claude/commands/start-requirement.md"
 check_file "ai/README.md"
 check_file "ai/pack.yaml"
+check_file "ai/workflows/workflow-dispatch.md"
 check_file "ai/workflows/requirement-planning.md"
 check_file "ai/workflows/wiki-documentation.md"
 check_file "ai/workflows/architecture.md"

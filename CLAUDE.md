@@ -6,7 +6,8 @@ Follow the shared contract in @ai/shared/agent-operating-contract.md.
 
 ## Claude-Specific Notes
 
-- For non-trivial requirements, use `packs/default/ai/workflows/requirement-planning.md`.
+- Before acting on a new request, route it with `packs/default/ai/workflows/workflow-dispatch.md` so quick tasks stay lightweight and larger work gets the right process.
+- For standard, large, or risky requirements, use `packs/default/ai/workflows/requirement-planning.md`.
 - Keep `CLAUDE.md` high-signal because Claude Code loads it as project memory.
 - Prefer importing shared files with `@path` instead of duplicating long guidance.
 - Store project commands in `.claude/commands/`.

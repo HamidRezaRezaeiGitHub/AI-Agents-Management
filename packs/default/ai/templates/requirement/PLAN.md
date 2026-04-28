@@ -12,6 +12,14 @@
 
 TODO: Summarize the user's requirement in a few sentences.
 
+## Complexity And Routing
+
+- Level: TODO `quick`, `standard`, `large`, or `risky`.
+- Why this level: TODO.
+- Workflows to use: TODO.
+- Workflows intentionally skipped for token efficiency: TODO.
+- Escalation triggers: TODO: note what would make this task larger or riskier.
+
 ## Vibe Coding Translation
 
 - Needed: TODO `yes` or `no`.
@@ -50,6 +58,7 @@ TODO: Summarize the user's requirement in a few sentences.
 ## Plan
 
 - [ ] Confirm or infer requirement title.
+- [ ] Classify complexity with `ai/workflows/workflow-dispatch.md`.
 - [ ] Decide whether vibe-coding translation is needed.
 - [ ] Translate user-facing intent into concrete acceptance criteria when needed.
 - [ ] Create local requirement workspace.

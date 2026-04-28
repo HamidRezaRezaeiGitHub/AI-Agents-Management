@@ -1,3 +1,16 @@
+---
+name: code-review
+use_when: Reviewing a pull request, reviewing another agent's changes, or performing final self-review before marking source work complete.
+reads:
+  - requirements/<slug>/PLAN.md
+  - requirements/<slug>/FINDINGS.md
+  - git diff
+writes:
+  - requirements/<slug>/PLAN.md
+  - requirements/<slug>/FINDINGS.md
+strictness: required_before_source_completion
+---
+
 # Code Review Workflow
 
 Use this workflow when reviewing a pull request, reviewing another agent's changes, or performing a final self-review before marking source work complete.

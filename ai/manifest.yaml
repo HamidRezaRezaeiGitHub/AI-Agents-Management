@@ -1,5 +1,5 @@
 name: default-agent-instruction-pack
-version: 0.3.0
+version: 0.4.0
 description: Portable starter pack for multi-agent coding assistants.
 
 entry_files:
@@ -19,6 +19,8 @@ entry_files:
 shared_sources:
   - path: ai/shared/agent-operating-contract.md
     purpose: Canonical shared behavior.
+  - path: packs/default/ai/workflows/workflow-dispatch.md
+    purpose: Lightweight workflow dispatcher and complexity routing.
   - path: packs/default/ai/workflows/requirement-planning.md
     purpose: Requirement planning, local workspace, branch, and handoff workflow.
   - path: packs/default/ai/workflows/wiki-documentation.md
@@ -70,6 +72,7 @@ adoption:
     - .claude/commands/start-requirement.md
     - ai/README.md
     - ai/pack.yaml
+    - ai/workflows/workflow-dispatch.md
     - ai/workflows/requirement-planning.md
     - ai/workflows/wiki-documentation.md
     - ai/workflows/architecture.md

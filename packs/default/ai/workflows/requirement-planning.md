@@ -1,3 +1,17 @@
+---
+name: requirement-planning
+use_when: Starting or resuming a standard, large, or risky requirement, feature, bug fix, refactor, investigation, or multi-step documentation task.
+reads:
+  - ai/workflows/workflow-dispatch.md
+  - requirements/<slug>/PLAN.md
+  - requirements/<slug>/FINDINGS.md
+  - wiki/index.md
+writes:
+  - requirements/<slug>/PLAN.md
+  - requirements/<slug>/FINDINGS.md
+strictness: required_for_non_quick_work
+---
+
 # Requirement Planning Workflow
 
 Use this workflow at the beginning of any non-trivial requirement, feature, bug fix, refactor, investigation, or multi-step documentation task.
@@ -21,6 +35,19 @@ Start or resume a requirement workspace when:
 - planning, investigation, implementation, and validation need to be tracked together.
 
 For tiny one-shot edits, use judgment. Do not create requirement workspaces for trivial commands or purely conversational answers.
+
+Before starting, use `ai/workflows/workflow-dispatch.md` to classify the request as `quick`, `standard`, `large`, or `risky`. Only `standard`, `large`, and `risky` requests need this workflow by default.
+
+## Complexity Routing
+
+Record one complexity level in `PLAN.md`:
+
+- `quick`: skip the requirement workspace unless the user asks. Use concise command execution and make the smallest safe edit.
+- `standard`: create the workspace, read `FINDINGS.md` before wiki/source discovery, then plan and implement normally.
+- `large`: use the standard flow, plus explicit architecture, testing, CI, and code review checkpoints.
+- `risky`: use the large flow, call out safety/privacy/operations risks, and ask before irreversible or production-impacting actions.
+
+If a task grows, update the complexity and explain why. If a workflow is skipped to save tokens, record the reason.
 
 ## Title And Slug
 
@@ -65,12 +92,13 @@ When no workspace exists for the requirement:
 3. Create the feature branch.
 4. Create `PLAN.md` from the template as a scaffold.
 5. Create `FINDINGS.md` from the template as the requirement-specific context cache.
-6. Detect whether the prompt needs vibe-coding translation using `ai/workflows/vibe-coding-translation.md`.
-7. Read any existing content in `FINDINGS.md` before wiki/source discovery.
-8. Read only the wiki/docs and source areas suggested by findings and the requirement.
-9. Update `FINDINGS.md` with reusable context, links, user clarifications, risks, and validation clues.
-10. Fill in the useful plan after that context pass: prompt summary, translation when needed, assumptions, scope, non-goals, context strategy, testing strategy, validation strategy, and implementation steps.
-11. Include architecture impact using `ai/workflows/architecture.md` when boundaries, data flow, contracts, or cross-cutting concerns may change.
+6. Record complexity using `ai/workflows/workflow-dispatch.md`.
+7. Detect whether the prompt needs vibe-coding translation using `ai/workflows/vibe-coding-translation.md`.
+8. Read any existing content in `FINDINGS.md` before wiki/source discovery.
+9. Read only the wiki/docs and source areas suggested by findings and the requirement.
+10. Update `FINDINGS.md` with reusable context, links, user clarifications, risks, and validation clues.
+11. Fill in the useful plan after that context pass: prompt summary, complexity, translation when needed, assumptions, scope, non-goals, context strategy, testing strategy, validation strategy, and implementation steps.
+12. Include architecture impact using `ai/workflows/architecture.md` when boundaries, data flow, contracts, or cross-cutting concerns may change.
 
 Prefer using:
 
@@ -101,6 +129,7 @@ Include:
 - status,
 - link to `FINDINGS.md`,
 - prompt summary,
+- complexity and routing decisions,
 - vibe-coding translation when relevant,
 - assumptions,
 - scope and non-goals,
@@ -117,6 +146,7 @@ Include:
 ## Context And Token Optimization
 
 - Start from `PLAN.md` and then `FINDINGS.md` before scanning source code.
+- Use the chosen complexity to avoid reading unnecessary workflows or source areas.
 - Use `FINDINGS.md` as the requirement-specific context cache and first filter for wiki/source lookup.
 - Translate non-technical or vibe-style requests before broad source search.
 - Read `wiki/index.md` and relevant wiki pages when they exist.

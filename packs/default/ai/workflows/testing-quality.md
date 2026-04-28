@@ -1,3 +1,15 @@
+---
+name: testing-quality
+use_when: Creating, editing, reviewing, or validating tests.
+reads:
+  - wiki/guides/testing.md
+  - requirements/<slug>/PLAN.md
+  - requirements/<slug>/FINDINGS.md
+writes:
+  - requirements/<slug>/PLAN.md
+strictness: required_for_test_work
+---
+
 # Testing Quality Workflow
 
 Use this workflow when creating, editing, reviewing, or validating tests.
