@@ -18,8 +18,11 @@ Copy or generate:
 - `GEMINI.md`
 - `.github/copilot-instructions.md`
 - `.github/instructions/*.instructions.md` when path-specific rules are useful
+- `ai/workflows/requirement-planning.md`
+- `ai/templates/requirement/PLAN.md`
+- `ai/scripts/start-requirement.sh`
 
-Use `scripts/install-adapter.sh /path/to/project` as a starting point.
+Use `scripts/install-adapter.sh /path/to/project` as a starting point. It copies files from `packs/default/` into each target path.
 
 ## 3. Make Instructions Project-Specific
 
@@ -47,6 +50,8 @@ Good candidates for enforcement:
 - secret scanning,
 - generated-file checks,
 - dependency policy.
+
+For requirement planning, keep `requirements/` in `.gitignore`. If a project needs stronger enforcement, adapt `ai/hooks/pre-commit-block-requirements.sh` into that repo's pre-commit workflow.
 
 ## 5. Keep It Fresh
 

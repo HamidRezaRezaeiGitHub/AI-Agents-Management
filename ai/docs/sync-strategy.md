@@ -7,6 +7,7 @@ The goal is high instruction-sync performance across agents without creating a m
 Use this split:
 
 - Central shared behavior: `ai/shared/agent-operating-contract.md`.
+- Installable default pack: `packs/default/`.
 - Tool discovery facts: `ai/docs/agent-discovery-matrix.md`.
 - Target-project facts: each target repo's native files.
 

@@ -23,7 +23,9 @@ This repo is designed around one rule: keep the high-signal behavior in a shared
 - `ai/docs/adoption-playbook.md` - process for rolling this system into another repo.
 - `ai/docs/sync-strategy.md` - how to keep central and project-local guidance aligned.
 - `ai/manifest.yaml` - lightweight metadata for this instruction pack.
-- `ai/templates/project/` - files to copy into a target project.
+- `packs/default/` - installable default pack for adopting projects.
+- `packs/default/ai/workflows/requirement-planning.md` - local requirement planning, branch, and handoff workflow copied into adopting projects.
+- `packs/default/ai/templates/requirement/PLAN.md` - template used for local requirement plans.
 - `ai/skills/`, `ai/hooks/`, `ai/commands/`, `ai/agents/` - staging areas for portable assets.
 - `scripts/install-adapter.sh` - copies the starter adapter files into another project.
 
@@ -36,6 +38,28 @@ scripts/install-adapter.sh /path/to/target-project
 ```
 
 Then customize the copied files in the target project so commands, architecture notes, and validation steps are true for that repo.
+
+The installer copies the default pack into these target paths:
+
+- `AGENTS.md`
+- `CLAUDE.md`
+- `GEMINI.md`
+- `.github/copilot-instructions.md`
+- `.claude/commands/start-requirement.md`
+- `ai/workflows/requirement-planning.md`
+- `ai/templates/requirement/PLAN.md`
+- `ai/scripts/start-requirement.sh`
+- `ai/hooks/pre-commit-block-requirements.sh`
+
+## Start A Requirement
+
+After adoption, create a local ignored requirement workspace and branch from the target repo root:
+
+```sh
+ai/scripts/start-requirement.sh "Requirement Planning Workflow"
+```
+
+In an adopting project, this creates `requirements/<slug>/PLAN.md`, ensures `requirements/` is ignored, and creates or switches to a `feature/<slug>` branch.
 
 ## Working Principle
 

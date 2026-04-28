@@ -23,6 +23,7 @@ Mark commands as verified after running them.
 
 ## Work Rules
 
+- For non-trivial requirements, follow `ai/workflows/requirement-planning.md` before implementation.
 - Inspect existing patterns before editing.
 - Keep changes scoped to the task.
 - Do not add dependencies without a clear reason.

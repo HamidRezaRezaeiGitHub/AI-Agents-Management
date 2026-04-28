@@ -13,7 +13,16 @@ if [ ! -d "$target" ]; then
   exit 1
 fi
 
-mkdir -p "$target/.github/instructions" "$target/.claude" "$target/.gemini"
+pack="packs/default"
+
+mkdir -p \
+  "$target/.github/instructions" \
+  "$target/.claude/commands" \
+  "$target/.gemini" \
+  "$target/ai/workflows" \
+  "$target/ai/templates/requirement" \
+  "$target/ai/scripts" \
+  "$target/ai/hooks"
 
 copy_if_missing() {
   source=$1
@@ -27,9 +36,17 @@ copy_if_missing() {
   fi
 }
 
-copy_if_missing "ai/templates/project/AGENTS.md" "$target/AGENTS.md"
-copy_if_missing "ai/templates/project/CLAUDE.md" "$target/CLAUDE.md"
-copy_if_missing "ai/templates/project/GEMINI.md" "$target/GEMINI.md"
-copy_if_missing "ai/templates/project/copilot-instructions.md" "$target/.github/copilot-instructions.md"
+copy_if_missing "$pack/root/AGENTS.md" "$target/AGENTS.md"
+copy_if_missing "$pack/root/CLAUDE.md" "$target/CLAUDE.md"
+copy_if_missing "$pack/root/GEMINI.md" "$target/GEMINI.md"
+copy_if_missing "$pack/root/.github/copilot-instructions.md" "$target/.github/copilot-instructions.md"
+copy_if_missing "$pack/ai/workflows/requirement-planning.md" "$target/ai/workflows/requirement-planning.md"
+copy_if_missing "$pack/ai/templates/requirement/PLAN.md" "$target/ai/templates/requirement/PLAN.md"
+copy_if_missing "$pack/ai/scripts/start-requirement.sh" "$target/ai/scripts/start-requirement.sh"
+copy_if_missing "$pack/ai/hooks/pre-commit-block-requirements.sh" "$target/ai/hooks/pre-commit-block-requirements.sh"
+copy_if_missing "$pack/claude/commands/start-requirement.md" "$target/.claude/commands/start-requirement.md"
+
+chmod +x "$target/ai/scripts/start-requirement.sh"
+chmod +x "$target/ai/hooks/pre-commit-block-requirements.sh"
 
 echo "Done. Customize TODOs in the target project's agent instruction files."

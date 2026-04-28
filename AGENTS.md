@@ -12,7 +12,7 @@ Follow `ai/shared/agent-operating-contract.md` when working in this repo. Treat 
 
 - `ai/shared/` contains canonical shared instructions.
 - `ai/docs/` contains research notes, discovery matrices, and adoption guidance.
-- `ai/templates/project/` contains files intended to be copied into other repositories.
+- `packs/default/` contains files intended to be copied into other repositories.
 - `ai/skills/` stores portable skill packages or skill design notes.
 - `ai/hooks/` stores hook designs and reusable hook scripts.
 - `ai/commands/` stores slash-command and prompt-command assets.
@@ -22,6 +22,7 @@ Follow `ai/shared/agent-operating-contract.md` when working in this repo. Treat 
 
 ## Work Rules
 
+- For non-trivial requirements, follow `packs/default/ai/workflows/requirement-planning.md` before implementation.
 - Keep instructions concise, concrete, and non-task-specific.
 - Prefer one canonical shared instruction with thin native adapters.
 - Do not put secrets, local machine paths, tokens, or private customer data in committed instructions.
@@ -35,4 +36,5 @@ This repo currently has no build system. For documentation-only changes, validat
 
 ```sh
 sh -n scripts/install-adapter.sh
+sh -n packs/default/ai/scripts/start-requirement.sh
 ```
