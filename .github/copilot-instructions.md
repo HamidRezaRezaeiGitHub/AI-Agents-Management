@@ -1,6 +1,6 @@
 # Copilot Repository Instructions
 
-This repository centrally manages AI coding-agent instructions, skills, hooks, commands, and reusable agent definitions.
+This repository, `man-agent-ment`, centrally manages AI coding-agent instructions, skills, hooks, commands, and reusable agent definitions.
 
 Before making changes, read `AGENTS.md` and `ai/shared/agent-operating-contract.md`.
 

@@ -1,6 +1,6 @@
 # Gemini CLI Context
 
-This repository is the central management system for AI coding-agent instructions and reusable assets.
+This repository, `man-agent-ment`, is the central management system for AI coding-agent instructions and reusable assets.
 
 Read and follow `ai/shared/agent-operating-contract.md` before making changes here.
 
