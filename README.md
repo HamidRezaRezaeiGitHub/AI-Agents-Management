@@ -137,6 +137,7 @@ The installer copies the default pack into these target paths:
 - `wiki/index.md`
 - `wiki/log.md`
 - `wiki/architecture/*.md`
+- `wiki/domain/ubiquitous-language.md`
 - `wiki/guides/testing.md`
 
 ## Start A Requirement

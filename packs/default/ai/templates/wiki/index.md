@@ -24,6 +24,7 @@ Persistent knowledge base for this project. Start here before broad source-code 
 
 ## Domain
 
+- [Ubiquitous Language](./domain/ubiquitous-language.md) - Canonical domain terms, aliases to avoid, relationships, and ambiguities.
 - TODO: Add domain concept pages with one-line summaries.
 
 ## Operations

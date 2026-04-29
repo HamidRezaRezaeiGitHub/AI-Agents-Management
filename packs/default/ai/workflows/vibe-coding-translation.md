@@ -4,6 +4,7 @@ use_when: Translating non-developer, stakeholder, designer, product, or vibe-sty
 reads:
   - user prompt
   - wiki/index.md
+  - wiki/domain/ubiquitous-language.md
 writes:
   - requirements/<slug>/PLAN.md
 strictness: required_when_request_is_vague_or_non_developer
@@ -37,11 +38,12 @@ Do not over-apply this workflow to precise developer tasks. If the request alrea
 Before implementation:
 
 1. Restate the request in concrete product/behavior terms.
-2. Identify affected users, screens, APIs, workflows, data, or operational surfaces.
-3. Identify acceptance criteria observable by a human.
-4. Identify open questions and assumptions.
-5. Identify likely technical areas to inspect, using the wiki first when available.
-6. Identify validation: tests, manual checks, CI expectations, and wiki updates.
+2. Check `wiki/domain/ubiquitous-language.md` when it exists, and preserve canonical domain terms in the translation.
+3. Identify affected users, screens, APIs, workflows, data, or operational surfaces.
+4. Identify acceptance criteria observable by a human.
+5. Identify open questions, assumptions, ambiguous terms, and synonyms.
+6. Identify likely technical areas to inspect, using the wiki first when available.
+7. Identify validation: tests, manual checks, CI expectations, and wiki updates.
 
 Record the translation in `requirements/<slug>/PLAN.md`.
 
@@ -58,6 +60,16 @@ Ask a concise question before implementation when ambiguity could change:
 - scope or expected acceptance criteria.
 
 If the ambiguity is low-risk, make a reasonable assumption and record it in the plan.
+
+## Domain Language
+
+When translating stakeholder or vibe-style language:
+
+- Preserve the user's domain meaning even when the implementation uses different names.
+- Prefer canonical terms from `wiki/domain/ubiquitous-language.md` when present.
+- If the user uses a synonym, overloaded word, or vague term, record the mapping in `PLAN.md` or `FINDINGS.md`.
+- If a term is likely durable across future requirements, propose adding or updating it in the wiki.
+- Do not invent a canonical term when the business meaning is unclear; ask a proportional clarifying question with a recommended default.
 
 ## Acceptance Criteria
 

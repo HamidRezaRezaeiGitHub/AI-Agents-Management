@@ -70,6 +70,7 @@ check_mapping "$pack/wiki/architecture/tech-stack.md" "wiki/architecture/tech-st
 check_mapping "$pack/wiki/architecture/data-flow.md" "wiki/architecture/data-flow.md"
 check_mapping "$pack/wiki/architecture/integration-points.md" "wiki/architecture/integration-points.md"
 check_mapping "$pack/wiki/architecture/decisions.md" "wiki/architecture/decisions.md"
+check_mapping "$pack/wiki/domain/ubiquitous-language.md" "wiki/domain/ubiquitous-language.md"
 check_mapping "$pack/wiki/guides/testing.md" "wiki/guides/testing.md"
 
 if [ -f "$target/.gitignore" ] && grep -qx "requirements/" "$target/.gitignore"; then

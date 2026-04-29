@@ -1,7 +1,7 @@
 #!/bin/sh
 set -eu
 
-expected_version="0.4.4"
+expected_version="0.4.5"
 status=0
 
 check_file() {
@@ -67,6 +67,7 @@ check_file "wiki/architecture/tech-stack.md"
 check_file "wiki/architecture/data-flow.md"
 check_file "wiki/architecture/integration-points.md"
 check_file "wiki/architecture/decisions.md"
+check_file "wiki/domain/ubiquitous-language.md"
 check_file "wiki/guides/testing.md"
 
 check_executable "ai/scripts/start-requirement.sh"

@@ -34,7 +34,7 @@ Copy or generate:
 - `ai/scripts/audit-adoption.sh`
 - `ai/scripts/wiki-lint.sh`
 - `ai/prompts/adoption/*.md`
-- `wiki/index.md`, `wiki/log.md`, and starter architecture/testing wiki pages
+- `wiki/index.md`, `wiki/log.md`, and starter architecture/domain/testing wiki pages
 
 Use `scripts/install-adapter.sh /path/to/project` as a starting point. It copies files from `packs/default/` into each target path.
 
