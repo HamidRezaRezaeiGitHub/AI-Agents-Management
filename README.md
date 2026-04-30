@@ -93,7 +93,7 @@ This pack intentionally borrows from widely shared agent-engineering ideas, adap
 | [mattpocock/skills](https://github.com/mattpocock/skills) | ~65% | [Assessment](./ai/docs/idea-lineage/mattpocock-skills.md) |
 | [Matt Pocock's Grill Me writeup](https://www.aihero.dev/my-grill-me-skill-has-gone-viral) | ~70% | [Assessment](./ai/docs/idea-lineage/matt-pocock-grill-me.md) |
 | [Superpowers by Jesse Vincent](https://github.com/obra/superpowers) | ~55% | [Assessment](./ai/docs/idea-lineage/superpowers.md) |
-| [Cline Memory Bank](https://docs.cline.bot/prompting/cline-memory-bank) | Pending | Pending review |
+| [Cline Memory Bank](https://docs.cline.bot/prompting/cline-memory-bank) | ~75% | [Assessment](./ai/docs/idea-lineage/cline-memory-bank.md) |
 | [Aider](https://github.com/Aider-AI/aider) | Pending | Pending review |
 | [OpenHands](https://github.com/OpenHands/OpenHands) | Pending | Pending review |
 | [SWE-agent](https://github.com/SWE-agent/SWE-agent) | Pending | Pending review |
