@@ -92,7 +92,7 @@ This pack intentionally borrows from widely shared agent-engineering ideas, adap
 | [Andrej Karpathy's LLM wiki idea](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f) | ~80% | [Assessment](./ai/docs/idea-lineage/karpathy-llm-wiki.md) |
 | [mattpocock/skills](https://github.com/mattpocock/skills) | ~65% | [Assessment](./ai/docs/idea-lineage/mattpocock-skills.md) |
 | [Matt Pocock's Grill Me writeup](https://www.aihero.dev/my-grill-me-skill-has-gone-viral) | ~70% | [Assessment](./ai/docs/idea-lineage/matt-pocock-grill-me.md) |
-| [Superpowers by Jesse Vincent](https://github.com/obra/superpowers) | Pending | Pending review |
+| [Superpowers by Jesse Vincent](https://github.com/obra/superpowers) | ~55% | [Assessment](./ai/docs/idea-lineage/superpowers.md) |
 | [Cline Memory Bank](https://docs.cline.bot/prompting/cline-memory-bank) | Pending | Pending review |
 | [Aider](https://github.com/Aider-AI/aider) | Pending | Pending review |
 | [OpenHands](https://github.com/OpenHands/OpenHands) | Pending | Pending review |
