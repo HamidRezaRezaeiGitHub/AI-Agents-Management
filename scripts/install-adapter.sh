@@ -26,6 +26,7 @@ mkdir -p \
   "$target/ai/hooks" \
   "$target/ai/prompts/adoption" \
   "$target/wiki/architecture" \
+  "$target/wiki/domain" \
   "$target/wiki/guides"
 
 copy_if_missing() {
@@ -86,6 +87,7 @@ copy_if_missing "$pack/wiki/architecture/tech-stack.md" "$target/wiki/architectu
 copy_if_missing "$pack/wiki/architecture/data-flow.md" "$target/wiki/architecture/data-flow.md"
 copy_if_missing "$pack/wiki/architecture/integration-points.md" "$target/wiki/architecture/integration-points.md"
 copy_if_missing "$pack/wiki/architecture/decisions.md" "$target/wiki/architecture/decisions.md"
+copy_if_missing "$pack/wiki/domain/ubiquitous-language.md" "$target/wiki/domain/ubiquitous-language.md"
 copy_if_missing "$pack/wiki/guides/testing.md" "$target/wiki/guides/testing.md"
 copy_if_missing "$pack/ai/scripts/start-requirement.sh" "$target/ai/scripts/start-requirement.sh"
 copy_if_missing "$pack/ai/scripts/audit-adoption.sh" "$target/ai/scripts/audit-adoption.sh"

@@ -41,6 +41,7 @@ wiki/
   log.md
   architecture/
   domain/
+    ubiquitous-language.md
   operations/
   guides/
 ```
@@ -52,6 +53,7 @@ Projects may add domain-specific folders such as `ui/`, `data-models/`, `provide
 - `wiki/index.md`: navigation map with one-line summaries for every page.
 - `wiki/log.md`: chronological log of wiki updates, ingest, lint, and meaningful project changes.
 - Topic pages: focused pages for architecture, domain concepts, workflows, operations, and conventions.
+- Ubiquitous language page: canonical domain terms, one-sentence definitions, aliases to avoid, key relationships, and flagged ambiguities.
 - Architecture pages: current system overview, tech stack, data flow, integration points, and decisions.
 
 ## Frontmatter
@@ -89,6 +91,7 @@ Update the wiki after completing a requirement that changes:
 
 - architecture,
 - domain model,
+- domain vocabulary or stakeholder terminology,
 - user-visible behavior,
 - API contracts,
 - data flows,
@@ -107,6 +110,24 @@ Skip wiki updates for trivial typo fixes, mechanical formatting, or small intern
 5. Append an entry to `wiki/log.md`.
 
 For architecture-impacting changes, follow `ai/workflows/architecture.md` and update relevant pages under `wiki/architecture/`.
+
+For domain-language changes, update `wiki/domain/ubiquitous-language.md` when a term becomes durable across requirements. Keep requirement-local vocabulary notes in `requirements/<slug>/FINDINGS.md` until they are stable enough for the wiki.
+
+## Ubiquitous Language
+
+Use the ubiquitous language page to prevent drift between stakeholder wording, requirements, tests, wiki pages, and code names.
+
+When updating it:
+
+- Include only domain terms a domain expert would recognize.
+- Skip generic programming terms unless the project uses them as domain language.
+- Use one-sentence definitions that say what the term is, not what it does.
+- Pick one canonical term when synonyms compete, and list aliases to avoid.
+- Flag ambiguous or overloaded terms with a recommendation.
+- Capture important relationships between terms, including lifecycle, ownership, or cardinality when useful.
+- Group terms by natural subdomain only when it improves scanning.
+
+Do not rename code or rewrite broad docs just to match a new term unless the requirement asks for that migration. Record terminology mismatches first, then plan migration deliberately.
 
 ## Log Format
 

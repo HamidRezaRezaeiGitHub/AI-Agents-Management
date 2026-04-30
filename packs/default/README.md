@@ -40,6 +40,7 @@ Files under this directory are source templates. `scripts/install-adapter.sh` ma
 - `wiki/index.md` -> `wiki/index.md`
 - `wiki/log.md` -> `wiki/log.md`
 - `wiki/architecture/*.md` -> `wiki/architecture/*.md`
+- `wiki/domain/ubiquitous-language.md` -> `wiki/domain/ubiquitous-language.md`
 - `wiki/guides/testing.md` -> `wiki/guides/testing.md`
 
 The `ai/scripts` target avoids colliding with a project's existing application scripts.

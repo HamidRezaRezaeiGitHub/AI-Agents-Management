@@ -1,6 +1,6 @@
 # Claude Code Project Memory
 
-This repository is the central management system for AI coding-agent instructions and reusable assets.
+This repository, `man-agent-ment`, is the central management system for AI coding-agent instructions and reusable assets.
 
 Follow the shared contract in @ai/shared/agent-operating-contract.md.
 

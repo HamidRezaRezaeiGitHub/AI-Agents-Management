@@ -27,6 +27,10 @@ TODO: Summarize the user's requirement in a few sentences.
 
 - TODO: List assumptions that should be confirmed or revisited.
 
+## Clarifying Questions
+
+- TODO: Questions asked, recommended defaults, user choices, and assumptions accepted without blocking.
+
 ## Scope
 
 - TODO: What is included.
@@ -62,6 +66,7 @@ TODO: Summarize the user's requirement in a few sentences.
 - [ ] Create or resume workspace, ensure `requirements/` is ignored, and use the expected feature branch.
 - [ ] Review existing [FINDINGS.md](./FINDINGS.md) before wiki/docs/source search.
 - [ ] Review relevant wiki/docs before narrow source search.
+- [ ] Ask proportional clarifying questions only for decisions still unresolved after context review.
 - [ ] Check architecture impact and consult `ai/workflows/architecture.md` if needed.
 - [ ] Identify and run a baseline verification before source edits, or document why not.
 - [ ] Inspect narrowly relevant source, update [FINDINGS.md](./FINDINGS.md), then revise this plan.

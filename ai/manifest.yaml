@@ -1,5 +1,5 @@
 name: default-agent-instruction-pack
-version: 0.4.3
+version: 0.4.5
 description: Portable starter pack for multi-agent coding assistants.
 
 entry_files:
@@ -101,4 +101,5 @@ adoption:
     - wiki/architecture/data-flow.md
     - wiki/architecture/integration-points.md
     - wiki/architecture/decisions.md
+    - wiki/domain/ubiquitous-language.md
     - wiki/guides/testing.md
