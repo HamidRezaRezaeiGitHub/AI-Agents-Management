@@ -85,6 +85,14 @@ TODO: Summarize the user's requirement in a few sentences.
 - TODO: Identify CI configuration or project docs that define required checks.
 - TODO: Record validation commands to run, using concise output where possible.
 
+## Wiki Maintenance
+
+- Durable project knowledge discovered: TODO `yes` or `no`.
+- Wiki pages to read or update: TODO.
+- Promotion decision: TODO: keep in [FINDINGS.md](./FINDINGS.md), update existing wiki pages, or create new wiki pages.
+- Index/log updates needed: TODO `yes` or `no`.
+- Wiki lint: TODO `passed`, `failed`, `not run`, or `not available`.
+
 ## Code Review Strategy
 
 - TODO: Note files, risks, and review focus.

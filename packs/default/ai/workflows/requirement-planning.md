@@ -99,8 +99,9 @@ When no workspace exists for the requirement:
 10. Update `FINDINGS.md` with reusable context, links, user clarifications, risks, and validation clues.
 11. Ask proportional clarifying questions only for decisions that remain unresolved after the context pass.
 12. Identify and run a safe, reasonably scoped baseline verification before source edits, or record why it cannot be run.
-13. Fill in the useful plan after that context pass: summary, complexity, translation when needed, scope, clarifications, context strategy, baseline result, validation strategy, and implementation steps.
-14. Include architecture impact using `ai/workflows/architecture.md` when boundaries, data flow, contracts, or cross-cutting concerns may change.
+13. Identify whether discovered knowledge is requirement-local or durable project knowledge, and record any needed wiki updates in `PLAN.md`.
+14. Fill in the useful plan after that context pass: summary, complexity, translation when needed, scope, clarifications, context strategy, wiki maintenance, baseline result, validation strategy, and implementation steps.
+15. Include architecture impact using `ai/workflows/architecture.md` when boundaries, data flow, contracts, or cross-cutting concerns may change.
 
 Prefer using:
 
@@ -142,6 +143,7 @@ Include only sections that help the current requirement:
 - plan checklist,
 - testing strategy,
 - CI/validation strategy,
+- wiki maintenance,
 - code review strategy,
 - decisions,
 - validation,
@@ -160,6 +162,7 @@ Include only sections that help the current requirement:
 - Run a baseline verification before implementation when the chosen complexity is `standard`, `large`, or `risky` and a safe command can be identified.
 - Search source code only for the part of the requirement being worked on.
 - Update `FINDINGS.md` with discoveries that future agents would otherwise need to rediscover.
+- Promote durable discoveries from `FINDINGS.md` into the wiki during the requirement or before finishing, using `ai/workflows/wiki-documentation.md`.
 - Keep `PLAN.md` focused on control flow, decisions, validation, and status.
 - Keep raw logs and large copied outputs out of `PLAN.md`; summarize and link to files when needed.
 - Follow `ai/workflows/command-execution.md` when running terminal commands.
@@ -186,7 +189,7 @@ For implementation requirements, the plan should identify the likely validation 
 - Relevant tests or test areas, using `ai/workflows/testing-quality.md`.
 - CI expectations, using `ai/workflows/ci-validation.md`.
 - Final self-review or PR-review needs, using `ai/workflows/code-review.md`.
-- Wiki pages that may need updates, using `ai/workflows/wiki-documentation.md`.
+- Wiki pages that may need updates, using `ai/workflows/wiki-documentation.md`; wiki maintenance is expected when durable project knowledge changes.
 
 If a project lacks explicit commands, inspect CI configuration, package scripts, build files, and wiki/docs before deciding what to run.
 
@@ -217,6 +220,17 @@ Use it for:
 - validation clues.
 
 Do not duplicate stable project knowledge from the wiki. Link to it and summarize the requirement-specific relevance.
+
+## Wiki Maintenance During Requirements
+
+Use `ai/workflows/wiki-documentation.md` throughout the requirement lifecycle:
+
+1. At discovery time, read relevant wiki pages first and capture tentative or task-specific discoveries in `FINDINGS.md`.
+2. During implementation and validation, note durable project knowledge that future agents should not rediscover.
+3. Before finalizing, decide whether that durable knowledge belongs in existing wiki pages, a new page, or only in `FINDINGS.md`.
+4. When the wiki changes, update affected pages, `wiki/index.md`, `wiki/log.md`, and run `ai/scripts/wiki-lint.sh` when available.
+
+If no wiki update is needed, record the reason briefly in `PLAN.md`.
 
 ## Suggested Improvements
 
