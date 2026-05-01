@@ -13,6 +13,7 @@ The guiding rule is simple: keep durable behavior in reusable workflows, then ex
 - A project wiki pattern that lets agents start from stable documentation before scanning source code.
 - Vibe-coding translation so stakeholder language becomes concrete acceptance criteria before implementation.
 - Ubiquitous-language guidance so domain terms stay consistent across prompts, wiki pages, tests, and code discussion.
+- Systematic debugging guidance for reproducing, localizing, fixing, and verifying defects without guess-and-check loops.
 - Baseline verification before source edits when a safe project command exists.
 - CI, testing, command-output, architecture, and two-pass code-review workflows.
 - Adoption prompts for clean projects, existing projects with current AI instructions, temporary install review, and pack updates.
@@ -102,7 +103,7 @@ This pack intentionally borrows from widely shared agent-engineering ideas, adap
 | [Andrej Karpathy's LLM wiki idea](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f) | ~80% | [Assessment](./ai/docs/idea-lineage/karpathy-llm-wiki.md) |
 | [mattpocock/skills](https://github.com/mattpocock/skills) | ~65% | [Assessment](./ai/docs/idea-lineage/mattpocock-skills.md) |
 | [Matt Pocock's Grill Me writeup](https://www.aihero.dev/my-grill-me-skill-has-gone-viral) | ~70% | [Assessment](./ai/docs/idea-lineage/matt-pocock-grill-me.md) |
-| [Superpowers by Jesse Vincent](https://github.com/obra/superpowers) | ~55% | [Assessment](./ai/docs/idea-lineage/superpowers.md) |
+| [Superpowers by Jesse Vincent](https://github.com/obra/superpowers) | ~65% | [Assessment](./ai/docs/idea-lineage/superpowers.md) |
 | [Cline Memory Bank](https://docs.cline.bot/features/memory-bank) | ~80% | [Assessment](./ai/docs/idea-lineage/cline-memory-bank.md) |
 | [Aider](https://github.com/Aider-AI/aider) | ~45% | [Assessment](./ai/docs/idea-lineage/aider.md) |
 | [OpenHands](https://github.com/OpenHands/OpenHands) | ~35% | [Assessment](./ai/docs/idea-lineage/openhands.md) |

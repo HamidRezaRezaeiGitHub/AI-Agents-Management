@@ -11,6 +11,7 @@ This directory contains reusable workflows, scripts, templates, prompts, and met
 - For resuming interrupted work: read the active `PLAN.md`, `FINDINGS.md`, branch/status, recent diffs, and handoff notes before new discovery.
 - For architecture-sensitive work: `ai/workflows/architecture.md`
 - For terminal commands: `ai/workflows/command-execution.md`
+- For debugging bugs, failing tests, build breaks, regressions, or unexpected behavior: `ai/workflows/systematic-debugging.md`
 - For testing: `ai/workflows/testing-quality.md`
 - For CI readiness: `ai/workflows/ci-validation.md`
 - For final self-review or PR review: `ai/workflows/code-review.md` with two passes: requirement fit, then implementation quality and risk

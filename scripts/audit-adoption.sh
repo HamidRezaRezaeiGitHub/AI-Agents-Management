@@ -46,6 +46,7 @@ check_mapping "$pack/ai/workflows/requirement-planning.md" "ai/workflows/require
 check_mapping "$pack/ai/workflows/wiki-documentation.md" "ai/workflows/wiki-documentation.md"
 check_mapping "$pack/ai/workflows/architecture.md" "ai/workflows/architecture.md"
 check_mapping "$pack/ai/workflows/command-execution.md" "ai/workflows/command-execution.md"
+check_mapping "$pack/ai/workflows/systematic-debugging.md" "ai/workflows/systematic-debugging.md"
 check_mapping "$pack/ai/workflows/ci-validation.md" "ai/workflows/ci-validation.md"
 check_mapping "$pack/ai/workflows/testing-quality.md" "ai/workflows/testing-quality.md"
 check_mapping "$pack/ai/workflows/code-review.md" "ai/workflows/code-review.md"

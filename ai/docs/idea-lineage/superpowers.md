@@ -2,7 +2,7 @@
 
 Source: [Superpowers by Jesse Vincent](https://github.com/obra/superpowers)
 
-Estimated adoption: **about 55%**
+Estimated adoption: **about 65%**
 
 ## Core Idea
 
@@ -21,6 +21,6 @@ Superpowers is a complete software-development methodology for coding agents, pa
 
 ## Adoption In This Project
 
-`man-agent-ment` adopts the broad workflow-discipline layer of Superpowers. `workflow-dispatch` routes work by complexity, `requirement-planning` creates an ignored local workspace and feature branch, `PLAN.md` records scope and validation, `testing-quality` pushes behavior-focused tests, `ci-validation` requires final evidence, and `code-review` uses a two-pass review that mirrors Superpowers' split between requirement fit and implementation quality.
+`man-agent-ment` adopts the broad workflow-discipline layer of Superpowers. `workflow-dispatch` routes work by complexity, `requirement-planning` creates an ignored local workspace and feature branch, `PLAN.md` records scope and validation, `systematic-debugging` adds an evidence-first reproduce/localize/hypothesize/fix loop for bugs and regressions, `testing-quality` pushes behavior-focused tests, `ci-validation` requires final evidence, and `code-review` uses a two-pass review that mirrors Superpowers' split between requirement fit and implementation quality.
 
-The pack deliberately stops short of Superpowers' strictness. It does not install auto-triggered runtime skills, require a skill check before every response, create git worktrees by default, enforce red-green-refactor for all code changes, dispatch subagents as a standard implementation mechanism, or use hook-level guards to block non-TDD edits. Its routing model is lighter: quick work stays quick, while larger or riskier work gets more of the planning, validation, and review discipline.
+The pack deliberately stops short of Superpowers' strictness. It does not install auto-triggered runtime skills, require a skill check before every response, create git worktrees by default, enforce red-green-refactor for all code changes, dispatch subagents as a standard implementation mechanism, or use hook-level guards to block non-TDD edits. Its routing model is lighter: quick work stays quick, while larger, riskier, or more ambiguous work gets more of the planning, debugging, validation, and review discipline.

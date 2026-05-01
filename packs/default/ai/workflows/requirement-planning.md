@@ -205,6 +205,7 @@ For implementation requirements, the plan should identify the likely validation 
 - Vibe-coding translation needs, using `ai/workflows/vibe-coding-translation.md`.
 - Architecture impact, using `ai/workflows/architecture.md`.
 - Relevant tests or test areas, using `ai/workflows/testing-quality.md`.
+- Debugging approach for bugs, failing tests, regressions, or unexpected behavior, using `ai/workflows/systematic-debugging.md`.
 - CI expectations, using `ai/workflows/ci-validation.md`.
 - Final self-review or PR-review needs, using `ai/workflows/code-review.md`.
 - Wiki pages that may need updates, using `ai/workflows/wiki-documentation.md`; wiki maintenance is expected when durable project knowledge changes.
@@ -221,6 +222,8 @@ Before source edits for `standard`, `large`, or `risky` implementation work:
 4. Record the command and result in `PLAN.md`.
 5. If the baseline fails before any source edits, document it as pre-existing in `PLAN.md` and add useful details to `FINDINGS.md`.
 6. If no baseline can be run locally, record why and what CI or manual check would provide equivalent confidence.
+
+If the requirement is to fix the failing baseline or another observed defect, follow `ai/workflows/systematic-debugging.md` before proposing the fix.
 
 Do not block quick tasks on baseline verification unless the quick task itself is a validation request.
 

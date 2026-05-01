@@ -23,6 +23,7 @@ Copy or generate:
 - `ai/workflows/wiki-documentation.md`
 - `ai/workflows/architecture.md`
 - `ai/workflows/command-execution.md`
+- `ai/workflows/systematic-debugging.md`
 - `ai/workflows/ci-validation.md`
 - `ai/workflows/testing-quality.md`
 - `ai/workflows/code-review.md`

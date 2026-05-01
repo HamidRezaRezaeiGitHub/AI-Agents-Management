@@ -71,6 +71,7 @@ copy_if_missing "$pack/ai/workflows/requirement-planning.md" "$target/ai/workflo
 copy_if_missing "$pack/ai/workflows/wiki-documentation.md" "$target/ai/workflows/wiki-documentation.md"
 copy_if_missing "$pack/ai/workflows/architecture.md" "$target/ai/workflows/architecture.md"
 copy_if_missing "$pack/ai/workflows/command-execution.md" "$target/ai/workflows/command-execution.md"
+copy_if_missing "$pack/ai/workflows/systematic-debugging.md" "$target/ai/workflows/systematic-debugging.md"
 copy_if_missing "$pack/ai/workflows/ci-validation.md" "$target/ai/workflows/ci-validation.md"
 copy_if_missing "$pack/ai/workflows/testing-quality.md" "$target/ai/workflows/testing-quality.md"
 copy_if_missing "$pack/ai/workflows/code-review.md" "$target/ai/workflows/code-review.md"

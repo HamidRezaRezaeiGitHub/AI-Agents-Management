@@ -29,6 +29,8 @@ shared_sources:
     purpose: Architecture context, boundary, data-flow, and decision guidance.
   - path: packs/default/ai/workflows/command-execution.md
     purpose: Terminal command output discipline and token optimization.
+  - path: packs/default/ai/workflows/systematic-debugging.md
+    purpose: Evidence-first diagnosis and root-cause fix workflow for bugs and regressions.
   - path: packs/default/ai/workflows/ci-validation.md
     purpose: CI discovery and validation expectations before finishing work.
   - path: packs/default/ai/workflows/testing-quality.md
@@ -80,6 +82,7 @@ adoption:
     - ai/workflows/wiki-documentation.md
     - ai/workflows/architecture.md
     - ai/workflows/command-execution.md
+    - ai/workflows/systematic-debugging.md
     - ai/workflows/ci-validation.md
     - ai/workflows/testing-quality.md
     - ai/workflows/code-review.md

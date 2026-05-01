@@ -37,6 +37,7 @@ When unsure between two levels, choose the higher level only if the extra proces
 | Large requirement | `ai/workflows/requirement-planning.md` | `architecture`, `testing-quality`, `ci-validation`, and `code-review` checkpoints |
 | Risky requirement | `ai/workflows/requirement-planning.md` | Architecture, testing, CI, code review, and explicit user confirmation for unsafe operations |
 | Vague or non-developer request | `ai/workflows/vibe-coding-translation.md` | Then route the translated requirement by complexity |
+| Bug, failing test, build break, performance regression, or unexpected behavior | `ai/workflows/systematic-debugging.md` | For non-quick fixes, also use `ai/workflows/requirement-planning.md` |
 | Architecture-sensitive work | `ai/workflows/architecture.md` | Update wiki architecture pages if durable knowledge changes |
 | Test work | `ai/workflows/testing-quality.md` | Use project wiki testing guidance first |
 | Terminal work | `ai/workflows/command-execution.md` | Filter verbose output with targeted commands |
@@ -50,6 +51,7 @@ When unsure between two levels, choose the higher level only if the extra proces
 - Do not ask broad interview questions for `quick` tasks. For larger tasks, scale clarifying questions with complexity and ask only what cannot be answered from the repo.
 - For standard or larger work, read `PLAN.md` and `FINDINGS.md` before wiki or source code.
 - For source discovery, search for narrow symbols, paths, or errors before opening whole files.
+- For debugging, use `systematic-debugging.md` before proposing fixes; quick obvious issues can use its lightweight reproduce/localize/fix/verify loop.
 - Prefer summaries and links in `FINDINGS.md`; avoid copying large wiki, source, or terminal output.
 - If the task grows beyond its initial classification, update `PLAN.md` with the new complexity and why.
 
