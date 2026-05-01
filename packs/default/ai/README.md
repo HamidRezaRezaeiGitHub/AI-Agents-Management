@@ -36,12 +36,16 @@ Before finalizing source changes or reviewing a PR, use the two-pass review in `
 ```sh
 ai/scripts/start-requirement.sh "Requirement Title"
 ai/scripts/list-requirements.sh --open
+ai/scripts/list-requirements.sh --stats
+ai/scripts/lint-requirements.sh
 ai/scripts/audit-adoption.sh
 ai/scripts/wiki-lint.sh
 ```
 
 `start-requirement.sh` creates both `PLAN.md` and `FINDINGS.md` under `requirements/<slug>/`.
 `list-requirements.sh` lists local requirement plans by created time, modified time, status, or open state.
+Use `list-requirements.sh --stats` to count requirements by status category.
+`lint-requirements.sh` reports requirement metadata and workspace issues without modifying files.
 
 ## Metadata
 

@@ -1,6 +1,9 @@
 #!/bin/sh
 set -eu
 
+script_dir=$(CDPATH= cd "$(dirname "$0")" && pwd)
+. "$script_dir/requirement-status.sh"
+
 usage() {
   exit_code=${1:-2}
 
@@ -12,8 +15,10 @@ List local requirement workspaces from requirements/*/PLAN.md.
 Options:
   --limit N             Show at most N requirements. Default: 10.
   --sort FIELD          Sort by created, modified, status, or slug. Default: modified.
-  --status STATUS       Show only requirements with this status.
-  --open                Show statuses other than complete, implemented, cancelled, canceled, closed, or done.
+  --status STATUS       Show only requirements with this exact status.
+  --category CATEGORY   Show only a status category: planning, active, blocked, parked, done, cancelled, or unknown.
+  --open                Show status categories other than done or cancelled.
+  --stats               Show counts by status category instead of requirement rows.
   --all                 Show all matching requirements. Overrides --limit.
   --help                Show this help.
 
@@ -21,7 +26,9 @@ Examples:
   ai/scripts/list-requirements.sh --sort created --limit 10
   ai/scripts/list-requirements.sh --sort modified --limit 10
   ai/scripts/list-requirements.sh --status active --sort modified --limit 10
+  ai/scripts/list-requirements.sh --category parked --sort modified --limit 10
   ai/scripts/list-requirements.sh --open
+  ai/scripts/list-requirements.sh --stats
 USAGE
   exit "$exit_code"
 }
@@ -29,8 +36,10 @@ USAGE
 limit=10
 sort_field=modified
 status_filter=
+category_filter=
 open_only=no
 show_all=no
+show_stats=no
 
 while [ "$#" -gt 0 ]; do
   case "$1" in
@@ -49,8 +58,17 @@ while [ "$#" -gt 0 ]; do
       status_filter=$2
       shift 2
       ;;
+    --category)
+      [ "$#" -ge 2 ] || usage
+      category_filter=$2
+      shift 2
+      ;;
     --open)
       open_only=yes
+      shift
+      ;;
+    --stats)
+      show_stats=yes
       shift
       ;;
     --all)
@@ -83,6 +101,15 @@ case "$limit" in
     ;;
 esac
 
+case "$category_filter" in
+  ''|planning|active|blocked|parked|done|cancelled|unknown)
+    ;;
+  *)
+    echo "Unsupported status category: $category_filter" >&2
+    usage
+    ;;
+esac
+
 if [ "$sort_field" = "updated" ]; then
   sort_field=modified
 fi
@@ -94,6 +121,7 @@ fi
 
 tmp=${TMPDIR:-/tmp}/list-requirements.$$
 trap 'rm -f "$tmp"' EXIT HUP INT TERM
+: > "$tmp"
 
 found=no
 
@@ -129,13 +157,19 @@ for plan in requirements/*/PLAN.md; do
     status=unknown
   fi
 
+  category=$(requirement_status_category "$status")
+
   if [ -n "$status_filter" ] && [ "$status" != "$status_filter" ]; then
     continue
   fi
 
+  if [ -n "$category_filter" ] && [ "$category" != "$category_filter" ]; then
+    continue
+  fi
+
   if [ "$open_only" = yes ]; then
-    case "$status" in
-      complete|implemented|cancelled|canceled|closed|done)
+    case "$category" in
+      done|cancelled)
         continue
         ;;
     esac
@@ -156,18 +190,12 @@ for plan in requirements/*/PLAN.md; do
       ;;
   esac
 
-  printf '%s\t%s\t%s\t%s\t%s\t%s\t%s\n' \
-    "$sort_key" "$status" "$created" "$modified" "$slug" "$branch" "$title" >> "$tmp"
+  printf '%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\n' \
+    "$sort_key" "$category" "$status" "$created" "$modified" "$slug" "$branch" "$title" >> "$tmp"
 done
 
 if [ "$found" = no ]; then
   echo "No requirement plans found under requirements/." >&2
-  exit 0
-fi
-
-printf 'STATUS\tCREATED\tMODIFIED\tSLUG\tBRANCH\tTITLE\n'
-
-if [ ! -s "$tmp" ]; then
   exit 0
 fi
 
@@ -177,10 +205,24 @@ else
   sorted=$(sort -r "$tmp")
 fi
 
-if [ "$show_all" = yes ]; then
+if [ "$show_stats" = yes ]; then
+  printf 'CATEGORY\tCOUNT\n'
+  for category in planning active blocked parked done cancelled unknown; do
+    count=$(awk -F '\t' -v category="$category" '$2 == category { count++ } END { print count + 0 }' "$tmp")
+    printf '%s\t%s\n' "$category" "$count"
+  done
+  total=$(awk 'END { print NR + 0 }' "$tmp")
+  printf 'total\t%s\n' "$total"
+elif [ ! -s "$tmp" ]; then
+  printf 'CATEGORY\tSTATUS\tCREATED\tMODIFIED\tSLUG\tBRANCH\tTITLE\n'
+  exit 0
+elif [ "$show_all" = yes ]; then
+  printf 'CATEGORY\tSTATUS\tCREATED\tMODIFIED\tSLUG\tBRANCH\tTITLE\n'
   printf '%s\n' "$sorted" | cut -f2-
 elif [ "$limit" = 0 ]; then
+  printf 'CATEGORY\tSTATUS\tCREATED\tMODIFIED\tSLUG\tBRANCH\tTITLE\n'
   exit 0
 else
+  printf 'CATEGORY\tSTATUS\tCREATED\tMODIFIED\tSLUG\tBRANCH\tTITLE\n'
   printf '%s\n' "$sorted" | sed -n "1,${limit}p" | cut -f2-
 fi

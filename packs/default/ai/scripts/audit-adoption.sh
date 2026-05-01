@@ -1,7 +1,7 @@
 #!/bin/sh
 set -eu
 
-expected_version="0.4.6"
+expected_version="0.4.8"
 status=0
 
 check_file() {
@@ -53,7 +53,9 @@ check_file "ai/templates/wiki/index.md"
 check_file "ai/templates/wiki/log.md"
 check_file "ai/templates/wiki/page.md"
 check_file "ai/scripts/start-requirement.sh"
+check_file "ai/scripts/requirement-status.sh"
 check_file "ai/scripts/list-requirements.sh"
+check_file "ai/scripts/lint-requirements.sh"
 check_file "ai/scripts/audit-adoption.sh"
 check_file "ai/scripts/wiki-lint.sh"
 check_file "ai/hooks/pre-commit-block-requirements.sh"
@@ -73,6 +75,7 @@ check_file "wiki/guides/testing.md"
 
 check_executable "ai/scripts/start-requirement.sh"
 check_executable "ai/scripts/list-requirements.sh"
+check_executable "ai/scripts/lint-requirements.sh"
 check_executable "ai/scripts/audit-adoption.sh"
 check_executable "ai/scripts/wiki-lint.sh"
 

@@ -58,7 +58,7 @@ Use a concise status value in `PLAN.md` metadata. Recommended statuses are:
 - `complete`: requirement is handled and validation/review notes are recorded.
 - `cancelled`: requirement will not continue.
 
-These statuses are designed to work with `ai/scripts/list-requirements.sh`, including `--status` and `--open` filters. The script treats `complete`, `cancelled`, and a few legacy closed values as not open; all other statuses remain visible in `--open`.
+These statuses are designed to work with `ai/scripts/list-requirements.sh` and `ai/scripts/lint-requirements.sh`. The scripts also map common status variants into conceptual categories with case-insensitive substring matching, so values such as `completed`, `done`, `finished`, or `implemented` are treated as done.
 
 ## Title And Slug
 

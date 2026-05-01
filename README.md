@@ -79,6 +79,8 @@ List recent or open local requirements:
 ai/scripts/list-requirements.sh --open
 ai/scripts/list-requirements.sh --sort modified --limit 10
 ai/scripts/list-requirements.sh --status active --sort modified --limit 10
+ai/scripts/list-requirements.sh --stats
+ai/scripts/lint-requirements.sh
 ```
 
 ## Wiki Lint
