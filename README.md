@@ -98,7 +98,7 @@ This pack intentionally borrows from widely shared agent-engineering ideas, adap
 | [OpenHands](https://github.com/OpenHands/OpenHands) | ~35% | [Assessment](./ai/docs/idea-lineage/openhands.md) |
 | [SWE-agent](https://github.com/SWE-agent/SWE-agent) | ~40% | [Assessment](./ai/docs/idea-lineage/swe-agent.md) |
 | [MetaGPT](https://github.com/geekan/MetaGPT) and [ChatDev](https://github.com/OpenBMB/ChatDev) | ~50% | [Assessment](./ai/docs/idea-lineage/metagpt-chatdev.md) |
-| [GitHub Agentic Workflows](https://github.github.com/gh-aw/) | Pending | Pending review |
+| [GitHub Agentic Workflows](https://github.github.com/gh-aw/) | ~45% | [Assessment](./ai/docs/idea-lineage/github-agentic-workflows.md) |
 | [Domain-Driven Design by Eric Evans](https://www.domainlanguage.com/ddd/) | Pending | Pending review |
 
 The result is not a clone of any one system. It is a practical synthesis: enough process to keep agents aligned, but with routing rules that keep quick work quick.
