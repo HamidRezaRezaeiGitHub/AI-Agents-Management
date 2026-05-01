@@ -97,7 +97,7 @@ This pack intentionally borrows from widely shared agent-engineering ideas, adap
 | [Aider](https://github.com/Aider-AI/aider) | ~45% | [Assessment](./ai/docs/idea-lineage/aider.md) |
 | [OpenHands](https://github.com/OpenHands/OpenHands) | ~35% | [Assessment](./ai/docs/idea-lineage/openhands.md) |
 | [SWE-agent](https://github.com/SWE-agent/SWE-agent) | ~40% | [Assessment](./ai/docs/idea-lineage/swe-agent.md) |
-| [MetaGPT](https://github.com/geekan/MetaGPT) and [ChatDev](https://github.com/OpenBMB/ChatDev) | Pending | Pending review |
+| [MetaGPT](https://github.com/geekan/MetaGPT) and [ChatDev](https://github.com/OpenBMB/ChatDev) | ~50% | [Assessment](./ai/docs/idea-lineage/metagpt-chatdev.md) |
 | [GitHub Agentic Workflows](https://github.github.com/gh-aw/) | Pending | Pending review |
 | [Domain-Driven Design by Eric Evans](https://www.domainlanguage.com/ddd/) | Pending | Pending review |
 
