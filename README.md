@@ -96,7 +96,7 @@ This pack intentionally borrows from widely shared agent-engineering ideas, adap
 | [Cline Memory Bank](https://docs.cline.bot/prompting/cline-memory-bank) | ~75% | [Assessment](./ai/docs/idea-lineage/cline-memory-bank.md) |
 | [Aider](https://github.com/Aider-AI/aider) | ~45% | [Assessment](./ai/docs/idea-lineage/aider.md) |
 | [OpenHands](https://github.com/OpenHands/OpenHands) | ~35% | [Assessment](./ai/docs/idea-lineage/openhands.md) |
-| [SWE-agent](https://github.com/SWE-agent/SWE-agent) | Pending | Pending review |
+| [SWE-agent](https://github.com/SWE-agent/SWE-agent) | ~40% | [Assessment](./ai/docs/idea-lineage/swe-agent.md) |
 | [MetaGPT](https://github.com/geekan/MetaGPT) and [ChatDev](https://github.com/OpenBMB/ChatDev) | Pending | Pending review |
 | [GitHub Agentic Workflows](https://github.github.com/gh-aw/) | Pending | Pending review |
 | [Domain-Driven Design by Eric Evans](https://www.domainlanguage.com/ddd/) | Pending | Pending review |
