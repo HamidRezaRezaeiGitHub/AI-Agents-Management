@@ -5,12 +5,15 @@
 - Slug: `{{SLUG}}`
 - Expected branch: `{{BRANCH}}`
 - Created: `{{CREATED_AT}}`
+- Last modified: `{{CREATED_AT}}`
 - Status: planning
 - Findings: [FINDINGS.md](./FINDINGS.md)
 
 ## Prompt Summary
 
 TODO: Summarize the user's requirement in a few sentences.
+
+Status examples: `planning`, `active`, `blocked`, `parked`, `complete`, `cancelled`.
 
 ## Complexity And Routing
 
@@ -63,8 +66,9 @@ TODO: Summarize the user's requirement in a few sentences.
 - [ ] Classify complexity with `ai/workflows/workflow-dispatch.md`.
 - [ ] Decide whether vibe-coding translation is needed.
 - [ ] Translate user-facing intent into concrete acceptance criteria when needed.
-- [ ] Create or resume workspace, ensure `requirements/` is ignored, and use the expected feature branch.
+- [ ] Create or resume workspace, ensure `requirements/` is ignored, use the expected feature branch, and check `git status --short --branch`.
 - [ ] Review existing [FINDINGS.md](./FINDINGS.md) before wiki/docs/source search.
+- [ ] When resuming, inspect recent diffs, handoff notes, and the next unfinished checklist item before broad discovery.
 - [ ] Review relevant wiki/docs before narrow source search.
 - [ ] Ask proportional clarifying questions only for decisions still unresolved after context review.
 - [ ] Check architecture impact and consult `ai/workflows/architecture.md` if needed.

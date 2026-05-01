@@ -61,9 +61,9 @@ ai/scripts/audit-adoption.sh
 
 The central audit reports customized files as `changed` without failing. Missing files and self-audit failures should be investigated.
 
-## Start A Requirement
+## Start Or Resume A Requirement
 
-After adoption, create a local ignored requirement workspace and branch from the target repo root:
+After adoption, create or resume a local ignored requirement workspace and branch from the target repo root:
 
 ```sh
 ai/scripts/start-requirement.sh "Requirement Title"
@@ -71,7 +71,15 @@ ai/scripts/start-requirement.sh "Requirement Title"
 
 This creates `requirements/<slug>/PLAN.md` and `requirements/<slug>/FINDINGS.md`, ensures `requirements/` is ignored, and creates or switches to a `feature/<slug>` branch.
 
-The plan is scaffolded first. Agents should then read existing findings, consult relevant wiki/docs, inspect only narrowly relevant source code, ask proportional clarifying questions, and fill the useful parts of the plan with real context.
+The plan is scaffolded first. Agents should then read existing findings, verify branch/status, inspect recent diffs and handoff notes when resuming, consult relevant wiki/docs, inspect only narrowly relevant source code, ask proportional clarifying questions, and fill the useful parts of the plan with real context.
+
+List recent or open local requirements:
+
+```sh
+ai/scripts/list-requirements.sh --open
+ai/scripts/list-requirements.sh --sort modified --limit 10
+ai/scripts/list-requirements.sh --status active --sort modified --limit 10
+```
 
 ## Wiki Lint
 
@@ -93,7 +101,7 @@ This pack intentionally borrows from widely shared agent-engineering ideas, adap
 | [mattpocock/skills](https://github.com/mattpocock/skills) | ~65% | [Assessment](./ai/docs/idea-lineage/mattpocock-skills.md) |
 | [Matt Pocock's Grill Me writeup](https://www.aihero.dev/my-grill-me-skill-has-gone-viral) | ~70% | [Assessment](./ai/docs/idea-lineage/matt-pocock-grill-me.md) |
 | [Superpowers by Jesse Vincent](https://github.com/obra/superpowers) | ~55% | [Assessment](./ai/docs/idea-lineage/superpowers.md) |
-| [Cline Memory Bank](https://docs.cline.bot/prompting/cline-memory-bank) | ~75% | [Assessment](./ai/docs/idea-lineage/cline-memory-bank.md) |
+| [Cline Memory Bank](https://docs.cline.bot/features/memory-bank) | ~80% | [Assessment](./ai/docs/idea-lineage/cline-memory-bank.md) |
 | [Aider](https://github.com/Aider-AI/aider) | ~45% | [Assessment](./ai/docs/idea-lineage/aider.md) |
 | [OpenHands](https://github.com/OpenHands/OpenHands) | ~35% | [Assessment](./ai/docs/idea-lineage/openhands.md) |
 | [SWE-agent](https://github.com/SWE-agent/SWE-agent) | ~40% | [Assessment](./ai/docs/idea-lineage/swe-agent.md) |

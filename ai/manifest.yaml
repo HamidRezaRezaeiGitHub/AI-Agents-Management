@@ -1,5 +1,5 @@
 name: default-agent-instruction-pack
-version: 0.4.5
+version: 0.4.6
 description: Portable starter pack for multi-agent coding assistants.
 
 entry_files:
@@ -52,6 +52,7 @@ adoption:
     - packs/default/ai/templates/wiki/page.md
   helper_scripts:
     - packs/default/ai/scripts/start-requirement.sh
+    - packs/default/ai/scripts/list-requirements.sh
     - packs/default/ai/scripts/audit-adoption.sh
     - packs/default/ai/scripts/wiki-lint.sh
   prompts:
@@ -87,6 +88,7 @@ adoption:
     - ai/templates/wiki/log.md
     - ai/templates/wiki/page.md
     - ai/scripts/start-requirement.sh
+    - ai/scripts/list-requirements.sh
     - ai/scripts/audit-adoption.sh
     - ai/scripts/wiki-lint.sh
     - ai/hooks/pre-commit-block-requirements.sh

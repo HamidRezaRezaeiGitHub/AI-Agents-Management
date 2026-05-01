@@ -49,6 +49,17 @@ Record one complexity level in `PLAN.md`:
 
 If a task grows, update the complexity and explain why. If a workflow is skipped to save tokens, record the reason.
 
+Use a concise status value in `PLAN.md` metadata. Recommended statuses are:
+
+- `planning`: context gathering or plan shaping is underway.
+- `active`: implementation, investigation, or validation is underway.
+- `blocked`: work cannot proceed without a decision, dependency, access, or failing baseline resolution.
+- `parked`: intentionally paused and expected to resume later.
+- `complete`: requirement is handled and validation/review notes are recorded.
+- `cancelled`: requirement will not continue.
+
+These statuses are designed to work with `ai/scripts/list-requirements.sh`, including `--status` and `--open` filters. The script treats `complete`, `cancelled`, and a few legacy closed values as not open; all other statuses remain visible in `--open`.
+
 ## Title And Slug
 
 - If the user provides a title, use it.
@@ -111,15 +122,21 @@ ai/scripts/start-requirement.sh "Requirement Title"
 
 ## Resuming Agent Responsibilities
 
-When the workspace already exists:
+When the workspace already exists, recover context before restarting discovery or implementation:
 
 1. Read `requirements/<slug>/PLAN.md` first.
 2. Read `requirements/<slug>/FINDINGS.md` when it exists.
 3. Check the current branch against the expected branch in the plan.
-4. Review the context, testing, and validation sections before broad source search.
-5. Update `FINDINGS.md` when new reusable context is discovered.
-6. Update the plan with current status before making substantial changes.
-7. Append decisions, blockers, validation results, and handoff notes as work progresses.
+4. Run `git status --short --branch` and inspect relevant uncommitted changes before editing.
+5. Read recent diffs, commits, handoff notes, and the next unfinished checklist item before broad source search.
+6. Read `wiki/index.md` only when the plan, findings, or task scope says durable project context may matter.
+7. Review the plan's context, baseline, testing, validation, and code-review sections before choosing new commands.
+8. Avoid redoing completed research or implementation unless the plan says it is stale, blocked, or suspect.
+9. Update the plan with current status and `Last modified` before substantial follow-on work.
+10. Update `FINDINGS.md` when new reusable context is discovered.
+11. Append decisions, blockers, validation results, and handoff notes as work progresses.
+
+Treat this as a resume-session checklist, not as permission to re-run full requirement planning from scratch. If the existing plan is too sparse or stale to guide safe work, refresh only the missing sections and explain why.
 
 ## PLAN.md Expectations
 
@@ -129,7 +146,7 @@ Include only sections that help the current requirement:
 
 - requirement title and slug,
 - expected branch,
-- status,
+- created, last modified, and status,
 - link to `FINDINGS.md`,
 - prompt summary,
 - complexity and routing decisions,
@@ -152,6 +169,7 @@ Include only sections that help the current requirement:
 ## Context And Token Optimization
 
 - Start from `PLAN.md` and then `FINDINGS.md` before scanning source code.
+- When resuming, identify the next unfinished checklist item or handoff note before opening broad source areas.
 - Use the chosen complexity to avoid reading unnecessary workflows or source areas.
 - Use `FINDINGS.md` as the requirement-specific context cache and first filter for wiki/source lookup.
 - Translate non-technical or vibe-style requests before broad source search.

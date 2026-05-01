@@ -41,6 +41,7 @@ This repo currently has no build system. For documentation-only changes, validat
 sh -n scripts/install-adapter.sh
 sh -n scripts/audit-adoption.sh
 sh -n packs/default/ai/scripts/start-requirement.sh
+sh -n packs/default/ai/scripts/list-requirements.sh
 sh -n packs/default/ai/scripts/audit-adoption.sh
 sh -n packs/default/ai/scripts/wiki-lint.sh
 ```

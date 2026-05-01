@@ -2,7 +2,7 @@
 
 Source: [Cline Memory Bank](https://docs.cline.bot/features/memory-bank)
 
-Estimated adoption: **about 75%**
+Estimated adoption: **about 80%**
 
 ## Core Idea
 
@@ -22,4 +22,6 @@ Cline Memory Bank is a structured Markdown documentation system for preserving p
 
 `man-agent-ment` strongly adopts the persistent-Markdown-memory idea, but uses a different shape. Instead of a `memory-bank/` folder, installed projects get a `wiki/` with `index.md`, `log.md`, architecture/domain/testing starter pages, and a `wiki-documentation` workflow. For active work, ignored `requirements/<slug>/PLAN.md` and `requirements/<slug>/FINDINGS.md` preserve current scope, decisions, validation, and task-specific discoveries between sessions.
 
-The pack is more explicit than Memory Bank about separating temporary requirement memory from durable project knowledge. Requirement-local notes stay in `FINDINGS.md` until they are stable enough to promote into the wiki. The pack also includes wiki linting and installation/audit scripts. It does not adopt Cline's exact file taxonomy, mandatory "read all memory bank files" instruction, Cline-specific commands, checkpoints, Auto-Compact integration, or `.clineignore` guidance.
+The pack is more explicit than Memory Bank about separating temporary requirement memory from durable project knowledge. Requirement-local notes stay in `FINDINGS.md` until they are stable enough to promote into the wiki. The `requirement-planning` workflow now includes a resume-session checklist that tells agents to read the active plan and findings, verify branch/status, inspect recent diffs and handoff notes, identify the next unfinished checklist item, and avoid repeating completed discovery.
+
+The pack also includes wiki linting and installation/audit scripts. It does not adopt Cline's exact file taxonomy, mandatory "read all memory bank files" instruction, Cline-specific commands, checkpoints, Auto-Compact integration, or `.clineignore` guidance.

@@ -90,6 +90,7 @@ copy_if_missing "$pack/wiki/architecture/decisions.md" "$target/wiki/architectur
 copy_if_missing "$pack/wiki/domain/ubiquitous-language.md" "$target/wiki/domain/ubiquitous-language.md"
 copy_if_missing "$pack/wiki/guides/testing.md" "$target/wiki/guides/testing.md"
 copy_if_missing "$pack/ai/scripts/start-requirement.sh" "$target/ai/scripts/start-requirement.sh"
+copy_if_missing "$pack/ai/scripts/list-requirements.sh" "$target/ai/scripts/list-requirements.sh"
 copy_if_missing "$pack/ai/scripts/audit-adoption.sh" "$target/ai/scripts/audit-adoption.sh"
 copy_if_missing "$pack/ai/scripts/wiki-lint.sh" "$target/ai/scripts/wiki-lint.sh"
 copy_if_missing "$pack/ai/hooks/pre-commit-block-requirements.sh" "$target/ai/hooks/pre-commit-block-requirements.sh"
@@ -101,6 +102,7 @@ copy_if_missing "$pack/ai/prompts/adoption/temp-install-review.md" "$target/ai/p
 ensure_gitignore_entry "requirements/"
 
 chmod +x "$target/ai/scripts/start-requirement.sh"
+chmod +x "$target/ai/scripts/list-requirements.sh"
 chmod +x "$target/ai/scripts/audit-adoption.sh"
 chmod +x "$target/ai/scripts/wiki-lint.sh"
 chmod +x "$target/ai/hooks/pre-commit-block-requirements.sh"
