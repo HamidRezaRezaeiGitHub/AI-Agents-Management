@@ -1,0 +1,62 @@
+name: Validate
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+    types:
+      - opened
+      - synchronize
+      - reopened
+      - ready_for_review
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validation:
+    name: Repository validation
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Check shell syntax
+        run: |
+          set -eu
+          sh -n scripts/install-adapter.sh
+          sh -n scripts/audit-adoption.sh
+          sh -n packs/default/ai/scripts/start-requirement.sh
+          sh -n packs/default/ai/scripts/audit-adoption.sh
+          sh -n packs/default/ai/scripts/wiki-lint.sh
+
+      - name: Smoke test install, audit, wiki, and requirements
+        run: |
+          set -eu
+
+          target="$(mktemp -d)"
+
+          scripts/install-adapter.sh --dry-run "$target"
+          if find "$target" -mindepth 1 -print -quit | grep -q .; then
+            echo "dry-run wrote files to $target" >&2
+            exit 1
+          fi
+
+          scripts/install-adapter.sh "$target"
+          scripts/audit-adoption.sh "$target"
+
+          (
+            cd "$target"
+            ai/scripts/audit-adoption.sh
+            ai/scripts/wiki-lint.sh wiki
+
+            git init
+            ai/scripts/start-requirement.sh "CI Smoke Requirement"
+            test -f requirements/ci-smoke-requirement/PLAN.md
+            test -f requirements/ci-smoke-requirement/FINDINGS.md
+          )
