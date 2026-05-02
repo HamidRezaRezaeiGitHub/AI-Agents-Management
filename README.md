@@ -71,6 +71,7 @@ ai/scripts/start-requirement.sh "Requirement Title"
 ```
 
 This creates `requirements/<slug>/PLAN.md` and `requirements/<slug>/FINDINGS.md`, ensures `requirements/` is ignored, and creates or switches to a `feature/<slug>` branch.
+If an agent is already on the right feature branch, it can use `ai/scripts/start-requirement.sh --stay-on-current-branch "Requirement Title"` to keep working there while creating or resuming the requirement workspace.
 
 The plan is scaffolded first. Agents should then read existing findings, consult relevant wiki/docs, inspect only narrowly relevant source code, ask proportional clarifying questions, and fill the useful parts of the plan with real context.
 

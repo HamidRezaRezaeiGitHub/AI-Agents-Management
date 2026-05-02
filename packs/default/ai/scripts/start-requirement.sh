@@ -2,19 +2,52 @@
 set -eu
 
 usage() {
-  echo "Usage: ai/scripts/start-requirement.sh \"Requirement Title\"" >&2
-  exit 2
+  cat >&2 <<'USAGE'
+Usage: ai/scripts/start-requirement.sh [--stay-on-current-branch|--no-switch] "Requirement Title"
+
+Options:
+  --stay-on-current-branch  Create or resume the requirement workspace without switching branches.
+  --no-switch               Alias for --stay-on-current-branch.
+USAGE
 }
 
 escape_sed_replacement() {
   printf "%s" "$1" | sed 's/[\/&|\\]/\\&/g'
 }
 
-if [ "$#" -ne 1 ]; then
-  usage
-fi
+stay_on_current_branch=0
+title=
 
-title=$1
+while [ "$#" -gt 0 ]; do
+  case "$1" in
+    --stay-on-current-branch|--no-switch)
+      stay_on_current_branch=1
+      ;;
+    -h|--help)
+      usage
+      exit 0
+      ;;
+    --*)
+      echo "unknown option: $1" >&2
+      usage
+      exit 2
+      ;;
+    *)
+      if [ -n "$title" ]; then
+        echo "unexpected argument: $1" >&2
+        usage
+        exit 2
+      fi
+      title=$1
+      ;;
+  esac
+  shift
+done
+
+if [ -z "$title" ]; then
+  usage
+  exit 2
+fi
 
 slug=$(printf "%s" "$title" \
   | tr '[:upper:]' '[:lower:]' \
@@ -58,7 +91,16 @@ if [ -f "$plan" ]; then
   fi
 fi
 
-if [ "$current_branch" = "$branch" ]; then
+if [ "$stay_on_current_branch" -eq 1 ]; then
+  if [ -z "$current_branch" ]; then
+    echo "Cannot stay on the current branch because git is in a detached HEAD state." >&2
+    exit 1
+  fi
+  branch=$current_branch
+  if [ "$current_branch" = "main" ] || [ "$current_branch" = "master" ]; then
+    echo "warning: staying on $current_branch; this option is intended for an existing feature branch" >&2
+  fi
+elif [ "$current_branch" = "$branch" ]; then
   :
 elif [ "$current_branch" = "$fallback_branch" ] && [ "$branch" = "feature/$slug" ]; then
   branch=$current_branch

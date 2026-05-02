@@ -40,7 +40,7 @@ When unsure between two levels, choose the higher level only if the extra proces
 | Architecture-sensitive work | `ai/workflows/architecture.md` | Update wiki architecture pages if durable knowledge changes |
 | Test work | `ai/workflows/testing-quality.md` | Use project wiki testing guidance first |
 | Terminal work | `ai/workflows/command-execution.md` | Filter verbose output with targeted commands |
-| Before finishing implementation | `ai/workflows/code-review.md` | Then `ai/workflows/ci-validation.md` |
+| Before finishing implementation | `ai/workflows/ci-validation.md` | Then use `ai/workflows/code-review.md` for the two-pass review |
 | Wiki or durable knowledge change | `ai/workflows/wiki-documentation.md` | Promote from `FINDINGS.md` only when knowledge is reusable beyond the requirement |
 
 ## Token-Burn Rules

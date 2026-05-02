@@ -80,6 +80,8 @@ Example:
 - Use a branch named from the requirement slug.
 - Prefer `feature/<slug>` when possible.
 - If that ref shape is blocked or the local repo disallows slash branches, use `<slug>`.
+- By default, `ai/scripts/start-requirement.sh` creates or switches to the expected requirement branch.
+- When already on a suitable feature branch for the active work, an agent may run `ai/scripts/start-requirement.sh --stay-on-current-branch "Title"` to create or resume the workspace without switching branches.
 - Record the expected branch in `PLAN.md`.
 - If resuming, compare the current branch with the expected branch and switch or ask before continuing when the mismatch is unsafe.
 
@@ -108,6 +110,8 @@ Prefer using:
 ai/scripts/start-requirement.sh "Requirement Title"
 ```
 
+Use `--stay-on-current-branch` only when the current branch is already the right feature branch for the work.
+
 ## Resuming Agent Responsibilities
 
 When the workspace already exists:
@@ -122,7 +126,7 @@ When the workspace already exists:
 
 ## PLAN.md Expectations
 
-`PLAN.md` should stay useful for a human and for any future agent. Keep it concise but current.
+`PLAN.md` should stay useful for a human and for any future agent. Keep it concise but current. The template is a starting point, not a fixed schema; agents may add, remove, or rename sections to fit the requirement as long as Markdown remains readable and any project linting still passes.
 
 Include only sections that help the current requirement:
 

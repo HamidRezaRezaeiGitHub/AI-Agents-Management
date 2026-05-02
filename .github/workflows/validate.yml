@@ -59,4 +59,8 @@ jobs:
             ai/scripts/start-requirement.sh "CI Smoke Requirement"
             test -f requirements/ci-smoke-requirement/PLAN.md
             test -f requirements/ci-smoke-requirement/FINDINGS.md
+            ai/scripts/start-requirement.sh --stay-on-current-branch "Stay Branch Smoke Requirement"
+            test -f requirements/stay-branch-smoke-requirement/PLAN.md
+            test -f requirements/stay-branch-smoke-requirement/FINDINGS.md
+            grep -q 'Expected branch: `feature/ci-smoke-requirement`' requirements/stay-branch-smoke-requirement/PLAN.md
           )

@@ -30,7 +30,7 @@ Use two separate review passes. This borrows the useful part of subagent-driven 
 
 Run code review:
 
-- after implementation and QA/test work are complete,
+- after implementation and validation work are complete,
 - before finalizing the source-code portion of a requirement,
 - before committing or opening a PR,
 - when asked to review a PR or diff,
@@ -63,6 +63,7 @@ Before asking someone else to review or before finalizing:
 5. Add notes for reviewers when file order, risky areas, or non-obvious decisions matter.
 6. Verify tests, CI expectations, and wiki updates are recorded in the plan.
 7. Verify important review findings are captured in `FINDINGS.md` or the PR review when they help future agents.
+8. If the review causes source changes, rerun the smallest meaningful validation affected by those changes.
 
 ## Two-Pass Review
 

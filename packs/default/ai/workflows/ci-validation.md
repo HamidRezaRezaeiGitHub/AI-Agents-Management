@@ -1,6 +1,6 @@
 ---
 name: ci-validation
-use_when: Before finishing implementation work, before code review, and before committing or opening a pull request.
+use_when: Before finishing implementation work, before final two-pass code review, and before committing or opening a pull request.
 reads:
   - .github/workflows/
   - Jenkinsfile
@@ -12,7 +12,7 @@ strictness: required_before_completion
 
 # CI Validation Workflow
 
-Use this workflow before finishing implementation work, before code review, and especially before committing or opening a pull request.
+Use this workflow before finishing implementation work, before the final two-pass code review, and especially before committing or opening a pull request.
 
 ## Goal
 
@@ -55,13 +55,14 @@ For `standard`, `large`, or `risky` implementation work, the agent should also e
 - If final validation fails in a way that matches the baseline failure, document it as pre-existing unless the current changes made it worse.
 - If no baseline was run, say so in `PLAN.md` and avoid claiming that later failures are unrelated without evidence.
 
-## Before Commit Or PR
+## Before Final Review, Commit, Or PR
 
 - Run tests relevant to the change.
 - Run formatter/linter/typecheck/build checks when the project has them.
 - Check that generated files, lockfiles, and dependency changes are intentional.
 - Do not modify CI files unless the user requested it or the requirement requires it.
 - Do not claim CI will pass unless equivalent checks were run or the limitations are clearly stated.
+- After validation, use `ai/workflows/code-review.md` for the final two-pass review. If review changes source files, rerun the smallest meaningful validation affected by those changes.
 
 ## Failure Handling
 

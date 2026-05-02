@@ -34,12 +34,14 @@ Before finalizing source changes or reviewing a PR, use the two-pass review in `
 
 ```sh
 ai/scripts/start-requirement.sh "Requirement Title"
+ai/scripts/start-requirement.sh --stay-on-current-branch "Requirement Title"
 ai/scripts/audit-adoption.sh
 ai/scripts/wiki-lint.sh
 ai/scripts/wiki-lint.sh --warn-placeholders
 ```
 
 `start-requirement.sh` creates both `PLAN.md` and `FINDINGS.md` under `requirements/<slug>/`.
+By default it creates or switches to the requirement branch. Use `--stay-on-current-branch` only when the current branch is already the right feature branch for the work.
 
 ## Metadata
 
