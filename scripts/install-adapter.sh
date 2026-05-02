@@ -1,12 +1,48 @@
 #!/bin/sh
 set -eu
 
-if [ "$#" -ne 1 ]; then
-  echo "Usage: scripts/install-adapter.sh /path/to/target-project" >&2
+usage() {
+  cat >&2 <<'USAGE'
+Usage: scripts/install-adapter.sh [--dry-run] /path/to/target-project
+
+Options:
+  --dry-run, -n  Show planned creates, updates, and chmods without writing files.
+USAGE
+}
+
+dry_run=0
+target=
+
+while [ "$#" -gt 0 ]; do
+  case "$1" in
+    --dry-run|-n)
+      dry_run=1
+      ;;
+    -h|--help)
+      usage
+      exit 0
+      ;;
+    --*)
+      echo "unknown option: $1" >&2
+      usage
+      exit 2
+      ;;
+    *)
+      if [ -n "$target" ]; then
+        echo "unexpected argument: $1" >&2
+        usage
+        exit 2
+      fi
+      target=$1
+      ;;
+  esac
+  shift
+done
+
+if [ -z "$target" ]; then
+  usage
   exit 2
 fi
-
-target=$1
 
 if [ ! -d "$target" ]; then
   echo "Target directory does not exist: $target" >&2
@@ -14,20 +50,30 @@ if [ ! -d "$target" ]; then
 fi
 
 pack="packs/default"
+created_count=0
+skipped_count=0
+gitignore_update_count=0
+chmod_count=0
 
-mkdir -p \
-  "$target/.github/instructions" \
-  "$target/.claude/commands" \
-  "$target/.gemini" \
-  "$target/ai/workflows" \
-  "$target/ai/templates/requirement" \
-  "$target/ai/templates/wiki" \
-  "$target/ai/scripts" \
-  "$target/ai/hooks" \
-  "$target/ai/prompts/adoption" \
-  "$target/wiki/architecture" \
-  "$target/wiki/domain" \
-  "$target/wiki/guides"
+ensure_directories() {
+  if [ "$dry_run" -eq 1 ]; then
+    echo "would ensure required directories under $target"
+  else
+    mkdir -p \
+      "$target/.github/instructions" \
+      "$target/.claude/commands" \
+      "$target/.gemini" \
+      "$target/ai/workflows" \
+      "$target/ai/templates/requirement" \
+      "$target/ai/templates/wiki" \
+      "$target/ai/scripts" \
+      "$target/ai/hooks" \
+      "$target/ai/prompts/adoption" \
+      "$target/wiki/architecture" \
+      "$target/wiki/domain" \
+      "$target/wiki/guides"
+  fi
+}
 
 copy_if_missing() {
   source=$1
@@ -35,9 +81,14 @@ copy_if_missing() {
 
   if [ -e "$destination" ]; then
     echo "skip existing $destination"
+    skipped_count=$((skipped_count + 1))
+  elif [ "$dry_run" -eq 1 ]; then
+    echo "would create $destination"
+    created_count=$((created_count + 1))
   else
     cp "$source" "$destination"
     echo "created $destination"
+    created_count=$((created_count + 1))
   fi
 }
 
@@ -45,15 +96,35 @@ ensure_gitignore_entry() {
   entry=$1
   file="$target/.gitignore"
 
-  if [ ! -f "$file" ]; then
-    touch "$file"
+  if [ -f "$file" ] && grep -qx "$entry" "$file"; then
+    return
   fi
 
-  if ! grep -qx "$entry" "$file"; then
+  if [ "$dry_run" -eq 1 ]; then
+    echo "would update $file with $entry"
+    gitignore_update_count=$((gitignore_update_count + 1))
+  else
+    if [ ! -f "$file" ]; then
+      touch "$file"
+    fi
     printf "\n%s\n" "$entry" >> "$file"
     echo "updated $file with $entry"
+    gitignore_update_count=$((gitignore_update_count + 1))
   fi
 }
+
+ensure_executable() {
+  file=$1
+
+  if [ "$dry_run" -eq 1 ]; then
+    echo "would chmod +x $file"
+  else
+    chmod +x "$file"
+  fi
+  chmod_count=$((chmod_count + 1))
+}
+
+ensure_directories
 
 copy_if_missing "$pack/root/AGENTS.md" "$target/AGENTS.md"
 copy_if_missing "$pack/root/CLAUDE.md" "$target/CLAUDE.md"
@@ -100,9 +171,14 @@ copy_if_missing "$pack/ai/prompts/adoption/update-existing-pack.md" "$target/ai/
 copy_if_missing "$pack/ai/prompts/adoption/temp-install-review.md" "$target/ai/prompts/adoption/temp-install-review.md"
 ensure_gitignore_entry "requirements/"
 
-chmod +x "$target/ai/scripts/start-requirement.sh"
-chmod +x "$target/ai/scripts/audit-adoption.sh"
-chmod +x "$target/ai/scripts/wiki-lint.sh"
-chmod +x "$target/ai/hooks/pre-commit-block-requirements.sh"
+ensure_executable "$target/ai/scripts/start-requirement.sh"
+ensure_executable "$target/ai/scripts/audit-adoption.sh"
+ensure_executable "$target/ai/scripts/wiki-lint.sh"
+ensure_executable "$target/ai/hooks/pre-commit-block-requirements.sh"
 
-echo "Done. Customize TODOs in the target project's agent instruction files."
+if [ "$dry_run" -eq 1 ]; then
+  echo "Dry run complete. No files were changed."
+else
+  echo "Done. Customize TODOs in the target project's agent instruction files."
+fi
+echo "Summary: created=$created_count skipped=$skipped_count gitignore_updates=$gitignore_update_count chmods=$chmod_count"

@@ -36,7 +36,7 @@ Copy or generate:
 - `ai/prompts/adoption/*.md`
 - `wiki/index.md`, `wiki/log.md`, and starter architecture/domain/testing wiki pages
 
-Use `scripts/install-adapter.sh /path/to/project` as a starting point. It copies files from `packs/default/` into each target path.
+Use `scripts/install-adapter.sh --dry-run /path/to/project` to preview the install, then `scripts/install-adapter.sh /path/to/project` as a starting point. It copies files from `packs/default/` into each target path.
 
 For existing projects with current AI instructions, install into a temporary folder first and use `packs/default/ai/prompts/adoption/first-time-existing-instructions.md` or `packs/default/ai/prompts/adoption/temp-install-review.md` to plan a safe migration.
 
