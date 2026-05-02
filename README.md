@@ -79,9 +79,10 @@ In an adopted project:
 
 ```sh
 ai/scripts/wiki-lint.sh
+ai/scripts/wiki-lint.sh --warn-placeholders
 ```
 
-This checks wiki frontmatter, relative Markdown links, and whether topic pages appear in `wiki/index.md`.
+This checks wiki frontmatter, relative Markdown links, and whether topic pages appear in `wiki/index.md`. Use `--warn-placeholders` or `--strict-placeholders` in adopted projects to find leftover `TODO` and `YYYY-MM-DD` wiki placeholders.
 
 ## Idea Lineage
 

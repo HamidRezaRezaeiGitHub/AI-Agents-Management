@@ -36,6 +36,7 @@ Before finalizing source changes or reviewing a PR, use the two-pass review in `
 ai/scripts/start-requirement.sh "Requirement Title"
 ai/scripts/audit-adoption.sh
 ai/scripts/wiki-lint.sh
+ai/scripts/wiki-lint.sh --warn-placeholders
 ```
 
 `start-requirement.sh` creates both `PLAN.md` and `FINDINGS.md` under `requirements/<slug>/`.
