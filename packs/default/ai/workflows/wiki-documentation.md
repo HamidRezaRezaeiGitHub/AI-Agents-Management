@@ -179,3 +179,5 @@ ai/scripts/wiki-lint.sh
 ```
 
 The script checks for missing topic-page frontmatter, broken relative Markdown links, and topic pages missing from `wiki/index.md`.
+
+In adopted projects, use `ai/scripts/wiki-lint.sh --warn-placeholders` to surface leftover `TODO` and `YYYY-MM-DD` wiki placeholders without failing, or `--strict-placeholders` when unfinished placeholders should fail validation. Keep the default lint compatible with starter wiki templates, which intentionally include placeholders.

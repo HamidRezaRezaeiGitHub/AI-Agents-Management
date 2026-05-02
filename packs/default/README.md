@@ -4,6 +4,12 @@ Installable starter pack for adopting projects.
 
 Files under this directory are source templates. `scripts/install-adapter.sh` maps them into each target project's expected native locations.
 
+Preview an install without writing files:
+
+```sh
+scripts/install-adapter.sh --dry-run /path/to/target-project
+```
+
 ## Target Mapping
 
 - `root/AGENTS.md` -> `AGENTS.md`

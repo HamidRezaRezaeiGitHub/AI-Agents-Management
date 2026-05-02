@@ -35,10 +35,11 @@ This pack turns those lessons into small, inspectable project files. It aims to 
 Install the default pack into another project:
 
 ```sh
+scripts/install-adapter.sh --dry-run /path/to/target-project
 scripts/install-adapter.sh /path/to/target-project
 ```
 
-The installer copies the starter pack into that target project and ensures `requirements/` is ignored. To see the exact copied paths, read [scripts/install-adapter.sh](./scripts/install-adapter.sh).
+The dry run reports planned creates, `.gitignore` updates, and executable-bit changes without writing files. The installer copies the starter pack into that target project and ensures `requirements/` is ignored. To see the exact copied paths, read [scripts/install-adapter.sh](./scripts/install-adapter.sh).
 
 For common adoption scenarios, use these prepared prompts:
 
@@ -79,9 +80,10 @@ In an adopted project:
 
 ```sh
 ai/scripts/wiki-lint.sh
+ai/scripts/wiki-lint.sh --warn-placeholders
 ```
 
-This checks wiki frontmatter, relative Markdown links, and whether topic pages appear in `wiki/index.md`.
+This checks wiki frontmatter, relative Markdown links, and whether topic pages appear in `wiki/index.md`. Use `--warn-placeholders` or `--strict-placeholders` in adopted projects to find leftover `TODO` and `YYYY-MM-DD` wiki placeholders.
 
 ## Idea Lineage
 
