@@ -38,9 +38,9 @@ Copy or generate:
 
 Use `scripts/install-adapter.sh --dry-run /path/to/project` to preview the install, then `scripts/install-adapter.sh /path/to/project` as a starting point. It copies files from `packs/default/` into each target path.
 
-Adoption prompts under `packs/default/ai/prompts/adoption/` are source-repo migration aids. Use them while planning adoption, but do not copy them into the target project.
+Adoption prompts under `packs/default/ai/prompts/adoption/` are source-repo migration aids. Paste them into an agent session running in the target project; they instruct the agent to clone this source repo into a temporary folder inside the target project, inspect installer behavior, analyze the project, and plan the migration. Do not copy the prompt files into the target project.
 
-For existing projects with current AI instructions, install into a temporary folder first and use `packs/default/ai/prompts/adoption/first-time-existing-instructions.md` or `packs/default/ai/prompts/adoption/temp-install-review.md` to plan a safe migration.
+Use `packs/default/ai/prompts/adoption/adopt-pack.md` for first-time adoption and `packs/default/ai/prompts/adoption/update-pack.md` when updating an older installed pack.
 
 ## 3. Make Instructions Project-Specific
 

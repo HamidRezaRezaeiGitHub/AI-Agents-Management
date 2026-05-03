@@ -27,29 +27,19 @@ Modern coding agents are powerful, but they often fail in familiar ways:
 - they forget discoveries between sessions,
 - they use inconsistent domain language,
 - they claim completion without enough validation,
+- they hit rate limits or token limits,
 - they review code for style while missing requirement mismatch.
 
 This pack turns those lessons into small, inspectable project files. It aims to be disciplined without becoming ceremonial.
 
 ## Adoption
 
-Install the default pack into another project:
+For adoption planning, use these prepared prompts from this source repository:
 
-```sh
-scripts/install-adapter.sh --dry-run /path/to/target-project
-scripts/install-adapter.sh /path/to/target-project
-```
+- [Adopt pack](./packs/default/ai/prompts/adoption/adopt-pack.md): first-time adoption into a target project, with or without existing agent instructions.
+- [Update pack](./packs/default/ai/prompts/adoption/update-pack.md): update a target project that already has an older installed `ai/pack.yaml`.
 
-The dry run reports planned creates, `.gitignore` updates, and executable-bit changes without writing files. The installer copies the starter pack into that target project and ensures `requirements/` is ignored. To see the exact copied paths, read [scripts/install-adapter.sh](./scripts/install-adapter.sh).
-
-For common adoption scenarios, use these prepared prompts:
-
-- [Clean project](./packs/default/ai/prompts/adoption/empty-project.md): source code exists, but no meaningful AI-agent instruction files yet.
-- [First-time adoption with existing instructions](./packs/default/ai/prompts/adoption/first-time-existing-instructions.md): the project already has Claude, Copilot, Codex, Gemini, Cursor, wiki, README, or custom agent guidance.
-- [Temporary install review](./packs/default/ai/prompts/adoption/temp-install-review.md): install into a temporary folder first so an agent can compare and plan migration safely.
-- [Update existing pack](./packs/default/ai/prompts/adoption/update-existing-pack.md): the project already has an older installed `ai/pack.yaml`.
-
-These prompts are source-repo migration aids and are not copied into target projects.
+These prompts are source-repo migration aids. Paste them into an agent session running in the target project; they tell the agent to clone this repo into a temporary folder inside that target project, inspect installer behavior, analyze the project, and prepare a staged migration plan. They are not copied into target projects.
 
 Audit an adopted project from this repo:
 
@@ -64,40 +54,6 @@ ai/scripts/audit-adoption.sh
 ```
 
 The central audit reports customized files as `changed` without failing. Missing files and self-audit failures should be investigated.
-
-## Start Or Resume A Requirement
-
-After adoption, create or resume a local ignored requirement workspace and branch from the target repo root:
-
-```sh
-ai/scripts/start-requirement.sh "Requirement Title"
-```
-
-This creates `requirements/<slug>/PLAN.md` and `requirements/<slug>/FINDINGS.md`, ensures `requirements/` is ignored, and creates or switches to a `feature/<slug>` branch.
-If an agent is already on the right feature branch, it can use `ai/scripts/start-requirement.sh --stay-on-current-branch "Requirement Title"` to keep working there while creating or resuming the requirement workspace.
-
-The plan is scaffolded first. Agents should then read existing findings, verify branch/status, inspect recent diffs and handoff notes when resuming, consult relevant wiki/docs, inspect only narrowly relevant source code, ask proportional clarifying questions, and fill the useful parts of the plan with real context.
-
-List recent or open local requirements:
-
-```sh
-ai/scripts/list-requirements.sh --open
-ai/scripts/list-requirements.sh --sort modified --limit 10
-ai/scripts/list-requirements.sh --status active --sort modified --limit 10
-ai/scripts/list-requirements.sh --stats
-ai/scripts/lint-requirements.sh
-```
-
-## Wiki Lint
-
-In an adopted project:
-
-```sh
-ai/scripts/wiki-lint.sh
-ai/scripts/wiki-lint.sh --warn-placeholders
-```
-
-This checks wiki frontmatter, relative Markdown links, and whether topic pages appear in `wiki/index.md`. Use `--warn-placeholders` or `--strict-placeholders` in adopted projects to find leftover `TODO` and `YYYY-MM-DD` wiki placeholders.
 
 ## Idea Lineage
 
