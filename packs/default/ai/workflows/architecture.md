@@ -19,8 +19,6 @@ Use this workflow when planning, implementing, reviewing, or answering questions
 
 Maintain an accurate mental model of the current system before making changes. Architecture guidance should reduce accidental coupling, misplaced logic, duplicated patterns, and documentation drift.
 
-This workflow is inspired by SOP-based multi-agent software development systems such as MetaGPT and ChatDev: agents do better when intermediate design assumptions are explicit and checked before coding.
-
 ## When To Consult
 
 Consult the architecture workflow when a requirement touches:

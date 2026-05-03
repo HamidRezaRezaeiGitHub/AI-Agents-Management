@@ -1,6 +1,6 @@
 # Copilot Repository Instructions
 
-Follow `AGENTS.md` for project instructions.
+Follow `AGENTS.md` at the root of the repository for project instructions.
 
 ## Copilot Notes
 
@@ -8,5 +8,3 @@ Follow `AGENTS.md` for project instructions.
 - For non-quick work, use `ai/workflows/requirement-planning.md`; keep `PLAN.md` for status and `FINDINGS.md` for reusable requirement context.
 - For implementation work, record baseline verification before source edits when available, keep command output concise, validate before finishing, and use the two-pass code review.
 - Prefer existing project patterns.
-- Run the validation commands listed in `AGENTS.md` when relevant.
-- Use path-specific files under `.github/instructions/` for language or subtree-specific rules.

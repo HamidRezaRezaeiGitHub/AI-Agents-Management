@@ -146,15 +146,15 @@ if [ ! -f "$plan" ]; then
     template="packs/default/ai/templates/requirement/PLAN.md"
   fi
 
-  escaped_title=$(escape_sed_replacement "$title")
-  escaped_slug=$(escape_sed_replacement "$slug")
-  escaped_branch=$(escape_sed_replacement "$branch")
-  escaped_created_at=$(escape_sed_replacement "$created_at")
-
   if [ ! -f "$template" ]; then
     echo "Missing template: $template" >&2
     exit 1
   fi
+
+  escaped_title=$(escape_sed_replacement "$title")
+  escaped_slug=$(escape_sed_replacement "$slug")
+  escaped_branch=$(escape_sed_replacement "$branch")
+  escaped_created_at=$(escape_sed_replacement "$created_at")
 
   sed \
     -e "s|{{TITLE}}|$escaped_title|g" \
@@ -174,12 +174,12 @@ if [ ! -f "$findings" ]; then
     template="packs/default/ai/templates/requirement/FINDINGS.md"
   fi
 
-  escaped_title=$(escape_sed_replacement "$title")
-
   if [ ! -f "$template" ]; then
     echo "Missing template: $template" >&2
     exit 1
   fi
+
+  escaped_title=$(escape_sed_replacement "$title")
 
   sed \
     -e "s|{{TITLE}}|$escaped_title|g" \

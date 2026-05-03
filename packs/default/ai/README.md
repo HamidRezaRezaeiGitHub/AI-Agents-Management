@@ -1,6 +1,6 @@
 # AI Agent Pack
 
-This directory contains reusable workflows, scripts, templates, prompts, and metadata for AI coding agents in this project.
+This directory contains reusable workflows, scripts, templates, prompts, and metadata for agents in this project.
 
 ## Start Here
 
@@ -15,33 +15,14 @@ This directory contains reusable workflows, scripts, templates, prompts, and met
 - For final self-review or PR review: `ai/workflows/code-review.md` with two passes: requirement fit, then implementation quality and risk
 - For wiki maintenance: `ai/workflows/wiki-documentation.md`
 
-## Complexity Routing
-
-- `quick`: answer, inspect, or make the smallest safe edit without creating a requirement workspace.
-- `standard`: create or resume `requirements/<slug>/`, then use `PLAN.md` and `FINDINGS.md`.
-- `large`: use the standard flow plus explicit architecture, testing, CI, and review checkpoints.
-- `risky`: use the large flow and ask before irreversible, production, privacy, security, or data-impacting actions.
-
-Use the lowest level that handles the real risk. If a task grows, update `PLAN.md` with the new level and why.
-
-For `standard`, `large`, or `risky` implementation work, identify and run a safe baseline verification before source edits when the project provides one. Record the command and result in `PLAN.md`.
-
-Ask clarifying questions proportionally: none for quick work unless blocked, a few for standard work, and more for large or risky work. Prefer interactive multiple-choice tools when available, with a recommended default.
-
-Before finalizing source changes or reviewing a PR, use the two-pass review in `ai/workflows/code-review.md`.
-
 ## Common Commands
 
 ```sh
 ai/scripts/start-requirement.sh "Requirement Title"
 ai/scripts/start-requirement.sh --stay-on-current-branch "Requirement Title"
-ai/scripts/audit-adoption.sh
 ai/scripts/wiki-lint.sh
 ai/scripts/wiki-lint.sh --warn-placeholders
 ```
-
-`start-requirement.sh` creates both `PLAN.md` and `FINDINGS.md` under `requirements/<slug>/`.
-By default it creates or switches to the requirement branch. Use `--stay-on-current-branch` only when the current branch is already the right feature branch for the work.
 
 ## Metadata
 

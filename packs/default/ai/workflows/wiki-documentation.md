@@ -14,15 +14,6 @@ strictness: contextual
 
 Use this workflow to maintain a project-local LLM wiki: a concise, linked Markdown knowledge base that helps humans and AI agents understand the project without repeatedly scanning all source code.
 
-## Classification
-
-This behavior is a workflow instruction plus templates:
-
-- Instruction: agents need to know when to read and update the wiki.
-- Templates: adopting projects need a starter `wiki/index.md`, `wiki/log.md`, page template, and tool-specific instruction file.
-- Hook or CI: optional later, for link/frontmatter checks.
-- Skill: optional later, if ingest/query/lint grows into richer reusable operations.
-
 ## Core Idea
 
 The wiki is a compiled knowledge layer. Source code, READMEs, ADRs, issues, requirement plans, and requirement findings remain source material. The wiki summarizes stable project knowledge: architecture, domain concepts, conventions, operations, data flows, and important decisions.

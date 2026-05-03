@@ -26,9 +26,9 @@ Use filtering when:
 Common patterns:
 
 ```sh
-some-command 2>&1 | tail -40
+some-command 2>&1 | tail -20
 some-command 2>&1 | grep -E "ERROR|FAIL|Tests run:|BUILD SUCCESS|BUILD FAILURE"
-some-command 2>&1 | grep -E "error|warning|failed|passed" | tail -80
+some-command 2>&1 | grep -E "error|warning|failed|passed" | tail -30
 ```
 
 If filtered output shows a failure and the details are not enough, rerun a narrower command or rerun without filtering to inspect the full output.

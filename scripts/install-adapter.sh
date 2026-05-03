@@ -169,6 +169,7 @@ copy_if_missing "$pack/ai/prompts/adoption/empty-project.md" "$target/ai/prompts
 copy_if_missing "$pack/ai/prompts/adoption/first-time-existing-instructions.md" "$target/ai/prompts/adoption/first-time-existing-instructions.md"
 copy_if_missing "$pack/ai/prompts/adoption/update-existing-pack.md" "$target/ai/prompts/adoption/update-existing-pack.md"
 copy_if_missing "$pack/ai/prompts/adoption/temp-install-review.md" "$target/ai/prompts/adoption/temp-install-review.md"
+
 ensure_gitignore_entry "requirements/"
 
 ensure_executable "$target/ai/scripts/start-requirement.sh"

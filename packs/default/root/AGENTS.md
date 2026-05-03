@@ -29,7 +29,7 @@ Mark commands as verified after running them.
 - For implementation work, record a safe baseline verification in `PLAN.md` before source edits when one is available.
 - Use `requirements/<slug>/FINDINGS.md` to share requirement-specific discoveries between agents.
 - For non-developer or vibe-style requests, translate first with `ai/workflows/vibe-coding-translation.md`.
-- For project orientation, start with `wiki/index.md` when it exists, then inspect source code narrowly.
+- For project orientation, start with `wiki/index.md` when it exists, then inspect source code.
 - For architecture-sensitive work, consult `ai/workflows/architecture.md` and relevant `wiki/architecture/` pages.
 - Follow `ai/workflows/wiki-documentation.md` when reading or maintaining the project wiki.
 - Follow `ai/workflows/command-execution.md` when running terminal commands.
@@ -41,7 +41,3 @@ Mark commands as verified after running them.
 - Do not add dependencies without a clear reason.
 - Do not commit secrets or machine-specific configuration.
 - Run the smallest meaningful validation before finishing.
-
-## Known Gotchas
-
-- TODO: Add common setup failures, flaky tests, required services, or generated files.
