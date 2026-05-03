@@ -24,7 +24,7 @@ Agents should use the wiki to reduce broad source scans. Start from `wiki/index.
 
 ## Continuous Maintenance
 
-Maintain the wiki as part of normal requirement work, not as a separate documentation chore. When an agent discovers durable project knowledge while planning, implementing, validating, or reviewing, it should either update the relevant wiki page immediately or record a specific wiki update in `PLAN.md` before finishing.
+Maintain the wiki as part of normal requirement work, not as a separate documentation chore. When you discover durable project knowledge while planning, implementing, validating, or reviewing, you should either update the relevant wiki page immediately or record a specific wiki update in `PLAN.md` before finishing.
 
 Use this promotion path:
 
@@ -96,22 +96,6 @@ At the start of non-trivial work:
 4. Search source code only after wiki lookup has narrowed the area.
 
 If no wiki exists, create the baseline when the task is documentation-related or when the user asks for project orientation/documentation.
-
-## When To Update
-
-Update the wiki during or after completing a requirement that changes or reveals durable knowledge about:
-
-- architecture,
-- domain model,
-- domain vocabulary or stakeholder terminology,
-- user-visible behavior,
-- API contracts,
-- data flows,
-- operational/deployment behavior,
-- testing or development conventions,
-- security or privacy posture.
-
-Skip wiki updates for trivial typo fixes, mechanical formatting, or small internal refactors that do not change documented behavior.
 
 ## Update Procedure
 

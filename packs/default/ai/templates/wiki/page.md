@@ -17,3 +17,4 @@ TODO: Capture the stable knowledge in concise prose.
 ## Details
 
 TODO: Document architecture, domain behavior, relationships, conventions, or operational facts.
+Feel free to omit or replace sections as per the page's purpose. This template is a starting point, not a strict format.

@@ -25,17 +25,9 @@ ai/scripts/start-requirement.sh --stay-on-current-branch "Requirement Title"
 ai/scripts/list-requirements.sh --open
 ai/scripts/list-requirements.sh --stats
 ai/scripts/lint-requirements.sh
-ai/scripts/audit-adoption.sh
 ai/scripts/wiki-lint.sh
 ai/scripts/wiki-lint.sh --warn-placeholders
 ```
-
-`start-requirement.sh` creates both `PLAN.md` and `FINDINGS.md` under `requirements/<slug>/`.
-By default it creates or switches to the requirement branch. Use `--stay-on-current-branch` only when the current branch is already the right feature branch for the work.
-
-`list-requirements.sh` lists local requirement plans by created time, modified time, status, or open state.
-Use `list-requirements.sh --stats` to count requirements by status category.
-`lint-requirements.sh` reports requirement metadata and workspace issues without modifying files.
 
 ## Metadata
 

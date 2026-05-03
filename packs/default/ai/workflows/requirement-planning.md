@@ -39,19 +39,6 @@ Record one complexity level in `PLAN.md`:
 
 If a task grows, update the complexity and explain why. If a workflow is skipped to save tokens, record the reason.
 
-## Requirement Status
-
-Use a concise status value in `PLAN.md` metadata. Recommended statuses are:
-
-- `planning`: context gathering or plan shaping is underway.
-- `active`: implementation, investigation, or validation is underway.
-- `blocked`: work cannot proceed without a decision, dependency, access, or failing baseline resolution.
-- `parked`: intentionally paused and expected to resume later.
-- `complete`: requirement is handled and validation/review notes are recorded.
-- `cancelled`: requirement will not continue.
-
-These statuses work with `ai/scripts/list-requirements.sh` and `ai/scripts/lint-requirements.sh`. The scripts also map common status variants into conceptual categories with case-insensitive substring matching, so values such as `completed`, `done`, `finished`, or `implemented` are treated as done.
-
 ## First Agent Responsibilities
 
 - If the user provides a title, use it; otherwise infer a short descriptive title from the prompt.
@@ -161,6 +148,19 @@ Prefer sections that answer:
 - What decisions, validation results, review notes, blockers, or handoff notes matter?
 - What durable project knowledge changed, and was it promoted to the wiki?
 
+## Requirement Status
+
+Use a concise status value in `PLAN.md` metadata. Recommended statuses are:
+
+- `planning`: context gathering or plan shaping is underway.
+- `active`: implementation, investigation, or validation is underway.
+- `blocked`: work cannot proceed without a decision, dependency, access, or failing baseline resolution.
+- `parked`: intentionally paused and expected to resume later.
+- `complete`: requirement is handled and validation/review notes are recorded.
+- `cancelled`: requirement will not continue.
+
+These statuses work with `ai/scripts/list-requirements.sh` and `ai/scripts/lint-requirements.sh`. The scripts also map common status variants into conceptual categories with case-insensitive substring matching, so values such as `completed`, `done`, `finished`, or `implemented` are treated as done.
+
 ## Quality Planning
 
 For implementation requirements, the plan should identify the likely validation surface before coding:
@@ -200,10 +200,3 @@ Use `ai/workflows/wiki-documentation.md` throughout the requirement lifecycle:
 4. When the wiki changes, update affected pages, `wiki/index.md`, `wiki/log.md`, and run `ai/scripts/wiki-lint.sh` when available.
 
 If no wiki update is needed, record the reason briefly in `PLAN.md`.
-
-## Suggested Improvements
-
-- Add a repository-level documentation index such as `docs/INDEX.md` in projects with substantial docs.
-- Add a project-specific `docs/architecture.md` or equivalent when agents repeatedly need the same orientation.
-- Add CI or hooks for enforceable policies, but keep local requirement planning files ignored.
-- Consider turning this into a full skill later if the workflow gains examples, scripts, and richer planning templates.
