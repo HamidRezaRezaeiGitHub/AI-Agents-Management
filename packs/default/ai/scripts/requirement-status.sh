@@ -22,7 +22,7 @@ requirement_status_category() {
       printf 'planning'
       return
       ;;
-    *complete*|*conmplete*|*completed*|*done*|*finish*|*finished*|*implemented*|*closed*|*ship*|*shipped*)
+    *complete*|*completed*|*done*|*finish*|*finished*|*implemented*|*closed*|*ship*|*shipped*)
       printf 'done'
       return
       ;;

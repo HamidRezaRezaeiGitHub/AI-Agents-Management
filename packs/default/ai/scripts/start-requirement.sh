@@ -80,6 +80,7 @@ findings="$workspace/FINDINGS.md"
 branch="feature/$slug"
 fallback_branch=$slug
 current_branch=$(git branch --show-current)
+expected_branch=
 
 mkdir -p "$workspace"
 
@@ -94,6 +95,11 @@ fi
 if [ "$stay_on_current_branch" -eq 1 ]; then
   if [ -z "$current_branch" ]; then
     echo "Cannot stay on the current branch because git is in a detached HEAD state." >&2
+    exit 1
+  fi
+  if [ -n "$expected_branch" ] && [ "$expected_branch" != "$current_branch" ]; then
+    echo "Cannot stay on $current_branch because $plan expects branch $expected_branch." >&2
+    echo "Switch to $expected_branch, choose the matching requirement title, or update the plan metadata intentionally." >&2
     exit 1
   fi
   branch=$current_branch

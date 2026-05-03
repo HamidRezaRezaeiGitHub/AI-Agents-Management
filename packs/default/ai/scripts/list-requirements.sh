@@ -14,7 +14,7 @@ List local requirement workspaces from requirements/*/PLAN.md.
 
 Options:
   --limit N             Show at most N requirements. Default: 10.
-  --sort FIELD          Sort by created, modified, status, or slug. Default: modified.
+  --sort FIELD          Sort by created, modified, updated, status, or slug. Default: modified.
   --status STATUS       Show only requirements with this exact status.
   --category CATEGORY   Show only a status category: planning, active, blocked, parked, done, cancelled, or unknown.
   --open                Show status categories other than done or cancelled.
@@ -25,6 +25,7 @@ Options:
 Examples:
   ai/scripts/list-requirements.sh --sort created --limit 10
   ai/scripts/list-requirements.sh --sort modified --limit 10
+  ai/scripts/list-requirements.sh --sort updated --limit 10
   ai/scripts/list-requirements.sh --status active --sort modified --limit 10
   ai/scripts/list-requirements.sh --category parked --sort modified --limit 10
   ai/scripts/list-requirements.sh --open
