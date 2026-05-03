@@ -9,7 +9,6 @@ This plan is a working record, not a fixed form. Keep the useful sections, remov
 - Created: `{{CREATED_AT}}`
 - Last modified: `{{CREATED_AT}}`
 - Status: planning
-- Findings: [FINDINGS.md](./FINDINGS.md)
 
 Status examples: `planning`, `active`, `blocked`, `parked`, `complete`, `cancelled`.
 

@@ -95,7 +95,6 @@ for dir in "$requirements_dir"/*; do
   created=$(metadata_value "Created" "$plan")
   modified=$(metadata_value "Last modified" "$plan")
   requirement_status=$(metadata_value "Status" "$plan")
-  findings_link=$(metadata_value "Findings" "$plan")
   folder_slug=${dir##*/}
 
   if [ -z "$title" ]; then
@@ -127,10 +126,6 @@ for dir in "$requirements_dir"/*; do
     if [ "$category" = "unknown" ]; then
       issue "$plan" error status-uncategorized "Status '$requirement_status' does not map to a known category"
     fi
-  fi
-
-  if [ -z "$findings_link" ]; then
-    issue "$plan" error missing-metadata "Missing metadata field: Findings"
   fi
 
   if [ ! -f "$findings" ]; then
