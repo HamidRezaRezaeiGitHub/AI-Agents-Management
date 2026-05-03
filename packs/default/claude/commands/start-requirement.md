@@ -9,7 +9,9 @@ Run the requirement planning workflow for: `$ARGUMENTS`
 
 Use `ai/scripts/start-requirement.sh "$ARGUMENTS"` when a title is provided. If no title is provided, infer a concise title from the active task, then use the script.
 
-By default the script creates or switches to the expected requirement branch. If the current branch is already the right feature branch for this work, use `ai/scripts/start-requirement.sh --stay-on-current-branch "$ARGUMENTS"` instead and record that branch choice in `PLAN.md`.
+Before running the script, check the current branch and working tree with `git branch --show-current` and `git status --short`. If the user is on an unrelated feature/topic branch or has uncommitted changes, clarify with them whether to switch, stay (`--stay-on-current-branch`), or commit/stash first. Skip the prompt when the current branch is `main`/`master` with a clean tree. The script will warn on branch switches from non-main branches and abort if the working tree is dirty.
+
+By default the script creates or switches to the expected requirement branch. If the current branch is already the right feature branch for this work, pass `--stay-on-current-branch` and record that branch choice in `PLAN.md`.
 
 After the script runs:
 

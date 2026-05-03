@@ -83,6 +83,40 @@ if [ -f "$plan" ]; then
   fi
 fi
 
+dirty=0
+if ! git diff --quiet 2>/dev/null; then
+  dirty=1
+elif ! git diff --cached --quiet 2>/dev/null; then
+  dirty=1
+fi
+
+would_switch=0
+if [ "$stay_on_current_branch" -ne 1 ]; then
+  if [ "$current_branch" != "$branch" ] \
+     && ! { [ "$current_branch" = "$fallback_branch" ] && [ "$branch" = "feature/$slug" ]; }; then
+    would_switch=1
+  fi
+fi
+
+if [ "$would_switch" -eq 1 ] && [ "$dirty" -eq 1 ]; then
+  echo "Refusing to switch branches: working tree has uncommitted changes." >&2
+  echo "Current branch: $current_branch" >&2
+  echo "Target branch:  $branch" >&2
+  echo "" >&2
+  echo "Resolve before re-running:" >&2
+  echo "  - commit or stash the changes, or" >&2
+  echo "  - rerun with --stay-on-current-branch to keep $current_branch." >&2
+  exit 1
+fi
+
+if [ "$would_switch" -eq 1 ] \
+   && [ -n "$current_branch" ] \
+   && [ "$current_branch" != "main" ] \
+   && [ "$current_branch" != "master" ]; then
+  echo "warning: switching from $current_branch to $branch." >&2
+  echo "warning: pass --stay-on-current-branch if this requirement should continue on $current_branch." >&2
+fi
+
 if [ "$stay_on_current_branch" -eq 1 ]; then
   if [ -z "$current_branch" ]; then
     echo "Cannot stay on the current branch because git is in a detached HEAD state." >&2

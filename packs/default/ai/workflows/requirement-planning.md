@@ -42,6 +42,12 @@ If a task grows, update the complexity and explain why. If a workflow is skipped
 ## First Agent Responsibilities
 
 - If the user provides a title, use it; otherwise infer a short descriptive title from the prompt.
+- Before running the script, evaluate the current branch and working tree, and clarify with the user when the situation is ambiguous:
+  - Run `git branch --show-current` and `git status --short` to see the starting state.
+  - The script's default behaviour creates or switches to `feature/<slug>` when the current branch is `main`, `master`, or already the expected branch. From any other branch it will switch and warn.
+  - If the user is already on a feature/topic branch unrelated to this requirement, ask whether to switch off it, continue this requirement on the existing branch (`--stay-on-current-branch`), or commit/stash first.
+  - If the working tree has uncommitted changes, the script will refuse to switch branches. Surface this to the user before running, and confirm whether to commit, stash, or stay on the current branch.
+  - Skip these prompts when the current branch is `main`/`master` with a clean tree, since the default behaviour is unambiguous there.
 - Run the script:
   ```sh
   ai/scripts/start-requirement.sh "Requirement Title"
@@ -51,7 +57,9 @@ If a task grows, update the complexity and explain why. If a workflow is skipped
   - Creates or reuses `requirements/<slug>/` as the shared workspace for this requirement. It is committed to the requirement branch so PLAN.md and FINDINGS.md are visible to other agents, in PR review, and across machines.
   - Creates or updates `requirements/<slug>/PLAN.md` and `requirements/<slug>/FINDINGS.md` from templates.
   - Creates or switches to the expected branch, preferring `feature/<slug>` when possible.
-- Each non-quick requirement should have a local workspace, and implementation work should not happen directly on `main` or `master`.
+  - Aborts before switching when the working tree is dirty, and warns when switching from a non-main feature/topic branch.
+- After the script runs, read its output. If it warned about a branch switch, confirm the chosen branch is still appropriate before continuing.
+- Each non-quick requirement should have a workspace committed to its branch, and implementation work should not happen directly on `main` or `master`.
 - If you observe that the requirement workspace already exists, or the script output indicates it was reused, follow the resuming responsibilities below.
 - Take a look at the generated `PLAN.md` template.
 - Record complexity using `ai/workflows/workflow-dispatch.md`.
