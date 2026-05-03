@@ -2,6 +2,8 @@
 
 Use this when the project already has Claude, Copilot, Codex, Gemini, Cursor, README, wiki, or custom agent instructions.
 
+This prompt is a source-repo migration aid. Do not copy `packs/default/ai/prompts/adoption/` into the target project.
+
 ```text
 Adopt the AI agent instruction pack into this existing project without regressing the current agent experience.
 
@@ -14,7 +16,8 @@ Before replacing anything, produce a migration plan that identifies:
 - project-specific facts that should move into wiki pages,
 - generic reusable behavior that should use the pack workflows,
 - native target files that should remain short adapters.
-- adoption prompts or scripts that should remain available under `ai/`.
+- helper scripts that should remain available under `ai/scripts/`.
+- adoption prompt files that should stay source-repo-only and not be copied under target `ai/`.
 
 Then migrate carefully. Preserve project-specific commands, testing conventions, CI expectations, and domain guidance. Do not delete existing guidance until it has been copied, merged, or intentionally retired.
 

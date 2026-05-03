@@ -68,7 +68,6 @@ ensure_directories() {
       "$target/ai/templates/wiki" \
       "$target/ai/scripts" \
       "$target/ai/hooks" \
-      "$target/ai/prompts/adoption" \
       "$target/wiki/architecture" \
       "$target/wiki/domain" \
       "$target/wiki/guides"
@@ -169,10 +168,6 @@ copy_if_missing "$pack/ai/scripts/audit-adoption.sh" "$target/ai/scripts/audit-a
 copy_if_missing "$pack/ai/scripts/wiki-lint.sh" "$target/ai/scripts/wiki-lint.sh"
 copy_if_missing "$pack/ai/hooks/pre-commit-block-requirements.sh" "$target/ai/hooks/pre-commit-block-requirements.sh"
 copy_if_missing "$pack/claude/commands/start-requirement.md" "$target/.claude/commands/start-requirement.md"
-copy_if_missing "$pack/ai/prompts/adoption/empty-project.md" "$target/ai/prompts/adoption/empty-project.md"
-copy_if_missing "$pack/ai/prompts/adoption/first-time-existing-instructions.md" "$target/ai/prompts/adoption/first-time-existing-instructions.md"
-copy_if_missing "$pack/ai/prompts/adoption/update-existing-pack.md" "$target/ai/prompts/adoption/update-existing-pack.md"
-copy_if_missing "$pack/ai/prompts/adoption/temp-install-review.md" "$target/ai/prompts/adoption/temp-install-review.md"
 
 ensure_gitignore_entry "requirements/"
 

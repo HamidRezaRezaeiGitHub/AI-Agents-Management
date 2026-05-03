@@ -46,7 +46,6 @@ scripts/install-adapter.sh --dry-run /path/to/target-project
 - `ai/scripts/audit-adoption.sh` -> `ai/scripts/audit-adoption.sh`
 - `ai/scripts/wiki-lint.sh` -> `ai/scripts/wiki-lint.sh`
 - `ai/hooks/pre-commit-block-requirements.sh` -> `ai/hooks/pre-commit-block-requirements.sh`
-- `ai/prompts/adoption/*.md` -> `ai/prompts/adoption/*.md`
 - `wiki/index.md` -> `wiki/index.md`
 - `wiki/log.md` -> `wiki/log.md`
 - `wiki/architecture/*.md` -> `wiki/architecture/*.md`
@@ -54,5 +53,7 @@ scripts/install-adapter.sh --dry-run /path/to/target-project
 - `wiki/guides/testing.md` -> `wiki/guides/testing.md`
 
 The `ai/scripts` target avoids colliding with a project's existing application scripts.
+
+Adoption prompts under `packs/default/ai/prompts/adoption/` are source-repo migration aids and are not copied into target projects.
 
 The installer also ensures `requirements/` is listed in the target project's `.gitignore`.

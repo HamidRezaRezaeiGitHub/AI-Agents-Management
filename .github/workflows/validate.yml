@@ -51,6 +51,10 @@ jobs:
           fi
 
           scripts/install-adapter.sh "$target"
+          if [ -e "$target/ai/prompts" ]; then
+            echo "adoption prompts should not be installed to $target/ai/prompts" >&2
+            exit 1
+          fi
           scripts/audit-adoption.sh "$target"
 
           (

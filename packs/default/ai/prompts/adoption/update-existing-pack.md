@@ -2,6 +2,8 @@
 
 Use this when the project already adopted an older version of the pack.
 
+This prompt is a source-repo migration aid. Do not copy `packs/default/ai/prompts/adoption/` into the target project.
+
 ```text
 Update this project's AI agent instruction pack to the current version.
 
@@ -11,6 +13,7 @@ Create a local requirement workspace and feature branch. Prepare a short upgrade
 - pack changes that should be accepted,
 - local project customizations that must be preserved,
 - obsolete files or rules that should be removed,
+- old installed `ai/prompts/adoption/` files that should be removed because adoption prompts are source-repo-only,
 - docs/wiki updates needed after the upgrade.
 
 Apply the update without overwriting project-specific facts. Preserve validated project commands, CI expectations, testing conventions, and domain guidance.

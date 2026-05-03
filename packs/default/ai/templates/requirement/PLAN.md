@@ -29,11 +29,6 @@ TODO: Summarize the user's requirement in a few sentences.
 - Out of scope: TODO.
 - Assumptions or open questions: TODO.
 
-## Context
-
-- Start from [FINDINGS.md](./FINDINGS.md), then `wiki/index.md` if present, then only relevant wiki/docs/source files.
-- Relevant files, docs, commands, or risks: TODO.
-
 ## Baseline Verification
 
 - Needed: TODO `yes` or `no`.
@@ -51,8 +46,8 @@ TODO: Summarize the user's requirement in a few sentences.
 - [ ] Check relevant wiki/docs and inspect source narrowly.
 - [ ] Run or record baseline verification before source edits when available.
 - [ ] Ask only unresolved decision-shaping questions.
-- [ ] Update [FINDINGS.md](./FINDINGS.md), then revise this plan.
-- [ ] Implement the requirement.
+- [ ] Update [FINDINGS.md](./FINDINGS.md), then revise this plan. (Plan may contain multiple steps)
+- [ ] Implement the requirement. (Replace this lint of the checklist with steps' titles, if applicable.)
 - [ ] Run targeted validation and review CI expectations.
 - [ ] Perform two-pass self-review with `ai/workflows/code-review.md`.
 - [ ] Update wiki and handoff notes when durable knowledge changes.

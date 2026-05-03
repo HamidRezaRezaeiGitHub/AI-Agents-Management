@@ -49,6 +49,8 @@ For common adoption scenarios, use these prepared prompts:
 - [Temporary install review](./packs/default/ai/prompts/adoption/temp-install-review.md): install into a temporary folder first so an agent can compare and plan migration safely.
 - [Update existing pack](./packs/default/ai/prompts/adoption/update-existing-pack.md): the project already has an older installed `ai/pack.yaml`.
 
+These prompts are source-repo migration aids and are not copied into target projects.
+
 Audit an adopted project from this repo:
 
 ```sh
