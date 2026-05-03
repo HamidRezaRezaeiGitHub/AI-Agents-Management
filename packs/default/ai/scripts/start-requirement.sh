@@ -65,15 +65,6 @@ if [ ! -d .git ]; then
   exit 1
 fi
 
-if [ ! -f .gitignore ]; then
-  touch .gitignore
-fi
-
-if ! grep -qx "requirements/" .gitignore; then
-  printf "\nrequirements/\n" >> .gitignore
-  echo "added requirements/ to .gitignore"
-fi
-
 workspace="requirements/$slug"
 plan="$workspace/PLAN.md"
 findings="$workspace/FINDINGS.md"

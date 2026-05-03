@@ -59,7 +59,6 @@ check_file "ai/scripts/list-requirements.sh"
 check_file "ai/scripts/lint-requirements.sh"
 check_file "ai/scripts/audit-adoption.sh"
 check_file "ai/scripts/wiki-lint.sh"
-check_file "ai/hooks/pre-commit-block-requirements.sh"
 check_file "wiki/index.md"
 check_file "wiki/log.md"
 check_file "wiki/architecture/system-overview.md"
@@ -85,13 +84,6 @@ if [ -f "ai/pack.yaml" ]; then
     echo "warning pack version $installed_version, expected $expected_version"
     status=1
   fi
-fi
-
-if [ -f ".gitignore" ] && grep -qx "requirements/" .gitignore; then
-  echo "ok      requirements/ ignored"
-else
-  echo "missing requirements/ in .gitignore"
-  status=1
 fi
 
 exit "$status"

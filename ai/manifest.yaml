@@ -59,6 +59,7 @@ adoption:
     - packs/default/ai/scripts/lint-requirements.sh
     - packs/default/ai/scripts/audit-adoption.sh
     - packs/default/ai/scripts/wiki-lint.sh
+
   prompts:
     - packs/default/ai/prompts/adoption/adopt-pack.md
     - packs/default/ai/prompts/adoption/update-pack.md
@@ -96,7 +97,6 @@ adoption:
     - ai/scripts/lint-requirements.sh
     - ai/scripts/audit-adoption.sh
     - ai/scripts/wiki-lint.sh
-    - ai/hooks/pre-commit-block-requirements.sh
     - wiki/index.md
     - wiki/log.md
     - wiki/architecture/system-overview.md

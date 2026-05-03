@@ -69,8 +69,6 @@ Good candidates for enforcement:
 - generated-file checks,
 - dependency policy.
 
-For requirement planning, keep `requirements/` in `.gitignore`. If a project needs stronger enforcement, adapt `ai/hooks/pre-commit-block-requirements.sh` into that repo's pre-commit workflow.
-
 ## 5. Keep It Fresh
 
 Review instructions when:

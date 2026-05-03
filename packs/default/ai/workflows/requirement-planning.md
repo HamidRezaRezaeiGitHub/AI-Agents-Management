@@ -48,7 +48,7 @@ If a task grows, update the complexity and explain why. If a workflow is skipped
   ```
 - Here are the script behaviors:
   - Converts the title to a slug, i.e. lowercase, spaces to hyphens, remove punctuation except hyphens, and collapse repeated hyphens.
-  - Creates or reuses `requirements/<slug>/`, adds it to `.gitignore`, and treats it as the temporary local workspace for this requirement.
+  - Creates or reuses `requirements/<slug>/` as the shared workspace for this requirement. It is committed to the requirement branch so PLAN.md and FINDINGS.md are visible to other agents, in PR review, and across machines.
   - Creates or updates `requirements/<slug>/PLAN.md` and `requirements/<slug>/FINDINGS.md` from templates.
   - Creates or switches to the expected branch, preferring `feature/<slug>` when possible.
 - Each non-quick requirement should have a local workspace, and implementation work should not happen directly on `main` or `master`.

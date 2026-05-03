@@ -62,7 +62,6 @@ check_mapping "$pack/ai/scripts/list-requirements.sh" "ai/scripts/list-requireme
 check_mapping "$pack/ai/scripts/lint-requirements.sh" "ai/scripts/lint-requirements.sh"
 check_mapping "$pack/ai/scripts/audit-adoption.sh" "ai/scripts/audit-adoption.sh"
 check_mapping "$pack/ai/scripts/wiki-lint.sh" "ai/scripts/wiki-lint.sh"
-check_mapping "$pack/ai/hooks/pre-commit-block-requirements.sh" "ai/hooks/pre-commit-block-requirements.sh"
 check_mapping "$pack/wiki/index.md" "wiki/index.md"
 check_mapping "$pack/wiki/log.md" "wiki/log.md"
 check_mapping "$pack/wiki/architecture/system-overview.md" "wiki/architecture/system-overview.md"
@@ -72,12 +71,5 @@ check_mapping "$pack/wiki/architecture/integration-points.md" "wiki/architecture
 check_mapping "$pack/wiki/architecture/decisions.md" "wiki/architecture/decisions.md"
 check_mapping "$pack/wiki/domain/ubiquitous-language.md" "wiki/domain/ubiquitous-language.md"
 check_mapping "$pack/wiki/guides/testing.md" "wiki/guides/testing.md"
-
-if [ -f "$target/.gitignore" ] && grep -qx "requirements/" "$target/.gitignore"; then
-  echo "ok      requirements/ ignored"
-else
-  echo "missing requirements/ in .gitignore"
-  status=1
-fi
 
 exit "$status"

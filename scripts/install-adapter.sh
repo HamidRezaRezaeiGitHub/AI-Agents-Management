@@ -52,7 +52,6 @@ fi
 pack="packs/default"
 created_count=0
 skipped_count=0
-gitignore_update_count=0
 chmod_count=0
 
 ensure_directories() {
@@ -67,7 +66,6 @@ ensure_directories() {
       "$target/ai/templates/requirement" \
       "$target/ai/templates/wiki" \
       "$target/ai/scripts" \
-      "$target/ai/hooks" \
       "$target/wiki/architecture" \
       "$target/wiki/domain" \
       "$target/wiki/guides"
@@ -88,27 +86,6 @@ copy_if_missing() {
     cp "$source" "$destination"
     echo "created $destination"
     created_count=$((created_count + 1))
-  fi
-}
-
-ensure_gitignore_entry() {
-  entry=$1
-  file="$target/.gitignore"
-
-  if [ -f "$file" ] && grep -qx "$entry" "$file"; then
-    return
-  fi
-
-  if [ "$dry_run" -eq 1 ]; then
-    echo "would update $file with $entry"
-    gitignore_update_count=$((gitignore_update_count + 1))
-  else
-    if [ ! -f "$file" ]; then
-      touch "$file"
-    fi
-    printf "\n%s\n" "$entry" >> "$file"
-    echo "updated $file with $entry"
-    gitignore_update_count=$((gitignore_update_count + 1))
   fi
 }
 
@@ -166,21 +143,17 @@ copy_if_missing "$pack/ai/scripts/list-requirements.sh" "$target/ai/scripts/list
 copy_if_missing "$pack/ai/scripts/lint-requirements.sh" "$target/ai/scripts/lint-requirements.sh"
 copy_if_missing "$pack/ai/scripts/audit-adoption.sh" "$target/ai/scripts/audit-adoption.sh"
 copy_if_missing "$pack/ai/scripts/wiki-lint.sh" "$target/ai/scripts/wiki-lint.sh"
-copy_if_missing "$pack/ai/hooks/pre-commit-block-requirements.sh" "$target/ai/hooks/pre-commit-block-requirements.sh"
 copy_if_missing "$pack/claude/commands/start-requirement.md" "$target/.claude/commands/start-requirement.md"
-
-ensure_gitignore_entry "requirements/"
 
 ensure_executable "$target/ai/scripts/start-requirement.sh"
 ensure_executable "$target/ai/scripts/list-requirements.sh"
 ensure_executable "$target/ai/scripts/lint-requirements.sh"
 ensure_executable "$target/ai/scripts/audit-adoption.sh"
 ensure_executable "$target/ai/scripts/wiki-lint.sh"
-ensure_executable "$target/ai/hooks/pre-commit-block-requirements.sh"
 
 if [ "$dry_run" -eq 1 ]; then
   echo "Dry run complete. No files were changed."
 else
   echo "Done. Customize TODOs in the target project's agent instruction files."
 fi
-echo "Summary: created=$created_count skipped=$skipped_count gitignore_updates=$gitignore_update_count chmods=$chmod_count"
+echo "Summary: created=$created_count skipped=$skipped_count chmods=$chmod_count"

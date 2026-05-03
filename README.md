@@ -9,7 +9,7 @@ The guiding rule is simple: keep durable behavior in reusable workflows, then ex
 ## What You Get
 
 - A lightweight dispatcher that classifies work as `quick`, `standard`, `large`, or `risky` so small edits do not become process-heavy.
-- Local requirement workspaces under ignored `requirements/<slug>/` folders, with `PLAN.md` for status and `FINDINGS.md` for reusable requirement-specific context.
+- Committed requirement workspaces under `requirements/<slug>/`, with `PLAN.md` for status and `FINDINGS.md` for reusable requirement-specific context, traveling with the requirement branch so PR review and other agents see the same handoff.
 - A project wiki pattern that lets agents start from stable documentation before scanning source code.
 - Vibe-coding translation so stakeholder language becomes concrete acceptance criteria before implementation.
 - Ubiquitous-language guidance so domain terms stay consistent across prompts, wiki pages, tests, and code discussion.
@@ -65,7 +65,7 @@ This pack intentionally borrows from widely shared agent-engineering ideas, adap
 | [mattpocock/skills](https://github.com/mattpocock/skills) | ~65% | [Assessment](./ai/docs/idea-lineage/mattpocock-skills.md) |
 | [Matt Pocock's Grill Me writeup](https://www.aihero.dev/my-grill-me-skill-has-gone-viral) | ~70% | [Assessment](./ai/docs/idea-lineage/matt-pocock-grill-me.md) |
 | [Superpowers by Jesse Vincent](https://github.com/obra/superpowers) | ~65% | [Assessment](./ai/docs/idea-lineage/superpowers.md) |
-| [Cline Memory Bank](https://docs.cline.bot/features/memory-bank) | ~80% | [Assessment](./ai/docs/idea-lineage/cline-memory-bank.md) |
+| [Cline Memory Bank](https://docs.cline.bot/features/memory-bank) | ~85% | [Assessment](./ai/docs/idea-lineage/cline-memory-bank.md) |
 | [Aider](https://github.com/Aider-AI/aider) | ~45% | [Assessment](./ai/docs/idea-lineage/aider.md) |
 | [OpenHands](https://github.com/OpenHands/OpenHands) | ~35% | [Assessment](./ai/docs/idea-lineage/openhands.md) |
 | [SWE-agent](https://github.com/SWE-agent/SWE-agent) | ~40% | [Assessment](./ai/docs/idea-lineage/swe-agent.md) |
