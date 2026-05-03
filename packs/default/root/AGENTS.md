@@ -33,6 +33,7 @@ Mark commands as verified after running them.
 - For architecture-sensitive work, consult `ai/workflows/architecture.md` and relevant `wiki/architecture/` pages.
 - Follow `ai/workflows/wiki-documentation.md` when reading or maintaining the project wiki.
 - Follow `ai/workflows/command-execution.md` when running terminal commands.
+- Follow `ai/workflows/systematic-debugging.md` before fixing bugs, failing tests, build breaks, performance regressions, or unexpected behavior.
 - Follow `ai/workflows/ci-validation.md` before finishing implementation work.
 - Follow `ai/workflows/testing-quality.md` when creating, editing, or reviewing tests.
 - Follow the two-pass `ai/workflows/code-review.md` before finalizing source changes or reviewing a PR.

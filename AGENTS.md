@@ -25,6 +25,7 @@ Follow `ai/shared/agent-operating-contract.md` when working in this repo. Treat 
 - Before acting on a new request, route it with `packs/default/ai/workflows/workflow-dispatch.md` so quick tasks stay lightweight and larger work gets the right process.
 - For standard, large, or risky requirements, follow `packs/default/ai/workflows/requirement-planning.md` before implementation.
 - For implementation work, record a safe baseline verification in `PLAN.md` before source edits when one is available.
+- For bugs, failing tests, build breaks, performance regressions, or unexpected behavior, follow `packs/default/ai/workflows/systematic-debugging.md` before proposing fixes.
 - Keep instructions concise, concrete, and non-task-specific.
 - Prefer one canonical shared instruction with thin native adapters.
 - Do not put secrets, local machine paths, tokens, or private customer data in committed instructions.
@@ -41,6 +42,9 @@ This repo currently has no build system. For documentation-only changes, validat
 sh -n scripts/install-adapter.sh
 sh -n scripts/audit-adoption.sh
 sh -n packs/default/ai/scripts/start-requirement.sh
+sh -n packs/default/ai/scripts/requirement-status.sh
+sh -n packs/default/ai/scripts/list-requirements.sh
+sh -n packs/default/ai/scripts/lint-requirements.sh
 sh -n packs/default/ai/scripts/audit-adoption.sh
 sh -n packs/default/ai/scripts/wiki-lint.sh
 ```

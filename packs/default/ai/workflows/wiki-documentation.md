@@ -22,6 +22,27 @@ Requirement-specific findings belong in `requirements/<slug>/FINDINGS.md` first.
 
 Agents should use the wiki to reduce broad source scans. Start from `wiki/index.md`, read only relevant wiki pages, then inspect source code narrowly when implementation details are needed.
 
+## Continuous Maintenance
+
+Maintain the wiki as part of normal requirement work, not as a separate documentation chore. When an agent discovers durable project knowledge while planning, implementing, validating, or reviewing, it should either update the relevant wiki page immediately or record a specific wiki update in `PLAN.md` before finishing.
+
+Use this promotion path:
+
+1. Keep requirement-local discoveries in `requirements/<slug>/FINDINGS.md` while they are still tentative, narrow, or tied to the current task.
+2. Promote knowledge into `wiki/` once it is stable, reusable beyond the requirement, or needed to help future agents avoid rediscovery.
+3. Update `wiki/index.md` and `wiki/log.md` whenever topic pages are created, renamed, or meaningfully changed.
+
+Examples of durable discoveries to promote:
+
+- a newly understood architecture boundary,
+- a data flow or integration behavior future changes must respect,
+- a domain term, synonym, or ambiguity that will recur,
+- a validated setup, test, lint, build, or CI command,
+- a repeated failure mode, operational caveat, or security/privacy constraint,
+- a project convention that is not obvious from file names alone.
+
+Do not promote noisy task notes, raw command logs, speculative conclusions, or one-off implementation details. Keep those in `FINDINGS.md` or `PLAN.md`.
+
 ## Directory Structure
 
 Recommended baseline:
@@ -78,7 +99,7 @@ If no wiki exists, create the baseline when the task is documentation-related or
 
 ## When To Update
 
-Update the wiki after completing a requirement that changes:
+Update the wiki during or after completing a requirement that changes or reveals durable knowledge about:
 
 - architecture,
 - domain model,

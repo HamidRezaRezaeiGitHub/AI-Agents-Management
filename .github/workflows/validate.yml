@@ -32,6 +32,9 @@ jobs:
           sh -n scripts/install-adapter.sh
           sh -n scripts/audit-adoption.sh
           sh -n packs/default/ai/scripts/start-requirement.sh
+          sh -n packs/default/ai/scripts/requirement-status.sh
+          sh -n packs/default/ai/scripts/list-requirements.sh
+          sh -n packs/default/ai/scripts/lint-requirements.sh
           sh -n packs/default/ai/scripts/audit-adoption.sh
           sh -n packs/default/ai/scripts/wiki-lint.sh
 
@@ -63,4 +66,7 @@ jobs:
             test -f requirements/stay-branch-smoke-requirement/PLAN.md
             test -f requirements/stay-branch-smoke-requirement/FINDINGS.md
             grep -q 'Expected branch: `feature/ci-smoke-requirement`' requirements/stay-branch-smoke-requirement/PLAN.md
+            ai/scripts/list-requirements.sh --open
+            ai/scripts/list-requirements.sh --stats
+            ai/scripts/lint-requirements.sh
           )

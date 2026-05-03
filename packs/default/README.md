@@ -29,6 +29,7 @@ scripts/install-adapter.sh --dry-run /path/to/target-project
 - `ai/workflows/wiki-documentation.md` -> `ai/workflows/wiki-documentation.md`
 - `ai/workflows/architecture.md` -> `ai/workflows/architecture.md`
 - `ai/workflows/command-execution.md` -> `ai/workflows/command-execution.md`
+- `ai/workflows/systematic-debugging.md` -> `ai/workflows/systematic-debugging.md`
 - `ai/workflows/ci-validation.md` -> `ai/workflows/ci-validation.md`
 - `ai/workflows/testing-quality.md` -> `ai/workflows/testing-quality.md`
 - `ai/workflows/code-review.md` -> `ai/workflows/code-review.md`
@@ -39,6 +40,9 @@ scripts/install-adapter.sh --dry-run /path/to/target-project
 - `ai/templates/wiki/log.md` -> `ai/templates/wiki/log.md`
 - `ai/templates/wiki/page.md` -> `ai/templates/wiki/page.md`
 - `ai/scripts/start-requirement.sh` -> `ai/scripts/start-requirement.sh`
+- `ai/scripts/requirement-status.sh` -> `ai/scripts/requirement-status.sh`
+- `ai/scripts/list-requirements.sh` -> `ai/scripts/list-requirements.sh`
+- `ai/scripts/lint-requirements.sh` -> `ai/scripts/lint-requirements.sh`
 - `ai/scripts/audit-adoption.sh` -> `ai/scripts/audit-adoption.sh`
 - `ai/scripts/wiki-lint.sh` -> `ai/scripts/wiki-lint.sh`
 - `ai/hooks/pre-commit-block-requirements.sh` -> `ai/hooks/pre-commit-block-requirements.sh`
