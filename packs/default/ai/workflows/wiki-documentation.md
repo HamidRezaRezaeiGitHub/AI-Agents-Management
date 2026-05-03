@@ -1,13 +1,6 @@
 ---
 name: wiki-documentation
 use_when: Reading, maintaining, or promoting durable project knowledge into the project wiki.
-reads:
-  - wiki/index.md
-  - wiki/log.md
-  - requirements/<slug>/FINDINGS.md
-writes:
-  - wiki/
-strictness: contextual
 ---
 
 # Wiki Documentation Workflow

@@ -1,16 +1,6 @@
 ---
 name: workflow-dispatch
 use_when: Before acting on a user request, especially at the start of a session or when switching tasks.
-reads:
-  - AGENTS.md
-  - CLAUDE.md
-  - GEMINI.md
-  - .github/copilot-instructions.md
-  - ai/README.md
-writes:
-  - requirements/<slug>/PLAN.md
-  - requirements/<slug>/FINDINGS.md
-strictness: required
 ---
 
 # Workflow Dispatch

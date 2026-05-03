@@ -1,15 +1,6 @@
 ---
 name: requirement-planning
 use_when: Starting or resuming a standard, large, or risky requirement, feature, bug fix, refactor, investigation, or multi-step documentation task.
-reads:
-  - ai/workflows/workflow-dispatch.md
-  - requirements/<slug>/PLAN.md
-  - requirements/<slug>/FINDINGS.md
-  - wiki/index.md
-writes:
-  - requirements/<slug>/PLAN.md
-  - requirements/<slug>/FINDINGS.md
-strictness: required_for_non_quick_work
 ---
 
 # Requirement Planning Workflow

@@ -1,13 +1,6 @@
 ---
 name: vibe-coding-translation
 use_when: Translating non-developer, stakeholder, designer, product, or vibe-style input into concrete requirements.
-reads:
-  - user prompt
-  - wiki/index.md
-  - wiki/domain/ubiquitous-language.md
-writes:
-  - requirements/<slug>/PLAN.md
-strictness: required_when_request_is_vague_or_non_developer
 ---
 
 # Vibe Coding Translation Workflow

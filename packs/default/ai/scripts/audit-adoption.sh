@@ -1,7 +1,6 @@
 #!/bin/sh
 set -eu
 
-expected_version="0.4.8"
 status=0
 
 check_file() {
@@ -77,13 +76,7 @@ check_executable "ai/scripts/wiki-lint.sh"
 
 if [ -f "ai/pack.yaml" ]; then
   installed_version=$(sed -n 's/^version:[ ]*//p' ai/pack.yaml | sed -n '1p')
-
-  if [ "$installed_version" = "$expected_version" ]; then
-    echo "ok      pack version $installed_version"
-  else
-    echo "warning pack version $installed_version, expected $expected_version"
-    status=1
-  fi
+  echo "info    installed pack version: ${installed_version:-unknown}"
 fi
 
 exit "$status"

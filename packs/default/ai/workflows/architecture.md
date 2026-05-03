@@ -1,14 +1,6 @@
 ---
 name: architecture
 use_when: Planning, implementing, reviewing, or answering questions that affect structure, boundaries, data flow, integrations, or long-term maintainability.
-reads:
-  - wiki/architecture/
-  - requirements/<slug>/PLAN.md
-  - requirements/<slug>/FINDINGS.md
-writes:
-  - requirements/<slug>/PLAN.md
-  - wiki/architecture/
-strictness: required_when_architecture_sensitive
 ---
 
 # Architecture Workflow

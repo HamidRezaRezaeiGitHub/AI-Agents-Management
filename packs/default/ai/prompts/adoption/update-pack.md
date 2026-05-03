@@ -31,6 +31,13 @@ Then inspect the current pack source and preview install behavior:
 
     (cd "$PACK_TEMP" && scripts/install-adapter.sh --dry-run "$TARGET_ROOT")
 
+Compare the installed pack version with the source pack version. The installer never overwrites existing files, so the target's `ai/pack.yaml` will keep its old version even after files are updated. Read both and decide whether the update applies:
+
+    grep '^version:' ai/pack.yaml
+    grep '^version:' "$PACK_TEMP/packs/default/ai/pack.yaml"
+
+If the source version is newer, plan to bump the target's `ai/pack.yaml` version field as part of the update so the recorded version matches what was installed. If they match, no version bump is needed.
+
 Compare the installed project files with the cloned pack source:
 - identify pack files that changed and should be accepted,
 - identify local project customizations that must be preserved,

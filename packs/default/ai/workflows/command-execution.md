@@ -1,11 +1,6 @@
 ---
 name: command-execution
 use_when: Running terminal commands, especially commands with potentially long output.
-reads:
-  - AGENTS.md
-  - ai/README.md
-writes: []
-strictness: always_for_terminal_commands
 ---
 
 # Command Execution Workflow

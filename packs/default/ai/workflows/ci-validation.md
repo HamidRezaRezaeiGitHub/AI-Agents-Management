@@ -1,13 +1,6 @@
 ---
 name: ci-validation
 use_when: Before finishing implementation work, before final two-pass code review, and before committing or opening a pull request.
-reads:
-  - .github/workflows/
-  - Jenkinsfile
-  - ai/workflows/command-execution.md
-writes:
-  - requirements/<slug>/PLAN.md
-strictness: required_before_completion
 ---
 
 # CI Validation Workflow

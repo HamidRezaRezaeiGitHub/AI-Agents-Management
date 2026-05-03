@@ -1,16 +1,6 @@
 ---
 name: systematic-debugging
 use_when: Debugging bugs, failing tests, build failures, performance regressions, flaky behavior, or unexpected behavior before proposing fixes.
-reads:
-  - error output, logs, stack traces, and reproduction steps
-  - git diff and recent relevant commits
-  - nearby source, tests, configuration, and working examples
-  - requirements/<slug>/PLAN.md
-  - requirements/<slug>/FINDINGS.md
-writes:
-  - requirements/<slug>/PLAN.md
-  - requirements/<slug>/FINDINGS.md
-strictness: required_for_nontrivial_debugging
 ---
 
 # Systematic Debugging Workflow
