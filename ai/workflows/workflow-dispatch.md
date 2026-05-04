@@ -38,7 +38,7 @@ When unsure between two levels, choose the higher level only if the extra proces
 
 - Do not create a requirement workspace for `quick` tasks unless the user asks.
 - Do not read all workflows. Use this dispatcher, then read only the routed workflow files.
-- Do not ask broad interview questions for `quick` tasks. For larger tasks, scale clarifying questions with complexity and ask only what cannot be answered from the repo.
+- Do not ask broad interview questions for `quick` tasks. For larger tasks, use `ai/skills/interview-questions/SKILL.md` to scale clarifying questions with complexity and ask only what cannot be answered from the repo.
 - For standard or larger work, check for an existing `requirements/` workspace and read `PLAN.md` and `FINDINGS.md` before wiki or source code.
 - For source discovery, search for narrow symbols, paths, or errors before opening whole files.
 - For debugging, use `systematic-debugging.md` before proposing fixes; quick obvious issues can use its lightweight reproduce/localize/fix/verify loop.

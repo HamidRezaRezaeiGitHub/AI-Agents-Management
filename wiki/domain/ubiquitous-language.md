@@ -20,7 +20,8 @@ Canonical domain vocabulary for this project. Use this page to keep stakeholder 
 | Target project | A software repository where the pack is installed or audited. | downstream repo |
 | Native adapter | Tool-specific entry file such as `AGENTS.md`, `CLAUDE.md`, `GEMINI.md`, GitHub Copilot instructions, or Claude commands. | integration file |
 | Workflow | A Markdown instruction file under `ai/workflows/` that routes or guides recurring agent behavior. | SOP, process doc |
-| Requirement workspace | `requirements/<slug>/` containing `PLAN.md` and `FINDINGS.md` for one task. | task folder |
+| Skill | A focused `SKILL.md` package under `ai/skills/` or an agent-native skill directory that provides on-demand procedural behavior. | workflow, command |
+| Requirement workspace | Local-only `requirements/<slug>/` containing `PLAN.md` and `FINDINGS.md` for one task. | task folder |
 | `PLAN.md` | Current requirement status, scope, plan, validation, decisions, review, and handoff notes. | spec, ticket |
 | `FINDINGS.md` | Requirement-specific context cache for reusable discoveries and investigation notes. | scratchpad |
 | Project wiki | Durable knowledge under `wiki/` that agents should read before broad source discovery. | docs dump |
@@ -30,6 +31,7 @@ Canonical domain vocabulary for this project. Use this page to keep stakeholder 
 
 - A source pack is installed into a target project as an installed pack.
 - A native adapter should point to shared guidance instead of duplicating long rules.
+- A native skill adapter should stay thin and point to the canonical portable skill when one exists.
 - A requirement workspace holds task-specific knowledge for local agents; durable knowledge should be promoted to the project wiki.
 - Manual migration items arise because the installer protects existing files.
 
@@ -37,6 +39,7 @@ Canonical domain vocabulary for this project. Use this page to keep stakeholder 
 
 - Use "source pack" for `packs/default/` and "installed pack" for target-project copies.
 - Use "workflow" for agent instruction files under `ai/workflows/`; use "script" for executable shell helpers.
+- Use "skill" for on-demand `SKILL.md` capabilities; use "workflow" for always-readable process files under `ai/workflows/`.
 - Use "requirement workspace" for `requirements/<slug>/`, not "project workspace", to avoid confusion with the whole repository.
 
 ## Example Dialogue

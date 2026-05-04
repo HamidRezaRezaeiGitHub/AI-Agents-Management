@@ -21,9 +21,14 @@ scripts/install-adapter.sh --dry-run /path/to/target-project
 - `root/.github/instructions/ci-validation.instructions.md` -> `.github/instructions/ci-validation.instructions.md`
 - `root/.github/instructions/testing-quality.instructions.md` -> `.github/instructions/testing-quality.instructions.md`
 - `root/.github/instructions/code-review.instructions.md` -> `.github/instructions/code-review.instructions.md`
+- `root/.github/instructions/interview-questions.instructions.md` -> `.github/instructions/interview-questions.instructions.md`
 - `claude/commands/start-requirement.md` -> `.claude/commands/start-requirement.md`
+- `claude/skills/interview-questions/SKILL.md` -> `.claude/skills/interview-questions/SKILL.md`
+- `gemini/skills/interview-questions/SKILL.md` -> `.gemini/skills/interview-questions/SKILL.md`
 - `ai/README.md` -> `ai/README.md`
 - `ai/pack.yaml` -> `ai/pack.yaml`
+- `ai/skills/interview-questions/SKILL.md` -> `ai/skills/interview-questions/SKILL.md`
+- `ai/skills/interview-questions/agents/openai.yaml` -> `ai/skills/interview-questions/agents/openai.yaml`
 - `ai/workflows/workflow-dispatch.md` -> `ai/workflows/workflow-dispatch.md`
 - `ai/workflows/requirement-planning.md` -> `ai/workflows/requirement-planning.md`
 - `ai/workflows/wiki-documentation.md` -> `ai/workflows/wiki-documentation.md`

@@ -39,6 +39,8 @@ shared_sources:
     purpose: Two-pass final self-review and PR review guidance.
   - path: packs/default/ai/workflows/vibe-coding-translation.md
     purpose: Translation of non-developer or vibe-style requests into concrete requirements.
+  - path: packs/default/ai/skills/interview-questions/SKILL.md
+    purpose: Proportional user interview skill for requirement planning and direct plan stress-testing.
 
 adoption:
   script: scripts/install-adapter.sh
@@ -73,9 +75,14 @@ adoption:
     - .github/instructions/ci-validation.instructions.md
     - .github/instructions/testing-quality.instructions.md
     - .github/instructions/code-review.instructions.md
+    - .github/instructions/interview-questions.instructions.md
     - .claude/commands/start-requirement.md
+    - .claude/skills/interview-questions/SKILL.md
+    - .gemini/skills/interview-questions/SKILL.md
     - ai/README.md
     - ai/pack.yaml
+    - ai/skills/interview-questions/SKILL.md
+    - ai/skills/interview-questions/agents/openai.yaml
     - ai/workflows/workflow-dispatch.md
     - ai/workflows/requirement-planning.md
     - ai/workflows/wiki-documentation.md

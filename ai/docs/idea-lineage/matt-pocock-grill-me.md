@@ -2,7 +2,7 @@
 
 Source: [My 'Grill Me' Skill Went Viral](https://www.aihero.dev/my-grill-me-skill-has-gone-viral)
 
-Estimated adoption: **about 70%**
+Estimated adoption: **about 80%**
 
 ## Core Idea
 
@@ -20,6 +20,6 @@ The `grill-me` idea is that an AI assistant should interview the user before imp
 
 ## Adoption In This Project
 
-`man-agent-ment` adopts the core alignment-before-implementation pattern through `requirement-planning` and `vibe-coding-translation`. For non-trivial work, agents are told to read existing context first, inspect relevant wiki/docs/source areas, ask only unresolved decision-shaping questions, include recommended defaults, and record assumptions in `PLAN.md`. The workflow also explicitly tells agents to answer anything that can be discovered from local context before asking the user.
+`man-agent-ment` adopts the core alignment-before-implementation pattern through `ai/skills/interview-questions/SKILL.md`, with `requirement-planning` and `workflow-dispatch` referencing that skill when user questions are needed. For non-trivial work, agents are told to read existing context first, inspect relevant wiki/docs/source areas, ask only unresolved decision-shaping questions, include recommended defaults, and record assumptions in `PLAN.md`. The skill also explicitly tells agents to answer anything that can be discovered from local context before asking the user.
 
-The pack intentionally softens the original skill's relentless interview style. Instead of grilling every task until every branch is resolved, `workflow-dispatch` keeps quick work lightweight and `requirement-planning` scales questions by risk: none for quick work unless blocked, a few for standard work, and more for large or risky work. That makes the pack less exhaustive than `grill-me`, but better aligned with its goal of staying disciplined without becoming ceremonial.
+The pack intentionally softens the original skill's relentless interview style. Instead of grilling every task until every branch is resolved, `workflow-dispatch` keeps quick work lightweight and the `interview-questions` skill scales questions by risk: none for quick work unless blocked, a few for standard work, and more for large, risky, or directly invoked interview sessions. That makes the pack less exhaustive than `grill-me`, but better aligned with its goal of staying disciplined without becoming ceremonial.
