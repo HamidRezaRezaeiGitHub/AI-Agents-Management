@@ -55,4 +55,4 @@ The `ai/scripts` target avoids colliding with a project's existing application s
 
 Adoption prompts under `packs/default/ai/prompts/adoption/` are source-repo migration aids and are not copied into target projects.
 
-`requirements/<slug>/` is committed to the requirement branch so PLAN.md and FINDINGS.md travel with the work and are visible in PR review and across machines.
+`requirements/<slug>/` is local-only by default. `PLAN.md` and `FINDINGS.md` let agents on the same machine collaborate through the same local workspace. When cross-machine collaboration is needed, the user can intentionally force-add a single requirement folder in git.

@@ -30,7 +30,7 @@ Canonical domain vocabulary for this project. Use this page to keep stakeholder 
 
 - A source pack is installed into a target project as an installed pack.
 - A native adapter should point to shared guidance instead of duplicating long rules.
-- A requirement workspace holds task-specific knowledge; durable knowledge should be promoted to the project wiki.
+- A requirement workspace holds task-specific knowledge for local agents; durable knowledge should be promoted to the project wiki.
 - Manual migration items arise because the installer protects existing files.
 
 ## Flagged Ambiguities
