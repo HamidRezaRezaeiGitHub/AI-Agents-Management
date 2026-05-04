@@ -6,7 +6,7 @@ usage() {
 Usage: scripts/install-adapter.sh [--dry-run] /path/to/target-project
 
 Options:
-  --dry-run, -n  Show planned creates, updates, and chmods without writing files.
+  --dry-run, -n  Show planned creates, skips, and chmods without writing files.
 USAGE
 }
 
@@ -77,7 +77,7 @@ copy_if_missing() {
   destination=$2
 
   if [ -e "$destination" ]; then
-    echo "skip existing $destination"
+    echo "skip existing $destination (not overwritten; review and migrate manually if the pack changed)"
     skipped_count=$((skipped_count + 1))
   elif [ "$dry_run" -eq 1 ]; then
     echo "would create $destination"
@@ -155,5 +155,8 @@ if [ "$dry_run" -eq 1 ]; then
   echo "Dry run complete. No files were changed."
 else
   echo "Done. Customize TODOs in the target project's agent instruction files."
+fi
+if [ "$skipped_count" -gt 0 ]; then
+  echo "Existing files were skipped. Review the skip existing lines and manually migrate any pack updates that should apply."
 fi
 echo "Summary: created=$created_count skipped=$skipped_count chmods=$chmod_count"

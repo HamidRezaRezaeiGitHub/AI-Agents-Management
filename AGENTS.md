@@ -12,6 +12,7 @@ Follow `ai/shared/agent-operating-contract.md` when working in this repo. Treat 
 
 - `ai/shared/` contains canonical shared instructions.
 - `ai/docs/` contains research notes, discovery matrices, and adoption guidance.
+- `ai/workflows/`, `ai/scripts/`, `ai/templates/`, and `wiki/` contain the self-installed default pack surface for local trials.
 - `packs/default/` contains files intended to be copied into other repositories.
 - `ai/skills/` stores portable skill packages or skill design notes.
 - `ai/hooks/` stores hook designs and reusable hook scripts.
@@ -28,6 +29,7 @@ Follow `ai/shared/agent-operating-contract.md` when working in this repo. Treat 
 - For bugs, failing tests, build breaks, performance regressions, or unexpected behavior, follow `packs/default/ai/workflows/systematic-debugging.md` before proposing fixes.
 - Keep instructions concise, concrete, and non-task-specific.
 - Prefer one canonical shared instruction with thin native adapters.
+- Treat `packs/default/` as the source of truth for pack changes; update the self-installed `ai/` and `wiki/` copies only when intentionally refreshing this repository's local pack installation.
 - Do not put secrets, local machine paths, tokens, or private customer data in committed instructions.
 - When adding guidance for a command, verify the command or mark it as unverified.
 - Before finalizing source changes, use the two-pass review in `packs/default/ai/workflows/code-review.md`.
@@ -47,4 +49,10 @@ sh -n packs/default/ai/scripts/list-requirements.sh
 sh -n packs/default/ai/scripts/lint-requirements.sh
 sh -n packs/default/ai/scripts/audit-adoption.sh
 sh -n packs/default/ai/scripts/wiki-lint.sh
+sh -n ai/scripts/start-requirement.sh
+sh -n ai/scripts/requirement-status.sh
+sh -n ai/scripts/list-requirements.sh
+sh -n ai/scripts/lint-requirements.sh
+sh -n ai/scripts/audit-adoption.sh
+sh -n ai/scripts/wiki-lint.sh
 ```

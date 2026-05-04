@@ -24,6 +24,8 @@ Then inspect what the installer would do without writing files:
 
     (cd "$PACK_TEMP" && scripts/install-adapter.sh --dry-run "$TARGET_ROOT")
 
+Treat every `skip existing ...` line as a manual migration item. The installer will not overwrite those files, so compare each skipped target file with the pack source and decide whether to preserve the local version, merge selected pack changes, or replace it intentionally.
+
 Evaluate the pack before applying it:
 - read the pack README and `packs/default/README.md`,
 - read `packs/default/root/AGENTS.md`, `CLAUDE.md`, `GEMINI.md`, and `.github/` instruction files,

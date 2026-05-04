@@ -31,6 +31,8 @@ Then inspect the current pack source and preview install behavior:
 
     (cd "$PACK_TEMP" && scripts/install-adapter.sh --dry-run "$TARGET_ROOT")
 
+Treat every `skip existing ...` line as a manual migration item. The installer will not overwrite those files, so compare each skipped target file with the pack source and decide whether to preserve the local customization, merge selected pack changes, or replace it intentionally.
+
 Compare the installed pack version with the source pack version. The installer never overwrites existing files, so the target's `ai/pack.yaml` will keep its old version even after files are updated. Read both and decide whether the update applies:
 
     grep '^version:' ai/pack.yaml
