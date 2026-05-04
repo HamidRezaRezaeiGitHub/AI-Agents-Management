@@ -24,7 +24,7 @@ jobs:
 
     steps:
       - name: Check out repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Check shell syntax
         run: |
@@ -37,6 +37,19 @@ jobs:
           sh -n packs/default/ai/scripts/lint-requirements.sh
           sh -n packs/default/ai/scripts/audit-adoption.sh
           sh -n packs/default/ai/scripts/wiki-lint.sh
+          sh -n ai/scripts/start-requirement.sh
+          sh -n ai/scripts/requirement-status.sh
+          sh -n ai/scripts/list-requirements.sh
+          sh -n ai/scripts/lint-requirements.sh
+          sh -n ai/scripts/audit-adoption.sh
+          sh -n ai/scripts/wiki-lint.sh
+
+      - name: Check repository metadata
+        run: |
+          set -eu
+          ai/scripts/audit-adoption.sh
+          ai/scripts/wiki-lint.sh
+          ai/scripts/lint-requirements.sh requirements
 
       - name: Smoke test install, audit, wiki, and requirements
         run: |
@@ -69,7 +82,7 @@ jobs:
             ai/scripts/start-requirement.sh --stay-on-current-branch "Stay Branch Smoke Requirement"
             test -f requirements/stay-branch-smoke-requirement/PLAN.md
             test -f requirements/stay-branch-smoke-requirement/FINDINGS.md
-            grep -q 'Expected branch: `feature/ci-smoke-requirement`' requirements/stay-branch-smoke-requirement/PLAN.md
+            grep -q '^expected_branch: "feature/ci-smoke-requirement"$' requirements/stay-branch-smoke-requirement/PLAN.md
             ai/scripts/list-requirements.sh --open
             ai/scripts/list-requirements.sh --stats
             ai/scripts/lint-requirements.sh
