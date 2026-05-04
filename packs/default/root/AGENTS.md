@@ -25,7 +25,7 @@ Mark commands as verified after running them.
 
 - Before acting on a new request, route it with `ai/workflows/workflow-dispatch.md`. The dispatcher is the canonical map of which workflows apply to which kind of task; do not duplicate that table here.
 - For project orientation, start with `wiki/index.md` when it exists, then inspect source code.
-- Use `requirements/<slug>/PLAN.md` and `FINDINGS.md` to record plan, status, and discoveries; both are committed to the requirement branch so they travel with the work.
+- Use local-only `requirements/<slug>/PLAN.md` and `FINDINGS.md` to record plan, status, and discoveries. Agents on the same machine can share that workspace; if cross-machine collaboration is needed, the user can intentionally force-add a single requirement folder in git.
 - Inspect existing patterns before editing.
 - Keep changes scoped to the task.
 - Do not add dependencies without a clear reason.

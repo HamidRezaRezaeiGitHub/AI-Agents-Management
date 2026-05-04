@@ -19,8 +19,6 @@ Start or resume a requirement workspace when:
 
 For tiny one-shot edits, use judgment. Do not create requirement workspaces for trivial commands or purely conversational answers.
 
-Use `ai/workflows/workflow-dispatch.md` for complexity routing and proportional clarifying-question guidance. Record the chosen complexity and any skipped workflows in `PLAN.md`.
-
 ## First Agent Responsibilities
 
 - If the user provides a title, use it; otherwise infer a short descriptive title from the prompt.
@@ -37,13 +35,14 @@ Use `ai/workflows/workflow-dispatch.md` for complexity routing and proportional 
   ```
 - Here are the script behaviors:
   - Converts the title to a slug, i.e. lowercase, spaces to hyphens, remove punctuation except hyphens, and collapse repeated hyphens.
-  - Creates or reuses `requirements/<slug>/` as the shared workspace for this requirement. It is committed to the requirement branch so PLAN.md and FINDINGS.md are visible to other agents, in PR review, and across machines.
+  - Creates or reuses `requirements/<slug>/` as the shared local workspace for this requirement. The script keeps `requirements/` ignored by default so PLAN.md and FINDINGS.md stay local, while agents on the same machine can collaborate through the same files.
+  - If collaboration across multiple machines is needed, ask the user before intentionally sharing a single requirement folder in git; because `requirements/` is ignored by default, that share should be an explicit force-add of just the chosen folder.
   - Creates or updates `requirements/<slug>/PLAN.md` and `requirements/<slug>/FINDINGS.md` from templates.
   - Creates or switches to the expected branch, preferring `feature/<slug>` when possible.
   - Aborts before switching when the working tree is dirty, and warns when switching from a non-main feature/topic branch.
   - Warns before switching when untracked files are present, but does not fail solely because of untracked files.
 - After the script runs, read its output. If it warned about a branch switch, confirm the chosen branch is still appropriate before continuing.
-- Each non-quick requirement should have a workspace committed to its branch, and implementation work should not happen directly on `main` or `master`.
+- Each non-quick requirement should have a local workspace, and implementation work should not happen directly on `main` or `master`.
 - If you observe that the requirement workspace already exists, or the script output indicates it was reused, follow the resuming responsibilities below.
 - Take a look at the generated `PLAN.md` template.
 - Record complexity using `ai/workflows/workflow-dispatch.md`.
@@ -72,7 +71,7 @@ Treat this as a resume-session checklist, not as permission to re-run full requi
 ## All Agents Responsibilities
 
 - Identify and run a safe, reasonably scoped baseline verification. Follow `Baseline Verification At Start` below.
-- Ask proportional clarifying questions only for decisions that remain unresolved after the context pass. Follow `ai/workflows/workflow-dispatch.md`.
+- Ask proportional clarifying questions only for decisions that remain unresolved after the context pass. Follow `ai/skills/interview-questions/SKILL.md`.
 - Update `FINDINGS.md` with reusable context, links, user clarifications, risks, validation clues, and discoveries that future agents should not have to rediscover.
 - Fill in the useful parts of `PLAN.md`: request summary, complexity, workflows used or skipped, scope, assumptions, baseline result, implementation steps, validation strategy, decisions, and handoff notes.
 - If the request needs vibe-coding translation, record the concrete translation, acceptance criteria, assumptions, and remaining open questions in `PLAN.md`.

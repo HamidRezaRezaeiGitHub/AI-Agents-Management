@@ -9,7 +9,7 @@ The guiding rule is simple: keep durable behavior in reusable workflows, then ex
 ## What You Get
 
 - A lightweight dispatcher that classifies work as `quick`, `standard`, `large`, or `risky` so small edits do not become process-heavy.
-- Committed requirement workspaces under `requirements/<slug>/`, with `PLAN.md` for status and `FINDINGS.md` for reusable requirement-specific context, traveling with the requirement branch so PR review and other agents see the same handoff.
+- Local-only requirement workspaces under `requirements/<slug>/`, with `PLAN.md` for status and `FINDINGS.md` for reusable requirement-specific context. Agents on the same machine can share that local workspace; when cross-machine collaboration is needed, the user can intentionally force-add a single requirement folder in git.
 - A project wiki pattern that lets agents start from stable documentation before scanning source code.
 - Vibe-coding translation so stakeholder language becomes concrete acceptance criteria before implementation.
 - Ubiquitous-language guidance so domain terms stay consistent across prompts, wiki pages, tests, and code discussion.
@@ -63,7 +63,7 @@ This pack intentionally borrows from widely shared agent-engineering ideas, adap
 | --- | ---: | --- |
 | [Andrej Karpathy's LLM wiki idea](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f) | ~80% | [Assessment](./ai/docs/idea-lineage/karpathy-llm-wiki.md) |
 | [mattpocock/skills](https://github.com/mattpocock/skills) | ~65% | [Assessment](./ai/docs/idea-lineage/mattpocock-skills.md) |
-| [Matt Pocock's Grill Me writeup](https://www.aihero.dev/my-grill-me-skill-has-gone-viral) | ~70% | [Assessment](./ai/docs/idea-lineage/matt-pocock-grill-me.md) |
+| [Matt Pocock's Grill Me writeup](https://www.aihero.dev/my-grill-me-skill-has-gone-viral) | ~80% | [Assessment](./ai/docs/idea-lineage/matt-pocock-grill-me.md) |
 | [Superpowers by Jesse Vincent](https://github.com/obra/superpowers) | ~65% | [Assessment](./ai/docs/idea-lineage/superpowers.md) |
 | [Cline Memory Bank](https://docs.cline.bot/features/memory-bank) | ~85% | [Assessment](./ai/docs/idea-lineage/cline-memory-bank.md) |
 | [Aider](https://github.com/Aider-AI/aider) | ~45% | [Assessment](./ai/docs/idea-lineage/aider.md) |

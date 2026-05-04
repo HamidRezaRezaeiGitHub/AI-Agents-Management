@@ -21,9 +21,14 @@ scripts/install-adapter.sh --dry-run /path/to/target-project
 - `root/.github/instructions/ci-validation.instructions.md` -> `.github/instructions/ci-validation.instructions.md`
 - `root/.github/instructions/testing-quality.instructions.md` -> `.github/instructions/testing-quality.instructions.md`
 - `root/.github/instructions/code-review.instructions.md` -> `.github/instructions/code-review.instructions.md`
+- `root/.github/instructions/interview-questions.instructions.md` -> `.github/instructions/interview-questions.instructions.md`
 - `claude/commands/start-requirement.md` -> `.claude/commands/start-requirement.md`
+- `claude/skills/interview-questions/SKILL.md` -> `.claude/skills/interview-questions/SKILL.md`
+- `gemini/skills/interview-questions/SKILL.md` -> `.gemini/skills/interview-questions/SKILL.md`
 - `ai/README.md` -> `ai/README.md`
 - `ai/pack.yaml` -> `ai/pack.yaml`
+- `ai/skills/interview-questions/SKILL.md` -> `ai/skills/interview-questions/SKILL.md`
+- `ai/skills/interview-questions/agents/openai.yaml` -> `ai/skills/interview-questions/agents/openai.yaml`
 - `ai/workflows/workflow-dispatch.md` -> `ai/workflows/workflow-dispatch.md`
 - `ai/workflows/requirement-planning.md` -> `ai/workflows/requirement-planning.md`
 - `ai/workflows/wiki-documentation.md` -> `ai/workflows/wiki-documentation.md`
@@ -55,4 +60,4 @@ The `ai/scripts` target avoids colliding with a project's existing application s
 
 Adoption prompts under `packs/default/ai/prompts/adoption/` are source-repo migration aids and are not copied into target projects.
 
-`requirements/<slug>/` is committed to the requirement branch so PLAN.md and FINDINGS.md travel with the work and are visible in PR review and across machines.
+`requirements/<slug>/` is local-only by default. `PLAN.md` and `FINDINGS.md` let agents on the same machine collaborate through the same local workspace. When cross-machine collaboration is needed, the user can intentionally force-add a single requirement folder in git.

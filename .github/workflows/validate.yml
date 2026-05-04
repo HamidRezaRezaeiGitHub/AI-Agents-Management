@@ -77,6 +77,7 @@ jobs:
 
             git init
             ai/scripts/start-requirement.sh "CI Smoke Requirement"
+            git check-ignore -q requirements/
             test -f requirements/ci-smoke-requirement/PLAN.md
             test -f requirements/ci-smoke-requirement/FINDINGS.md
             ai/scripts/start-requirement.sh --stay-on-current-branch "Stay Branch Smoke Requirement"

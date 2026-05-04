@@ -55,7 +55,7 @@ Prepare a staged migration plan before making broad changes. The plan should exp
 
 Use a local requirement workspace for the adoption plan when appropriate. If the project has an existing branch strategy, follow it instead of assuming `feature/<slug>`.
 
-While working on the plan, if there are important decisions that would benefit from user input, ask them. Do not ask broad interview questions about the project that could be answered by reading the repo or that would require a deep dive into the codebase. Include a comparison and your preferred option before asking each question.
+While working on the plan, use `ai/skills/interview-questions/SKILL.md` if important decisions would benefit from user input. Do not ask broad interview questions about the project that could be answered by reading the repo or that would require a deep dive into the codebase. Include a comparison and your preferred option before asking each question.
 
 After the plan is clear, ask for confirmation before performing broad migration steps. It is acceptable to complete only the analysis and staged plan in this first pass. Do not invent project facts, do not add secrets or machine-specific paths, and do not change application behavior.
 ```

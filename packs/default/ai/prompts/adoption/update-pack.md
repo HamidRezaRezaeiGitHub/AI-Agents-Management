@@ -59,7 +59,7 @@ Prepare a staged update plan before making broad changes. The plan should separa
 
 Use a local requirement workspace for the update plan when appropriate. If this project follows a specific branching strategy, follow it instead of assuming `feature/<slug>`.
 
-While working on the plan, if there are important decisions that would benefit from user input, ask them. Do not ask broad interview questions about the project that could be answered by reading the repo or that would require a deep dive into the codebase. Include a comparison and your preferred option before asking each question.
+While working on the plan, use `ai/skills/interview-questions/SKILL.md` if important decisions would benefit from user input. Do not ask broad interview questions about the project that could be answered by reading the repo or that would require a deep dive into the codebase. Include a comparison and your preferred option before asking each question.
 
 After the plan is clear, ask for confirmation before applying broad updates. It is acceptable to complete only the analysis and staged plan in this first pass. Preserve validated project commands, CI expectations, testing conventions, domain guidance, secrets safety, and application behavior.
 ```

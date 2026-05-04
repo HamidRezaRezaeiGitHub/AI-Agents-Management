@@ -21,7 +21,7 @@ Current system shape for this repository. Use this page to orient before scannin
 - `ai/shared/`: canonical shared operating contract.
 - `ai/docs/`: research notes, adoption guidance, and idea-lineage assessments.
 - `ai/skills/`, `ai/hooks/`, `ai/commands/`, `ai/agents/`: reusable asset design areas.
-- `requirements/`: local requirement workspaces. This directory is ignored in this source repo, but the installed pack pattern expects requirement workspaces to be committed in target projects.
+- `requirements/`: local-only requirement workspaces. The start-requirement script keeps this directory ignored by default; users may intentionally force-add a single requirement folder in git when cross-machine collaboration is needed.
 - `ai/`, `wiki/`, `.github/instructions/`, `.claude/commands/`: self-installed default pack surface for local target-project trials.
 
 ## Request Or Data Flow

@@ -61,8 +61,11 @@ ensure_directories() {
     mkdir -p \
       "$target/.github/instructions" \
       "$target/.claude/commands" \
+      "$target/.claude/skills/interview-questions" \
       "$target/.gemini" \
+      "$target/.gemini/skills/interview-questions" \
       "$target/ai/workflows" \
+      "$target/ai/skills/interview-questions/agents" \
       "$target/ai/templates/requirement" \
       "$target/ai/templates/wiki" \
       "$target/ai/scripts" \
@@ -111,8 +114,11 @@ copy_if_missing "$pack/root/.github/instructions/architecture.instructions.md" "
 copy_if_missing "$pack/root/.github/instructions/ci-validation.instructions.md" "$target/.github/instructions/ci-validation.instructions.md"
 copy_if_missing "$pack/root/.github/instructions/testing-quality.instructions.md" "$target/.github/instructions/testing-quality.instructions.md"
 copy_if_missing "$pack/root/.github/instructions/code-review.instructions.md" "$target/.github/instructions/code-review.instructions.md"
+copy_if_missing "$pack/root/.github/instructions/interview-questions.instructions.md" "$target/.github/instructions/interview-questions.instructions.md"
 copy_if_missing "$pack/ai/README.md" "$target/ai/README.md"
 copy_if_missing "$pack/ai/pack.yaml" "$target/ai/pack.yaml"
+copy_if_missing "$pack/ai/skills/interview-questions/SKILL.md" "$target/ai/skills/interview-questions/SKILL.md"
+copy_if_missing "$pack/ai/skills/interview-questions/agents/openai.yaml" "$target/ai/skills/interview-questions/agents/openai.yaml"
 copy_if_missing "$pack/ai/workflows/workflow-dispatch.md" "$target/ai/workflows/workflow-dispatch.md"
 copy_if_missing "$pack/ai/workflows/requirement-planning.md" "$target/ai/workflows/requirement-planning.md"
 copy_if_missing "$pack/ai/workflows/wiki-documentation.md" "$target/ai/workflows/wiki-documentation.md"
@@ -144,6 +150,8 @@ copy_if_missing "$pack/ai/scripts/lint-requirements.sh" "$target/ai/scripts/lint
 copy_if_missing "$pack/ai/scripts/audit-adoption.sh" "$target/ai/scripts/audit-adoption.sh"
 copy_if_missing "$pack/ai/scripts/wiki-lint.sh" "$target/ai/scripts/wiki-lint.sh"
 copy_if_missing "$pack/claude/commands/start-requirement.md" "$target/.claude/commands/start-requirement.md"
+copy_if_missing "$pack/claude/skills/interview-questions/SKILL.md" "$target/.claude/skills/interview-questions/SKILL.md"
+copy_if_missing "$pack/gemini/skills/interview-questions/SKILL.md" "$target/.gemini/skills/interview-questions/SKILL.md"
 
 ensure_executable "$target/ai/scripts/start-requirement.sh"
 ensure_executable "$target/ai/scripts/list-requirements.sh"

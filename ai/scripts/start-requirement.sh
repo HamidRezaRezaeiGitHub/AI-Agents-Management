@@ -50,6 +50,30 @@ expected_branch_from_plan() {
   printf '%s\n' "$expected_branch"
 }
 
+ensure_requirements_local_ignore() {
+  if git check-ignore -q "requirements/" 2>/dev/null; then
+    return 0
+  fi
+
+  exclude_file=".git/info/exclude"
+  mkdir -p ".git/info"
+
+  if [ -f "$exclude_file" ] && grep -qx "requirements/" "$exclude_file"; then
+    return 0
+  fi
+
+  if [ -s "$exclude_file" ]; then
+    printf '\n' >> "$exclude_file"
+  fi
+
+  {
+    printf '# Local agent requirement workspaces\n'
+    printf 'requirements/\n'
+  } >> "$exclude_file"
+
+  echo "added requirements/ to $exclude_file"
+}
+
 stay_on_current_branch=0
 title=
 
@@ -99,6 +123,8 @@ if [ ! -d .git ]; then
   echo "This script must be run from a git repository root." >&2
   exit 1
 fi
+
+ensure_requirements_local_ignore
 
 workspace="requirements/$slug"
 plan="$workspace/PLAN.md"
