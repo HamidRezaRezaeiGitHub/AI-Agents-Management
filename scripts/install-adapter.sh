@@ -6,7 +6,7 @@ usage() {
 Usage: scripts/install-adapter.sh [--dry-run] /path/to/target-project
 
 Options:
-  --dry-run, -n  Show planned creates, updates, and chmods without writing files.
+  --dry-run, -n  Show planned creates, skips, and chmods without writing files.
 USAGE
 }
 
@@ -52,7 +52,6 @@ fi
 pack="packs/default"
 created_count=0
 skipped_count=0
-gitignore_update_count=0
 chmod_count=0
 
 ensure_directories() {
@@ -67,8 +66,6 @@ ensure_directories() {
       "$target/ai/templates/requirement" \
       "$target/ai/templates/wiki" \
       "$target/ai/scripts" \
-      "$target/ai/hooks" \
-      "$target/ai/prompts/adoption" \
       "$target/wiki/architecture" \
       "$target/wiki/domain" \
       "$target/wiki/guides"
@@ -80,7 +77,7 @@ copy_if_missing() {
   destination=$2
 
   if [ -e "$destination" ]; then
-    echo "skip existing $destination"
+    echo "skip existing $destination (not overwritten; review and migrate manually if the pack changed)"
     skipped_count=$((skipped_count + 1))
   elif [ "$dry_run" -eq 1 ]; then
     echo "would create $destination"
@@ -89,27 +86,6 @@ copy_if_missing() {
     cp "$source" "$destination"
     echo "created $destination"
     created_count=$((created_count + 1))
-  fi
-}
-
-ensure_gitignore_entry() {
-  entry=$1
-  file="$target/.gitignore"
-
-  if [ -f "$file" ] && grep -qx "$entry" "$file"; then
-    return
-  fi
-
-  if [ "$dry_run" -eq 1 ]; then
-    echo "would update $file with $entry"
-    gitignore_update_count=$((gitignore_update_count + 1))
-  else
-    if [ ! -f "$file" ]; then
-      touch "$file"
-    fi
-    printf "\n%s\n" "$entry" >> "$file"
-    echo "updated $file with $entry"
-    gitignore_update_count=$((gitignore_update_count + 1))
   fi
 }
 
@@ -142,6 +118,7 @@ copy_if_missing "$pack/ai/workflows/requirement-planning.md" "$target/ai/workflo
 copy_if_missing "$pack/ai/workflows/wiki-documentation.md" "$target/ai/workflows/wiki-documentation.md"
 copy_if_missing "$pack/ai/workflows/architecture.md" "$target/ai/workflows/architecture.md"
 copy_if_missing "$pack/ai/workflows/command-execution.md" "$target/ai/workflows/command-execution.md"
+copy_if_missing "$pack/ai/workflows/systematic-debugging.md" "$target/ai/workflows/systematic-debugging.md"
 copy_if_missing "$pack/ai/workflows/ci-validation.md" "$target/ai/workflows/ci-validation.md"
 copy_if_missing "$pack/ai/workflows/testing-quality.md" "$target/ai/workflows/testing-quality.md"
 copy_if_missing "$pack/ai/workflows/code-review.md" "$target/ai/workflows/code-review.md"
@@ -161,24 +138,25 @@ copy_if_missing "$pack/wiki/architecture/decisions.md" "$target/wiki/architectur
 copy_if_missing "$pack/wiki/domain/ubiquitous-language.md" "$target/wiki/domain/ubiquitous-language.md"
 copy_if_missing "$pack/wiki/guides/testing.md" "$target/wiki/guides/testing.md"
 copy_if_missing "$pack/ai/scripts/start-requirement.sh" "$target/ai/scripts/start-requirement.sh"
+copy_if_missing "$pack/ai/scripts/requirement-status.sh" "$target/ai/scripts/requirement-status.sh"
+copy_if_missing "$pack/ai/scripts/list-requirements.sh" "$target/ai/scripts/list-requirements.sh"
+copy_if_missing "$pack/ai/scripts/lint-requirements.sh" "$target/ai/scripts/lint-requirements.sh"
 copy_if_missing "$pack/ai/scripts/audit-adoption.sh" "$target/ai/scripts/audit-adoption.sh"
 copy_if_missing "$pack/ai/scripts/wiki-lint.sh" "$target/ai/scripts/wiki-lint.sh"
-copy_if_missing "$pack/ai/hooks/pre-commit-block-requirements.sh" "$target/ai/hooks/pre-commit-block-requirements.sh"
 copy_if_missing "$pack/claude/commands/start-requirement.md" "$target/.claude/commands/start-requirement.md"
-copy_if_missing "$pack/ai/prompts/adoption/empty-project.md" "$target/ai/prompts/adoption/empty-project.md"
-copy_if_missing "$pack/ai/prompts/adoption/first-time-existing-instructions.md" "$target/ai/prompts/adoption/first-time-existing-instructions.md"
-copy_if_missing "$pack/ai/prompts/adoption/update-existing-pack.md" "$target/ai/prompts/adoption/update-existing-pack.md"
-copy_if_missing "$pack/ai/prompts/adoption/temp-install-review.md" "$target/ai/prompts/adoption/temp-install-review.md"
-ensure_gitignore_entry "requirements/"
 
 ensure_executable "$target/ai/scripts/start-requirement.sh"
+ensure_executable "$target/ai/scripts/list-requirements.sh"
+ensure_executable "$target/ai/scripts/lint-requirements.sh"
 ensure_executable "$target/ai/scripts/audit-adoption.sh"
 ensure_executable "$target/ai/scripts/wiki-lint.sh"
-ensure_executable "$target/ai/hooks/pre-commit-block-requirements.sh"
 
 if [ "$dry_run" -eq 1 ]; then
   echo "Dry run complete. No files were changed."
 else
   echo "Done. Customize TODOs in the target project's agent instruction files."
 fi
-echo "Summary: created=$created_count skipped=$skipped_count gitignore_updates=$gitignore_update_count chmods=$chmod_count"
+if [ "$skipped_count" -gt 0 ]; then
+  echo "Existing files were skipped. Review the skip existing lines and manually migrate any pack updates that should apply."
+fi
+echo "Summary: created=$created_count skipped=$skipped_count chmods=$chmod_count"

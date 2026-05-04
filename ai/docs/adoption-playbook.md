@@ -23,6 +23,7 @@ Copy or generate:
 - `ai/workflows/wiki-documentation.md`
 - `ai/workflows/architecture.md`
 - `ai/workflows/command-execution.md`
+- `ai/workflows/systematic-debugging.md`
 - `ai/workflows/ci-validation.md`
 - `ai/workflows/testing-quality.md`
 - `ai/workflows/code-review.md`
@@ -33,12 +34,13 @@ Copy or generate:
 - `ai/scripts/start-requirement.sh`
 - `ai/scripts/audit-adoption.sh`
 - `ai/scripts/wiki-lint.sh`
-- `ai/prompts/adoption/*.md`
 - `wiki/index.md`, `wiki/log.md`, and starter architecture/domain/testing wiki pages
 
 Use `scripts/install-adapter.sh --dry-run /path/to/project` to preview the install, then `scripts/install-adapter.sh /path/to/project` as a starting point. It copies files from `packs/default/` into each target path.
 
-For existing projects with current AI instructions, install into a temporary folder first and use `packs/default/ai/prompts/adoption/first-time-existing-instructions.md` or `packs/default/ai/prompts/adoption/temp-install-review.md` to plan a safe migration.
+Adoption prompts under `packs/default/ai/prompts/adoption/` are source-repo migration aids. Paste them into an agent session running in the target project; they instruct the agent to clone this source repo into a temporary folder inside the target project, inspect installer behavior, analyze the project, and plan the migration. Do not copy the prompt files into the target project.
+
+Use `packs/default/ai/prompts/adoption/adopt-pack.md` for first-time adoption and `packs/default/ai/prompts/adoption/update-pack.md` when updating an older installed pack.
 
 ## 3. Make Instructions Project-Specific
 
@@ -66,8 +68,6 @@ Good candidates for enforcement:
 - secret scanning,
 - generated-file checks,
 - dependency policy.
-
-For requirement planning, keep `requirements/` in `.gitignore`. If a project needs stronger enforcement, adapt `ai/hooks/pre-commit-block-requirements.sh` into that repo's pre-commit workflow.
 
 ## 5. Keep It Fresh
 

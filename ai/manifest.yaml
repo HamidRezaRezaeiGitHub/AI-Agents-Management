@@ -1,5 +1,5 @@
 name: default-agent-instruction-pack
-version: 0.4.5
+version: 0.4.8
 description: Portable starter pack for multi-agent coding assistants.
 
 entry_files:
@@ -29,6 +29,8 @@ shared_sources:
     purpose: Architecture context, boundary, data-flow, and decision guidance.
   - path: packs/default/ai/workflows/command-execution.md
     purpose: Terminal command output discipline and token optimization.
+  - path: packs/default/ai/workflows/systematic-debugging.md
+    purpose: Evidence-first diagnosis and root-cause fix workflow for bugs and regressions.
   - path: packs/default/ai/workflows/ci-validation.md
     purpose: CI discovery and validation expectations before finishing work.
   - path: packs/default/ai/workflows/testing-quality.md
@@ -52,13 +54,15 @@ adoption:
     - packs/default/ai/templates/wiki/page.md
   helper_scripts:
     - packs/default/ai/scripts/start-requirement.sh
+    - packs/default/ai/scripts/requirement-status.sh
+    - packs/default/ai/scripts/list-requirements.sh
+    - packs/default/ai/scripts/lint-requirements.sh
     - packs/default/ai/scripts/audit-adoption.sh
     - packs/default/ai/scripts/wiki-lint.sh
+
   prompts:
-    - packs/default/ai/prompts/adoption/empty-project.md
-    - packs/default/ai/prompts/adoption/first-time-existing-instructions.md
-    - packs/default/ai/prompts/adoption/update-existing-pack.md
-    - packs/default/ai/prompts/adoption/temp-install-review.md
+    - packs/default/ai/prompts/adoption/adopt-pack.md
+    - packs/default/ai/prompts/adoption/update-pack.md
   target_paths:
     - AGENTS.md
     - CLAUDE.md
@@ -77,6 +81,7 @@ adoption:
     - ai/workflows/wiki-documentation.md
     - ai/workflows/architecture.md
     - ai/workflows/command-execution.md
+    - ai/workflows/systematic-debugging.md
     - ai/workflows/ci-validation.md
     - ai/workflows/testing-quality.md
     - ai/workflows/code-review.md
@@ -87,13 +92,11 @@ adoption:
     - ai/templates/wiki/log.md
     - ai/templates/wiki/page.md
     - ai/scripts/start-requirement.sh
+    - ai/scripts/requirement-status.sh
+    - ai/scripts/list-requirements.sh
+    - ai/scripts/lint-requirements.sh
     - ai/scripts/audit-adoption.sh
     - ai/scripts/wiki-lint.sh
-    - ai/hooks/pre-commit-block-requirements.sh
-    - ai/prompts/adoption/empty-project.md
-    - ai/prompts/adoption/first-time-existing-instructions.md
-    - ai/prompts/adoption/update-existing-pack.md
-    - ai/prompts/adoption/temp-install-review.md
     - wiki/index.md
     - wiki/log.md
     - wiki/architecture/system-overview.md

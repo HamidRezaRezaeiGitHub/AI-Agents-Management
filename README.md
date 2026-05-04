@@ -9,10 +9,11 @@ The guiding rule is simple: keep durable behavior in reusable workflows, then ex
 ## What You Get
 
 - A lightweight dispatcher that classifies work as `quick`, `standard`, `large`, or `risky` so small edits do not become process-heavy.
-- Local requirement workspaces under ignored `requirements/<slug>/` folders, with `PLAN.md` for status and `FINDINGS.md` for reusable requirement-specific context.
+- Committed requirement workspaces under `requirements/<slug>/`, with `PLAN.md` for status and `FINDINGS.md` for reusable requirement-specific context, traveling with the requirement branch so PR review and other agents see the same handoff.
 - A project wiki pattern that lets agents start from stable documentation before scanning source code.
 - Vibe-coding translation so stakeholder language becomes concrete acceptance criteria before implementation.
 - Ubiquitous-language guidance so domain terms stay consistent across prompts, wiki pages, tests, and code discussion.
+- Systematic debugging guidance for reproducing, localizing, fixing, and verifying defects without guess-and-check loops.
 - Baseline verification before source edits when a safe project command exists.
 - CI, testing, command-output, architecture, and two-pass code-review workflows.
 - Adoption prompts for clean projects, existing projects with current AI instructions, temporary install review, and pack updates.
@@ -26,27 +27,19 @@ Modern coding agents are powerful, but they often fail in familiar ways:
 - they forget discoveries between sessions,
 - they use inconsistent domain language,
 - they claim completion without enough validation,
+- they hit rate limits or token limits,
 - they review code for style while missing requirement mismatch.
 
 This pack turns those lessons into small, inspectable project files. It aims to be disciplined without becoming ceremonial.
 
 ## Adoption
 
-Install the default pack into another project:
+For adoption planning, use these prepared prompts from this source repository:
 
-```sh
-scripts/install-adapter.sh --dry-run /path/to/target-project
-scripts/install-adapter.sh /path/to/target-project
-```
+- [Adopt pack](./packs/default/ai/prompts/adoption/adopt-pack.md): first-time adoption into a target project, with or without existing agent instructions.
+- [Update pack](./packs/default/ai/prompts/adoption/update-pack.md): update a target project that already has an older installed `ai/pack.yaml`.
 
-The dry run reports planned creates, `.gitignore` updates, and executable-bit changes without writing files. The installer copies the starter pack into that target project and ensures `requirements/` is ignored. To see the exact copied paths, read [scripts/install-adapter.sh](./scripts/install-adapter.sh).
-
-For common adoption scenarios, use these prepared prompts:
-
-- [Clean project](./packs/default/ai/prompts/adoption/empty-project.md): source code exists, but no meaningful AI-agent instruction files yet.
-- [First-time adoption with existing instructions](./packs/default/ai/prompts/adoption/first-time-existing-instructions.md): the project already has Claude, Copilot, Codex, Gemini, Cursor, wiki, README, or custom agent guidance.
-- [Temporary install review](./packs/default/ai/prompts/adoption/temp-install-review.md): install into a temporary folder first so an agent can compare and plan migration safely.
-- [Update existing pack](./packs/default/ai/prompts/adoption/update-existing-pack.md): the project already has an older installed `ai/pack.yaml`.
+These prompts are source-repo migration aids. Paste them into an agent session running in the target project; they tell the agent to clone this repo into a temporary folder inside that target project, inspect installer behavior, analyze the project, and prepare a staged migration plan. They are not copied into target projects.
 
 Audit an adopted project from this repo:
 
@@ -62,43 +55,22 @@ ai/scripts/audit-adoption.sh
 
 The central audit reports customized files as `changed` without failing. Missing files and self-audit failures should be investigated.
 
-## Start A Requirement
-
-After adoption, create a local ignored requirement workspace and branch from the target repo root:
-
-```sh
-ai/scripts/start-requirement.sh "Requirement Title"
-```
-
-This creates `requirements/<slug>/PLAN.md` and `requirements/<slug>/FINDINGS.md`, ensures `requirements/` is ignored, and creates or switches to a `feature/<slug>` branch.
-
-The plan is scaffolded first. Agents should then read existing findings, consult relevant wiki/docs, inspect only narrowly relevant source code, ask proportional clarifying questions, and fill the useful parts of the plan with real context.
-
-## Wiki Lint
-
-In an adopted project:
-
-```sh
-ai/scripts/wiki-lint.sh
-ai/scripts/wiki-lint.sh --warn-placeholders
-```
-
-This checks wiki frontmatter, relative Markdown links, and whether topic pages appear in `wiki/index.md`. Use `--warn-placeholders` or `--strict-placeholders` in adopted projects to find leftover `TODO` and `YYYY-MM-DD` wiki placeholders.
-
 ## Idea Lineage
 
 This pack intentionally borrows from widely shared agent-engineering ideas, adapted into a portable project pack:
 
-- [mattpocock/skills](https://github.com/mattpocock/skills): small composable skills for real engineering workflows, including grilling, shared language, TDD, diagnosis, and architecture care.
-- [Matt Pocock's Grill Me writeup](https://www.aihero.dev/my-grill-me-skill-has-gone-viral): proportional clarification, recommended answers, and alignment before implementation.
-- [Superpowers by Jesse Vincent](https://github.com/obra/superpowers): methodology-as-code, workflow discipline, planning, and review habits for coding agents.
-- [Cline Memory Bank](https://docs.cline.bot/prompting/cline-memory-bank): persistent project memory across sessions.
-- [Aider](https://github.com/Aider-AI/aider): git-native AI pair programming and diff-first change hygiene.
-- [OpenHands](https://github.com/OpenHands/OpenHands): autonomous coding-agent environment design, sandboxing, and tool-use discipline.
-- [SWE-agent](https://github.com/SWE-agent/SWE-agent): reproduce, localize, patch, and validate loops for software-engineering agents.
-- [MetaGPT](https://github.com/geekan/MetaGPT) and [ChatDev](https://github.com/OpenBMB/ChatDev): multi-role software-team patterns, adapted here as lightweight workflow lenses rather than mandatory agent theater.
-- [GitHub Agentic Workflows](https://github.github.com/gh-aw/): guarded natural-language automation and safe agent outputs.
-- [Domain-Driven Design by Eric Evans](https://www.domainlanguage.com/ddd/): ubiquitous language as a shared model between domain experts, developers, docs, and code.
-- [Andrej Karpathy's LLM wiki idea](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f): the project wiki follows the spirit of persistent, compounding Markdown knowledge instead of re-reading raw context every session.
+| Source | Adoption | Details |
+| --- | ---: | --- |
+| [Andrej Karpathy's LLM wiki idea](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f) | ~80% | [Assessment](./ai/docs/idea-lineage/karpathy-llm-wiki.md) |
+| [mattpocock/skills](https://github.com/mattpocock/skills) | ~65% | [Assessment](./ai/docs/idea-lineage/mattpocock-skills.md) |
+| [Matt Pocock's Grill Me writeup](https://www.aihero.dev/my-grill-me-skill-has-gone-viral) | ~70% | [Assessment](./ai/docs/idea-lineage/matt-pocock-grill-me.md) |
+| [Superpowers by Jesse Vincent](https://github.com/obra/superpowers) | ~65% | [Assessment](./ai/docs/idea-lineage/superpowers.md) |
+| [Cline Memory Bank](https://docs.cline.bot/features/memory-bank) | ~85% | [Assessment](./ai/docs/idea-lineage/cline-memory-bank.md) |
+| [Aider](https://github.com/Aider-AI/aider) | ~45% | [Assessment](./ai/docs/idea-lineage/aider.md) |
+| [OpenHands](https://github.com/OpenHands/OpenHands) | ~35% | [Assessment](./ai/docs/idea-lineage/openhands.md) |
+| [SWE-agent](https://github.com/SWE-agent/SWE-agent) | ~40% | [Assessment](./ai/docs/idea-lineage/swe-agent.md) |
+| [MetaGPT](https://github.com/geekan/MetaGPT) and [ChatDev](https://github.com/OpenBMB/ChatDev) | ~50% | [Assessment](./ai/docs/idea-lineage/metagpt-chatdev.md) |
+| [GitHub Agentic Workflows](https://github.github.com/gh-aw/) | ~45% | [Assessment](./ai/docs/idea-lineage/github-agentic-workflows.md) |
+| [Domain-Driven Design by Eric Evans](https://www.domainlanguage.com/ddd/) | ~45% | [Assessment](./ai/docs/idea-lineage/domain-driven-design.md) |
 
 The result is not a clone of any one system. It is a practical synthesis: enough process to keep agents aligned, but with routing rules that keep quick work quick.

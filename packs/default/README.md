@@ -29,6 +29,7 @@ scripts/install-adapter.sh --dry-run /path/to/target-project
 - `ai/workflows/wiki-documentation.md` -> `ai/workflows/wiki-documentation.md`
 - `ai/workflows/architecture.md` -> `ai/workflows/architecture.md`
 - `ai/workflows/command-execution.md` -> `ai/workflows/command-execution.md`
+- `ai/workflows/systematic-debugging.md` -> `ai/workflows/systematic-debugging.md`
 - `ai/workflows/ci-validation.md` -> `ai/workflows/ci-validation.md`
 - `ai/workflows/testing-quality.md` -> `ai/workflows/testing-quality.md`
 - `ai/workflows/code-review.md` -> `ai/workflows/code-review.md`
@@ -39,10 +40,11 @@ scripts/install-adapter.sh --dry-run /path/to/target-project
 - `ai/templates/wiki/log.md` -> `ai/templates/wiki/log.md`
 - `ai/templates/wiki/page.md` -> `ai/templates/wiki/page.md`
 - `ai/scripts/start-requirement.sh` -> `ai/scripts/start-requirement.sh`
+- `ai/scripts/requirement-status.sh` -> `ai/scripts/requirement-status.sh`
+- `ai/scripts/list-requirements.sh` -> `ai/scripts/list-requirements.sh`
+- `ai/scripts/lint-requirements.sh` -> `ai/scripts/lint-requirements.sh`
 - `ai/scripts/audit-adoption.sh` -> `ai/scripts/audit-adoption.sh`
 - `ai/scripts/wiki-lint.sh` -> `ai/scripts/wiki-lint.sh`
-- `ai/hooks/pre-commit-block-requirements.sh` -> `ai/hooks/pre-commit-block-requirements.sh`
-- `ai/prompts/adoption/*.md` -> `ai/prompts/adoption/*.md`
 - `wiki/index.md` -> `wiki/index.md`
 - `wiki/log.md` -> `wiki/log.md`
 - `wiki/architecture/*.md` -> `wiki/architecture/*.md`
@@ -51,4 +53,6 @@ scripts/install-adapter.sh --dry-run /path/to/target-project
 
 The `ai/scripts` target avoids colliding with a project's existing application scripts.
 
-The installer also ensures `requirements/` is listed in the target project's `.gitignore`.
+Adoption prompts under `packs/default/ai/prompts/adoption/` are source-repo migration aids and are not copied into target projects.
+
+`requirements/<slug>/` is committed to the requirement branch so PLAN.md and FINDINGS.md travel with the work and are visible in PR review and across machines.

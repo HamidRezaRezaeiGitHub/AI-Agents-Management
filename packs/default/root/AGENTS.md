@@ -23,25 +23,11 @@ Mark commands as verified after running them.
 
 ## Work Rules
 
-- For the workflow map, read `ai/README.md`.
-- Before acting on a new request, route it with `ai/workflows/workflow-dispatch.md` so quick tasks stay lightweight and larger work gets the right process.
-- For standard, large, or risky requirements, follow `ai/workflows/requirement-planning.md` before implementation.
-- For implementation work, record a safe baseline verification in `PLAN.md` before source edits when one is available.
-- Use `requirements/<slug>/FINDINGS.md` to share requirement-specific discoveries between agents.
-- For non-developer or vibe-style requests, translate first with `ai/workflows/vibe-coding-translation.md`.
-- For project orientation, start with `wiki/index.md` when it exists, then inspect source code narrowly.
-- For architecture-sensitive work, consult `ai/workflows/architecture.md` and relevant `wiki/architecture/` pages.
-- Follow `ai/workflows/wiki-documentation.md` when reading or maintaining the project wiki.
-- Follow `ai/workflows/command-execution.md` when running terminal commands.
-- Follow `ai/workflows/ci-validation.md` before finishing implementation work.
-- Follow `ai/workflows/testing-quality.md` when creating, editing, or reviewing tests.
-- Follow the two-pass `ai/workflows/code-review.md` before finalizing source changes or reviewing a PR.
+- Before acting on a new request, route it with `ai/workflows/workflow-dispatch.md`. The dispatcher is the canonical map of which workflows apply to which kind of task; do not duplicate that table here.
+- For project orientation, start with `wiki/index.md` when it exists, then inspect source code.
+- Use `requirements/<slug>/PLAN.md` and `FINDINGS.md` to record plan, status, and discoveries; both are committed to the requirement branch so they travel with the work.
 - Inspect existing patterns before editing.
 - Keep changes scoped to the task.
 - Do not add dependencies without a clear reason.
 - Do not commit secrets or machine-specific configuration.
 - Run the smallest meaningful validation before finishing.
-
-## Known Gotchas
-
-- TODO: Add common setup failures, flaky tests, required services, or generated files.
