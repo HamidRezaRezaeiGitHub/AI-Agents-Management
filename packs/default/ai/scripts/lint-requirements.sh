@@ -29,11 +29,48 @@ USAGE
   exit "$exit_code"
 }
 
-metadata_value() {
+frontmatter_value() {
+  key=$1
+  plan=$2
+
+  awk -v key="$key" '
+    NR == 1 && $0 == "---" { in_frontmatter = 1; next }
+    in_frontmatter && $0 == "---" { exit }
+    in_frontmatter {
+      prefix = key ":"
+      if (index($0, prefix) == 1) {
+        value = substr($0, length(prefix) + 1)
+        sub(/^[[:space:]]*/, "", value)
+        sub(/[[:space:]]*$/, "", value)
+        if (value ~ /^".*"$/) {
+          value = substr(value, 2, length(value) - 2)
+        }
+        print value
+        exit
+      }
+    }
+  ' "$plan"
+}
+
+legacy_metadata_value() {
   field=$1
   plan=$2
 
   sed -n "s/^- $field: \`\\{0,1\\}\\([^\`]*\\)\`\\{0,1\\}/\\1/p" "$plan" | sed -n '1p'
+}
+
+metadata_value() {
+  key=$1
+  legacy_field=$2
+  plan=$3
+
+  value=$(frontmatter_value "$key" "$plan")
+
+  if [ -z "$value" ]; then
+    value=$(legacy_metadata_value "$legacy_field" "$plan")
+  fi
+
+  printf '%s\n' "$value"
 }
 
 issue() {
@@ -89,16 +126,17 @@ for dir in "$requirements_dir"/*; do
     continue
   fi
 
-  title=$(sed -n 's/^# Requirement Plan: //p' "$plan" | sed -n '1p')
-  slug=$(metadata_value "Slug" "$plan")
-  branch=$(metadata_value "Expected branch" "$plan")
-  created=$(metadata_value "Created" "$plan")
-  modified=$(metadata_value "Last modified" "$plan")
-  requirement_status=$(metadata_value "Status" "$plan")
+  title=$(frontmatter_value title "$plan")
+  [ -n "$title" ] || title=$(sed -n 's/^# Requirement Plan: //p' "$plan" | sed -n '1p')
+  slug=$(metadata_value slug "Slug" "$plan")
+  branch=$(metadata_value expected_branch "Expected branch" "$plan")
+  created=$(metadata_value created "Created" "$plan")
+  modified=$(metadata_value last_modified "Last modified" "$plan")
+  requirement_status=$(metadata_value status "Status" "$plan")
   folder_slug=${dir##*/}
 
   if [ -z "$title" ]; then
-    issue "$plan" error missing-title "Missing '# Requirement Plan: ...' heading"
+    issue "$plan" error missing-title "Missing title frontmatter or '# Requirement Plan: ...' heading"
   fi
 
   if [ -z "$slug" ]; then

@@ -120,6 +120,36 @@ if [ ! -d requirements ]; then
   exit 0
 fi
 
+frontmatter_value() {
+  key=$1
+  plan=$2
+
+  awk -v key="$key" '
+    NR == 1 && $0 == "---" { in_frontmatter = 1; next }
+    in_frontmatter && $0 == "---" { exit }
+    in_frontmatter {
+      prefix = key ":"
+      if (index($0, prefix) == 1) {
+        value = substr($0, length(prefix) + 1)
+        sub(/^[[:space:]]*/, "", value)
+        sub(/[[:space:]]*$/, "", value)
+        if (value ~ /^".*"$/) {
+          value = substr(value, 2, length(value) - 2)
+        }
+        print value
+        exit
+      }
+    }
+  ' "$plan"
+}
+
+legacy_metadata_value() {
+  field=$1
+  plan=$2
+
+  sed -n "s/^- $field: \`\\{0,1\\}\\([^\`]*\\)\`\\{0,1\\}/\\1/p" "$plan" | sed -n '1p'
+}
+
 tmp=${TMPDIR:-/tmp}/list-requirements.$$
 trap 'rm -f "$tmp"' EXIT HUP INT TERM
 : > "$tmp"
@@ -130,12 +160,19 @@ for plan in requirements/*/PLAN.md; do
   [ -f "$plan" ] || continue
   found=yes
 
-  title=$(sed -n 's/^# Requirement Plan: //p' "$plan" | sed -n '1p')
-  slug=$(sed -n 's/^- Slug: `\(.*\)`/\1/p' "$plan" | sed -n '1p')
-  branch=$(sed -n 's/^- Expected branch: `\(.*\)`/\1/p' "$plan" | sed -n '1p')
-  created=$(sed -n 's/^- Created: `\{0,1\}\([^`]*\)`\{0,1\}/\1/p' "$plan" | sed -n '1p')
-  modified=$(sed -n 's/^- Last modified: `\{0,1\}\([^`]*\)`\{0,1\}/\1/p' "$plan" | sed -n '1p')
-  status=$(sed -n 's/^- Status: `\{0,1\}\([^`]*\)`\{0,1\}/\1/p' "$plan" | sed -n '1p')
+  title=$(frontmatter_value title "$plan")
+  slug=$(frontmatter_value slug "$plan")
+  branch=$(frontmatter_value expected_branch "$plan")
+  created=$(frontmatter_value created "$plan")
+  modified=$(frontmatter_value last_modified "$plan")
+  status=$(frontmatter_value status "$plan")
+
+  [ -n "$title" ] || title=$(sed -n 's/^# Requirement Plan: //p' "$plan" | sed -n '1p')
+  [ -n "$slug" ] || slug=$(legacy_metadata_value "Slug" "$plan")
+  [ -n "$branch" ] || branch=$(legacy_metadata_value "Expected branch" "$plan")
+  [ -n "$created" ] || created=$(legacy_metadata_value "Created" "$plan")
+  [ -n "$modified" ] || modified=$(legacy_metadata_value "Last modified" "$plan")
+  [ -n "$status" ] || status=$(legacy_metadata_value "Status" "$plan")
 
   if [ -z "$slug" ]; then
     slug=${plan#requirements/}

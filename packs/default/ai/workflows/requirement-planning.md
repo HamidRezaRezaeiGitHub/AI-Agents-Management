@@ -19,16 +19,7 @@ Start or resume a requirement workspace when:
 
 For tiny one-shot edits, use judgment. Do not create requirement workspaces for trivial commands or purely conversational answers.
 
-## Complexity Routing
-
-Record one complexity level in `PLAN.md`:
-
-- `quick`: skip the requirement workspace unless the user asks. Use concise command execution and make the smallest safe edit.
-- `standard`: create the workspace, read `FINDINGS.md` before wiki/source discovery, then plan and implement normally.
-- `large`: use the standard flow, plus explicit architecture, testing, CI, and code review checkpoints.
-- `risky`: use the large flow, call out safety/privacy/operations risks, and ask before irreversible or production-impacting actions.
-
-If a task grows, update the complexity and explain why. If a workflow is skipped to save tokens, record the reason.
+Use `ai/workflows/workflow-dispatch.md` for complexity routing and proportional clarifying-question guidance. Record the chosen complexity and any skipped workflows in `PLAN.md`.
 
 ## First Agent Responsibilities
 
@@ -70,7 +61,7 @@ If a task grows, update the complexity and explain why. If a workflow is skipped
 - If the branch or files are not set up as expected, investigate and fix the issue before proceeding. Do not continue without a clear workspace setup.
 - Read recent diffs, commits, handoff notes, and the next unfinished checklist item before broad source search.
 - Avoid redoing completed research or implementation unless the plan says it is stale, blocked, or suspect.
-- Update the plan status and `Last modified` before substantial follow-on work.
+- Update the plan status and `last_modified` metadata before substantial follow-on work.
 - Update `FINDINGS.md` when new reusable context is discovered.
 - Append decisions, blockers, validation results, review notes, and handoff notes as work progresses.
 
@@ -79,7 +70,7 @@ Treat this as a resume-session checklist, not as permission to re-run full requi
 ## All Agents Responsibilities
 
 - Identify and run a safe, reasonably scoped baseline verification. Follow `Baseline Verification At Start` below.
-- Ask proportional clarifying questions only for decisions that remain unresolved after the context pass. Follow `Proportional Clarifying Questions` below.
+- Ask proportional clarifying questions only for decisions that remain unresolved after the context pass. Follow `ai/workflows/workflow-dispatch.md`.
 - Update `FINDINGS.md` with reusable context, links, user clarifications, risks, validation clues, and discoveries that future agents should not have to rediscover.
 - Fill in the useful parts of `PLAN.md`: request summary, complexity, workflows used or skipped, scope, assumptions, baseline result, implementation steps, validation strategy, decisions, and handoff notes.
 - If the request needs vibe-coding translation, record the concrete translation, acceptance criteria, assumptions, and remaining open questions in `PLAN.md`.
@@ -116,19 +107,6 @@ Before source edits for `standard`, `large`, or `risky` implementation work:
 If the requirement is to fix the failing baseline or another observed defect, follow `ai/workflows/systematic-debugging.md` before proposing the fix.
 
 Do not block quick tasks on baseline verification unless the quick task itself is a validation request.
-
-## Proportional Clarifying Questions
-
-Ask questions gradually, based on complexity:
-
-- `quick`: ask only if blocked; otherwise use an obvious safe default and continue.
-- `standard`: ask up to 1-3 decision-shaping questions after checking `FINDINGS.md`, wiki/docs, and narrow source context.
-- `large`: ask a focused batch of 3-7 questions, grouped by decision area.
-- `risky`: ask enough questions to resolve safety, data, privacy, security, operations, or irreversible decisions before implementation.
-
-Before asking, answer anything that can be discovered from existing files, wiki pages, CI, tests, or source code. For each user-facing question, include a recommended answer or default. When an interactive input or IDE tool supports multiple-choice questions, use it and put the recommended option first. If no such tool is available, ask concise numbered questions with recommended defaults; for non-blocking questions, document the assumption in `PLAN.md` and keep moving.
-
-Record answered questions, defaults, and assumptions in `PLAN.md`. Put reusable context in `FINDINGS.md`.
 
 ## PLAN.md Expectations
 

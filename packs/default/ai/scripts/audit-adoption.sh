@@ -25,6 +25,34 @@ check_executable() {
   fi
 }
 
+pack_version() {
+  path=$1
+
+  if [ -f "$path" ]; then
+    sed -n 's/^version:[ ]*//p' "$path" | sed -n '1p'
+  fi
+
+  return 0
+}
+
+warn_placeholders() {
+  path=$1
+
+  [ -e "$path" ] || return 0
+
+  if [ -d "$path" ]; then
+    find "$path" -type f -exec grep -nH 'TODO\|YYYY-MM-DD' {} \; 2>/dev/null \
+      | while IFS= read -r match; do
+          echo "warning placeholder $match"
+        done
+  else
+    grep -nH 'TODO\|YYYY-MM-DD' "$path" 2>/dev/null \
+      | while IFS= read -r match; do
+          echo "warning placeholder $match"
+        done
+  fi
+}
+
 check_file "AGENTS.md"
 check_file "CLAUDE.md"
 check_file "GEMINI.md"
@@ -74,9 +102,26 @@ check_executable "ai/scripts/lint-requirements.sh"
 check_executable "ai/scripts/audit-adoption.sh"
 check_executable "ai/scripts/wiki-lint.sh"
 
-if [ -f "ai/pack.yaml" ]; then
-  installed_version=$(sed -n 's/^version:[ ]*//p' ai/pack.yaml | sed -n '1p')
-  echo "info    installed pack version: ${installed_version:-unknown}"
+warn_placeholders "AGENTS.md"
+warn_placeholders "wiki"
+warn_placeholders "ai/templates/requirement/PLAN.md"
+warn_placeholders "ai/templates/requirement/FINDINGS.md"
+
+installed_version=$(pack_version "ai/pack.yaml")
+source_version=$(pack_version "packs/default/ai/pack.yaml")
+
+if [ -n "$installed_version" ]; then
+  echo "info    installed pack version: $installed_version"
+else
+  echo "info    installed pack version: unknown"
+fi
+
+if [ -n "$source_version" ]; then
+  echo "info    source pack version: $source_version"
+
+  if [ -n "$installed_version" ] && [ "$installed_version" != "$source_version" ]; then
+    echo "warning pack-version installed ai/pack.yaml is $installed_version; source packs/default/ai/pack.yaml is $source_version"
+  fi
 fi
 
 exit "$status"

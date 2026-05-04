@@ -15,6 +15,41 @@ escape_sed_replacement() {
   printf "%s" "$1" | sed 's/[\/&|\\]/\\&/g'
 }
 
+frontmatter_value() {
+  key=$1
+  plan=$2
+
+  awk -v key="$key" '
+    NR == 1 && $0 == "---" { in_frontmatter = 1; next }
+    in_frontmatter && $0 == "---" { exit }
+    in_frontmatter {
+      prefix = key ":"
+      if (index($0, prefix) == 1) {
+        value = substr($0, length(prefix) + 1)
+        sub(/^[[:space:]]*/, "", value)
+        sub(/[[:space:]]*$/, "", value)
+        if (value ~ /^".*"$/) {
+          value = substr(value, 2, length(value) - 2)
+        }
+        print value
+        exit
+      }
+    }
+  ' "$plan"
+}
+
+expected_branch_from_plan() {
+  plan=$1
+
+  expected_branch=$(frontmatter_value expected_branch "$plan")
+
+  if [ -z "$expected_branch" ]; then
+    expected_branch=$(sed -n 's/^- Expected branch: `\(.*\)`/\1/p' "$plan" | sed -n '1p')
+  fi
+
+  printf '%s\n' "$expected_branch"
+}
+
 stay_on_current_branch=0
 title=
 
@@ -76,7 +111,7 @@ expected_branch=
 mkdir -p "$workspace"
 
 if [ -f "$plan" ]; then
-  expected_branch=$(sed -n 's/^- Expected branch: `\(.*\)`/\1/p' "$plan" | sed -n '1p')
+  expected_branch=$(expected_branch_from_plan "$plan")
 
   if [ -n "$expected_branch" ]; then
     branch=$expected_branch
