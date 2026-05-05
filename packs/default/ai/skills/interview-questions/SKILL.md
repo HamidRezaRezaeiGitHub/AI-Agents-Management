@@ -23,16 +23,7 @@ Use this skill to turn uncertainty into a small set of useful decisions. Ask wha
 
 ## Question Shape
 
-Prefer concise questions with enough context to answer fast:
-
-```text
-I found <relevant context>. The remaining decision is <decision>.
-Question: <specific ask>
-Options:
-1. <option 1>. (recommended - because <reason>)
-2. <option 2>
-3. <option 3> (could be any number of options, but 2-3 is usually enough to frame the decision space without overwhelming the user)
-```
+Prefer concise multiple-choice questions with enough context to answer fast.
 
 When asking multiple independent questions, number them.
 
