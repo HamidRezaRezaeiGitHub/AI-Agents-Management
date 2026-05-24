@@ -4,8 +4,8 @@ set -eu
 event_name=${1:-UserPromptSubmit}
 output_mode=${2:-native}
 
-SCRIPT_DIR=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
-PROJECT_ROOT=$(CDPATH= cd -- "$SCRIPT_DIR/../.." && pwd)
+SCRIPT_DIR=$(CDPATH= cd "$(dirname "$0")" && pwd)
+PROJECT_ROOT=$(CDPATH= cd "$SCRIPT_DIR/../.." && pwd)
 HELPER="$PROJECT_ROOT/ai/scripts/wiki-reminder-context.sh"
 
 if [ ! -x "$HELPER" ]; then

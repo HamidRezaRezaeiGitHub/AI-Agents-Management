@@ -1,8 +1,8 @@
 #!/bin/sh
 set -eu
 
-SCRIPT_DIR=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
-PROJECT_ROOT=$(CDPATH= cd -- "$SCRIPT_DIR/../.." && pwd)
+SCRIPT_DIR=$(CDPATH= cd "$(dirname "$0")" && pwd)
+PROJECT_ROOT=$(CDPATH= cd "$SCRIPT_DIR/../.." && pwd)
 WIKI_INDEX="$PROJECT_ROOT/wiki/index.md"
 WIKI_WORKFLOW="$PROJECT_ROOT/ai/workflows/wiki-documentation.md"
 WIKI_INSTRUCTIONS="$PROJECT_ROOT/.github/instructions/wiki.instructions.md"
