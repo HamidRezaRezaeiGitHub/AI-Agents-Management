@@ -1,5 +1,5 @@
 name: default-agent-instruction-pack
-version: 0.4.10
+version: 0.4.11
 description: Portable starter pack for multi-agent coding assistants with deterministic wiki reminder hooks.
 
 entry_files:
