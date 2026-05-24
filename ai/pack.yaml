@@ -1,4 +1,4 @@
 name: default-agent-instruction-pack
-version: 0.4.8
+version: 0.4.10
 installed_from: man-agent-ment
-description: Multi-agent instruction, workflow, wiki, and validation starter pack.
+description: Multi-agent instruction, workflow, wiki, validation, and deterministic reminder starter pack.

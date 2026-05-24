@@ -3,7 +3,7 @@ title: Tech Stack
 domain: architecture
 tags: [architecture, tech-stack]
 status: current
-last_updated: 2026-05-04
+last_updated: 2026-05-24
 ---
 
 # Tech Stack
@@ -31,4 +31,4 @@ No application framework is used. The pack is file-based: instructions, scripts,
 
 - Scripts should remain compatible with `/bin/sh`, not require Bash-only features.
 - Commands should work on macOS and Linux; avoid GNU-only flags unless guarded or documented.
-- `ai/pack.yaml` records the installed pack version. The current self-installed version is `0.4.8`.
+- `ai/pack.yaml` records the installed pack version. The current self-installed version is `0.4.10`.

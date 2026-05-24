@@ -33,6 +33,14 @@ Then inspect the current pack source and preview install behavior:
 
 Treat every `skip existing ...` line as a manual migration item. The installer will not overwrite those files, so compare each skipped target file with the pack source and decide whether to preserve the local customization, merge selected pack changes, or replace it intentionally.
 
+Treat central runtime settings and hook files as high-risk merge surfaces. If any of these already exist, keep the local file authoritative until you complete a manual merge plan:
+- `.claude/settings.json`
+- `.codex/hooks.json`
+- `.gemini/settings.json`
+- `.github/hooks/wiki-reminder.json`
+
+For each of those files, spell out which existing local settings must survive and which pack-owned wiki reminder hooks should be added.
+
 Compare the installed pack version with the source pack version. The installer never overwrites existing files, so the target's `ai/pack.yaml` will keep its old version even after files are updated. Read both and decide whether the update applies:
 
     grep '^version:' ai/pack.yaml
@@ -43,6 +51,7 @@ If the source version is newer, plan to bump the target's `ai/pack.yaml` version
 Compare the installed project files with the cloned pack source:
 - identify pack files that changed and should be accepted,
 - identify local project customizations that must be preserved,
+- identify existing runtime settings or hook files that conflict with the pack's `.claude/settings.json`, `.codex/hooks.json`, `.gemini/settings.json`, or `.github/hooks/wiki-reminder.json`,
 - identify obsolete files, old copied adoption prompts, duplicate instructions, or stale rules that should be removed,
 - identify docs, wiki pages, requirement files, or scripts that need migration to the current pack pattern,
 - identify target-project branching, naming, testing, CI, or review conventions that should remain project-specific,

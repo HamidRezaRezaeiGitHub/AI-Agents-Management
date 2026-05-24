@@ -53,15 +53,18 @@ pack="packs/default"
 created_count=0
 skipped_count=0
 chmod_count=0
+manual_merge_conflicts=''
 
 ensure_directories() {
   if [ "$dry_run" -eq 1 ]; then
     echo "would ensure required directories under $target"
   else
     mkdir -p \
+      "$target/.github/hooks" \
       "$target/.github/instructions" \
       "$target/.claude/commands" \
       "$target/.claude/skills/interview-questions" \
+      "$target/.codex" \
       "$target/.gemini" \
       "$target/.gemini/skills/interview-questions" \
       "$target/ai/workflows" \
@@ -75,12 +78,27 @@ ensure_directories() {
   fi
 }
 
+is_manual_merge_file() {
+  case "$1" in
+    "$target/.claude/settings.json"|"$target/.codex/hooks.json"|"$target/.gemini/settings.json"|"$target/.github/hooks/wiki-reminder.json")
+      return 0
+      ;;
+    *)
+      return 1
+      ;;
+  esac
+}
+
 copy_if_missing() {
   source=$1
   destination=$2
 
   if [ -e "$destination" ]; then
     echo "skip existing $destination (not overwritten; review and migrate manually if the pack changed)"
+    if is_manual_merge_file "$destination"; then
+      echo "warning existing hook/settings file $destination requires a manual merge with $source"
+      manual_merge_conflicts="${manual_merge_conflicts}${destination}\n"
+    fi
     skipped_count=$((skipped_count + 1))
   elif [ "$dry_run" -eq 1 ]; then
     echo "would create $destination"
@@ -108,7 +126,11 @@ ensure_directories
 copy_if_missing "$pack/root/AGENTS.md" "$target/AGENTS.md"
 copy_if_missing "$pack/root/CLAUDE.md" "$target/CLAUDE.md"
 copy_if_missing "$pack/root/GEMINI.md" "$target/GEMINI.md"
+copy_if_missing "$pack/root/.claude/settings.json" "$target/.claude/settings.json"
+copy_if_missing "$pack/root/.codex/hooks.json" "$target/.codex/hooks.json"
+copy_if_missing "$pack/root/.gemini/settings.json" "$target/.gemini/settings.json"
 copy_if_missing "$pack/root/.github/copilot-instructions.md" "$target/.github/copilot-instructions.md"
+copy_if_missing "$pack/root/.github/hooks/wiki-reminder.json" "$target/.github/hooks/wiki-reminder.json"
 copy_if_missing "$pack/root/.github/instructions/wiki.instructions.md" "$target/.github/instructions/wiki.instructions.md"
 copy_if_missing "$pack/root/.github/instructions/architecture.instructions.md" "$target/.github/instructions/architecture.instructions.md"
 copy_if_missing "$pack/root/.github/instructions/ci-validation.instructions.md" "$target/.github/instructions/ci-validation.instructions.md"
@@ -134,6 +156,8 @@ copy_if_missing "$pack/ai/templates/requirement/FINDINGS.md" "$target/ai/templat
 copy_if_missing "$pack/ai/templates/wiki/index.md" "$target/ai/templates/wiki/index.md"
 copy_if_missing "$pack/ai/templates/wiki/log.md" "$target/ai/templates/wiki/log.md"
 copy_if_missing "$pack/ai/templates/wiki/page.md" "$target/ai/templates/wiki/page.md"
+copy_if_missing "$pack/ai/scripts/wiki-reminder-context.sh" "$target/ai/scripts/wiki-reminder-context.sh"
+copy_if_missing "$pack/ai/scripts/wiki-reminder-hook.sh" "$target/ai/scripts/wiki-reminder-hook.sh"
 copy_if_missing "$pack/wiki/index.md" "$target/wiki/index.md"
 copy_if_missing "$pack/wiki/log.md" "$target/wiki/log.md"
 copy_if_missing "$pack/wiki/architecture/system-overview.md" "$target/wiki/architecture/system-overview.md"
@@ -154,6 +178,8 @@ copy_if_missing "$pack/claude/skills/interview-questions/SKILL.md" "$target/.cla
 copy_if_missing "$pack/gemini/skills/interview-questions/SKILL.md" "$target/.gemini/skills/interview-questions/SKILL.md"
 
 ensure_executable "$target/ai/scripts/start-requirement.sh"
+ensure_executable "$target/ai/scripts/wiki-reminder-context.sh"
+ensure_executable "$target/ai/scripts/wiki-reminder-hook.sh"
 ensure_executable "$target/ai/scripts/list-requirements.sh"
 ensure_executable "$target/ai/scripts/lint-requirements.sh"
 ensure_executable "$target/ai/scripts/audit-adoption.sh"
@@ -166,5 +192,12 @@ else
 fi
 if [ "$skipped_count" -gt 0 ]; then
   echo "Existing files were skipped. Review the skip existing lines and manually migrate any pack updates that should apply."
+fi
+if [ -n "$manual_merge_conflicts" ]; then
+  printf '%b' "$manual_merge_conflicts" \
+    | sed '/^[[:space:]]*$/d' \
+    | while IFS= read -r path; do
+        echo "warning manual-merge-conflict $path"
+      done
 fi
 echo "Summary: created=$created_count skipped=$skipped_count chmods=$chmod_count"

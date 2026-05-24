@@ -26,12 +26,21 @@ Then inspect what the installer would do without writing files:
 
 Treat every `skip existing ...` line as a manual migration item. The installer will not overwrite those files, so compare each skipped target file with the pack source and decide whether to preserve the local version, merge selected pack changes, or replace it intentionally.
 
+Pay special attention to central runtime settings and hook files. If the target project already has any of these, do not overwrite them blindly:
+- `.claude/settings.json`
+- `.codex/hooks.json`
+- `.gemini/settings.json`
+- `.github/hooks/wiki-reminder.json`
+
+For those files, prepare an explicit merge note that separates existing project behavior from pack-owned wiki reminder hooks so the user can review conflicts safely.
+
 Evaluate the pack before applying it:
 - read the pack README and `packs/default/README.md`,
 - read `packs/default/root/AGENTS.md`, `CLAUDE.md`, `GEMINI.md`, and `.github/` instruction files,
 - read `packs/default/ai/README.md` and the workflows under `packs/default/ai/workflows/`,
 - inspect `scripts/install-adapter.sh` and `scripts/audit-adoption.sh`,
 - identify every file and directory that would be added to this project.
+- identify whether existing runtime settings or hook files would conflict with the pack's `.claude/settings.json`, `.codex/hooks.json`, `.gemini/settings.json`, or `.github/hooks/wiki-reminder.json`.
 
 Now analyze this target project:
 - existing agent instruction files such as `AGENTS.md`, `CLAUDE.md`, `GEMINI.md`, `.github/copilot-instructions.md`, Cursor rules, or custom prompts,
