@@ -72,8 +72,10 @@ Treat this as a resume-session checklist, not as permission to re-run full requi
 
 - Identify and run a safe, reasonably scoped baseline verification. Follow `Baseline Verification At Start` below.
 - Ask proportional clarifying questions only for decisions that remain unresolved after the context pass. Follow `ai/skills/interview-questions/SKILL.md`.
+- Treat `requirements/<slug>/PLAN.md` and `FINDINGS.md` as live handoff artifacts. Another agent may resume the requirement, or pick up a parallel-safe task, at any time.
 - Update `FINDINGS.md` with reusable context, links, user clarifications, risks, validation clues, and discoveries that future agents should not have to rediscover.
 - Fill in the useful parts of `PLAN.md`: request summary, complexity, workflows used or skipped, scope, assumptions, baseline result, implementation steps, validation strategy, decisions, and handoff notes.
+- If the handoff state becomes stale or sparse, use `ai/skills/handoff/SKILL.md` to normalize the requirement workspace before stopping or before resuming after a gap.
 - If the request needs vibe-coding translation, record the concrete translation, acceptance criteria, assumptions, and remaining open questions in `PLAN.md`.
 - If the request affects boundaries, contracts, data flow, integrations, persistence, public APIs, cross-cutting concerns, security, privacy, or long-term maintainability, consult `ai/workflows/architecture.md` and record the architecture impact in `PLAN.md`.
 - Before substantial implementation, update the plan status so another agent can tell whether the work is planning, active, validating, reviewing, blocked, parked, complete, or cancelled.
@@ -113,6 +115,8 @@ Do not block quick tasks on baseline verification unless the quick task itself i
 
 `PLAN.md` should stay useful for a human and for any future agent. Keep it concise but current.
 
+Treat it as a live control surface, not a static summary written only at the end. Another agent should be able to open it and continue safely.
+
 The template is a starting point, not a fixed schema. Agents may add, remove, merge, or rename sections to fit the requirement, as long as Markdown remains readable and any project linting still passes.
 
 Prefer sections that answer:
@@ -123,7 +127,10 @@ Prefer sections that answer:
 - What context was checked, and where is deeper reusable context recorded?
 - What baseline verification was run before source edits?
 - What is the current plan, status, and next action?
+- What progress has already been made?
+- What worked, what did not work, and what should not be retried blindly?
 - What decisions, validation results, review notes, blockers, or handoff notes matter?
+- What task slice, if any, is safe for another agent to pick up in parallel?
 - What durable project knowledge changed, and was it promoted to the wiki?
 
 ## Requirement Status
@@ -157,12 +164,16 @@ If a project lacks explicit commands, inspect CI configuration, package scripts,
 
 `FINDINGS.md` should capture requirement-specific knowledge that is useful but too detailed for `PLAN.md`.
 
+Treat it as the shared requirement context cache for future agents, not as a private scratchpad.
+
 Use it for:
 
 - relevant wiki/docs links and why they matter,
 - relevant source files, classes, methods, tests, configs, or commands,
 - user clarifications and back-and-forth decisions,
 - investigation notes,
+- what worked,
+- what did not work or should not be retried blindly,
 - risks and open questions,
 - validation clues.
 

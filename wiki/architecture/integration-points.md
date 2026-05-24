@@ -3,7 +3,7 @@ title: Integration Points
 domain: architecture
 tags: [architecture, integrations]
 status: current
-last_updated: 2026-05-04
+last_updated: 2026-05-24
 ---
 
 # Integration Points
@@ -22,6 +22,7 @@ The pack has no runtime external service dependency. Adoption prompts reference 
 - Native adapter files point agents back to shared project instructions instead of duplicating long rules.
 - `.github/instructions/*.instructions.md` provide GitHub Copilot path/topic-specific guidance after install.
 - `.claude/commands/start-requirement.md` exposes requirement setup as a Claude command.
+- Installed skill adapters under `.claude/skills/`, `.gemini/skills/`, and `ai/skills/` expose portable skills such as `handoff` and `interview-questions` without duplicating the canonical workflow text.
 
 ## Failure Modes
 

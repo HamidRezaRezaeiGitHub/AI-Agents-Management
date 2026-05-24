@@ -1,5 +1,5 @@
 name: default-agent-instruction-pack
-version: 0.4.10
+version: 0.4.11
 description: Portable starter pack for multi-agent coding assistants with deterministic wiki reminder hooks.
 
 entry_files:
@@ -39,6 +39,8 @@ shared_sources:
     purpose: Two-pass final self-review and PR review guidance.
   - path: packs/default/ai/workflows/vibe-coding-translation.md
     purpose: Translation of non-developer or vibe-style requests into concrete requirements.
+  - path: packs/default/ai/skills/handoff/SKILL.md
+    purpose: Requirement-workspace handoff skill for refreshing PLAN.md and FINDINGS.md.
   - path: packs/default/ai/skills/interview-questions/SKILL.md
     purpose: Proportional user interview skill for requirement planning and direct plan stress-testing.
 
@@ -83,10 +85,14 @@ adoption:
     - .github/instructions/code-review.instructions.md
     - .github/instructions/interview-questions.instructions.md
     - .claude/commands/start-requirement.md
+    - .claude/skills/handoff/SKILL.md
     - .claude/skills/interview-questions/SKILL.md
+    - .gemini/skills/handoff/SKILL.md
     - .gemini/skills/interview-questions/SKILL.md
     - ai/README.md
     - ai/pack.yaml
+    - ai/skills/handoff/SKILL.md
+    - ai/skills/handoff/agents/openai.yaml
     - ai/skills/interview-questions/SKILL.md
     - ai/skills/interview-questions/agents/openai.yaml
     - ai/workflows/workflow-dispatch.md
