@@ -11,6 +11,8 @@ status: planning
 
 This plan is a working record, not a fixed form. Keep the useful sections, remove irrelevant TODOs, and add sections such as architecture, test design, wiki maintenance, rollout, or risk review when the requirement needs them, as long as project linting still passes.
 
+Treat it as a live handoff artifact: another agent may resume from it, or pick up a safe parallel task, at any time.
+
 Status examples: `planning`, `active`, `blocked`, `parked`, `complete`, `cancelled`.
 
 ## Request
@@ -47,6 +49,7 @@ TODO: Summarize the user's requirement in a few sentences.
 - [ ] Run or record baseline verification before source edits when available.
 - [ ] Ask only unresolved decision-shaping questions.
 - [ ] Update [FINDINGS.md](./FINDINGS.md), then revise this plan. (Plan may contain multiple steps)
+- [ ] If the handoff state becomes sparse or stale, run `ai/skills/handoff/SKILL.md`.
 - [ ] Implement the requirement. (Replace this entry with the actual implementation steps.)
 - [ ] Run targeted validation and review CI expectations.
 - [ ] Perform two-pass self-review with `ai/workflows/code-review.md`.
@@ -62,4 +65,10 @@ TODO: Summarize the user's requirement in a few sentences.
 
 ## Handoff Notes
 
-- TODO: Add what the next agent or future self should know. Keep detailed reusable context in [FINDINGS.md](./FINDINGS.md).
+- Goal or current objective: TODO.
+- Current progress or completed work: TODO.
+- What worked: TODO.
+- What did not work or should not be retried blindly: TODO.
+- Next steps: TODO.
+- Parallel-safe pickup tasks, if any: TODO.
+- Keep detailed reusable context in [FINDINGS.md](./FINDINGS.md).

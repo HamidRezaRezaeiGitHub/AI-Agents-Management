@@ -27,10 +27,14 @@ scripts/install-adapter.sh --dry-run /path/to/target-project
 - `root/.github/instructions/code-review.instructions.md` -> `.github/instructions/code-review.instructions.md`
 - `root/.github/instructions/interview-questions.instructions.md` -> `.github/instructions/interview-questions.instructions.md`
 - `claude/commands/start-requirement.md` -> `.claude/commands/start-requirement.md`
+- `claude/skills/handoff/SKILL.md` -> `.claude/skills/handoff/SKILL.md`
 - `claude/skills/interview-questions/SKILL.md` -> `.claude/skills/interview-questions/SKILL.md`
+- `gemini/skills/handoff/SKILL.md` -> `.gemini/skills/handoff/SKILL.md`
 - `gemini/skills/interview-questions/SKILL.md` -> `.gemini/skills/interview-questions/SKILL.md`
 - `ai/README.md` -> `ai/README.md`
 - `ai/pack.yaml` -> `ai/pack.yaml`
+- `ai/skills/handoff/SKILL.md` -> `ai/skills/handoff/SKILL.md`
+- `ai/skills/handoff/agents/openai.yaml` -> `ai/skills/handoff/agents/openai.yaml`
 - `ai/skills/interview-questions/SKILL.md` -> `ai/skills/interview-questions/SKILL.md`
 - `ai/skills/interview-questions/agents/openai.yaml` -> `ai/skills/interview-questions/agents/openai.yaml`
 - `ai/workflows/workflow-dispatch.md` -> `ai/workflows/workflow-dispatch.md`
@@ -67,6 +71,8 @@ The `ai/scripts` target avoids colliding with a project's existing application s
 Adoption prompts under `packs/default/ai/prompts/adoption/` are source-repo migration aids and are not copied into target projects.
 
 `requirements/<slug>/` is local-only by default. `PLAN.md` and `FINDINGS.md` let agents on the same machine collaborate through the same local workspace. When cross-machine collaboration is needed, the user can intentionally force-add a single requirement folder in git.
+
+The pack also installs a portable handoff skill that refreshes `requirements/<slug>/PLAN.md` and `FINDINGS.md` instead of creating a competing repo-root `HANDOFF.md`.
 
 ## Deterministic Wiki Reminder Hooks
 

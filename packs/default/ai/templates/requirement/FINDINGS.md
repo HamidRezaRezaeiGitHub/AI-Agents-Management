@@ -2,6 +2,8 @@
 
 Use this as the requirement-specific context cache. Link to stable wiki/docs/source knowledge instead of copying large context, and add sections only when they help the next agent.
 
+Treat it as shared handoff context for future agents, not as a private scratchpad.
+
 ## Relevant Context
 
 - Wiki/docs: TODO.
@@ -11,6 +13,14 @@ Use this as the requirement-specific context cache. Link to stable wiki/docs/sou
 ## Discoveries
 
 - TODO: Summarize discoveries that future agents should not have to rediscover.
+
+## What Worked
+
+- TODO: Record approaches, commands, or reasoning that paid off.
+
+## What Did Not Work
+
+- TODO: Record dead ends, disproven assumptions, or noisy checks that should not be retried blindly.
 
 ## Risks And Open Questions
 

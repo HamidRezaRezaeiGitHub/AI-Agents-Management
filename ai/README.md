@@ -18,6 +18,11 @@ ai/scripts/wiki-lint.sh
 ai/scripts/wiki-lint.sh --warn-placeholders
 ```
 
+## Skills
+
+- `ai/skills/interview-questions/SKILL.md`: ask proportional decision-shaping questions before implementation.
+- `ai/skills/handoff/SKILL.md`: refresh the active requirement workspace so another agent can continue safely.
+
 ## Metadata
 
 `ai/pack.yaml` records the installed pack version.
